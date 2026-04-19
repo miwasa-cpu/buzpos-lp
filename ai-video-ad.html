@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI動画広告制作｜BUZPOS</title>
+<meta name="description" content="SNSでバズるAI動画広告を、撮影不要・最短3日で制作。初回1本無料。">
+<meta property="og:title" content="AI動画広告制作｜BUZPOS">
+<meta property="og:description" content="SNSでバズるAI動画広告を、撮影不要・最短3日で制作。初回1本無料。">
+<meta property="og:type" content="website">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="school_icon.jpeg" type="image/jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sky:       #0ea5e9;
+  --sky-dark:  #0284c7;
+  --sky-light: #e0f2fe;
+  --sky-50:    #f0f9ff;
+  --dark:  #0f172a;
+  --dark2: #1e293b;
+  --mid:   #334155;
+  --sub:   #475569;
+  --muted: #64748b;
+  --white: #fff;
+  --bg:      #ffffff;
+  --bg-gray: #f8fafc;
+  --border:  #e2e8f0;
+  --text: #0f172a;
+  --orange:  #f97316;
+  --orange2: #ea580c;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.05);
+  --shadow-md: 0 4px 16px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,.09), 0 4px 12px rgba(0,0,0,.05);
+  --shadow-hover: 0 12px 48px rgba(0,0,0,.1), 0 4px 16px rgba(0,0,0,.06);
+  --glow: 0 0 24px rgba(14,165,233,.15);
+  --r: 8px;
+  --tr: 0.2s cubic-bezier(0.4,0,0.2,1);
+  --font-display: 'Barlow Condensed', 'Noto Sans JP', sans-serif;
+  --font-mono: 'Space Mono', 'Menlo', monospace;
+}
+
+html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+body {
+  font-family: 'Hiragino Kaku Gothic ProN','Noto Sans JP',sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  max-width: 100vw;
+  -webkit-font-smoothing: antialiased;
+}
+a, button { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+input, select, textarea { font-size: 1rem; }
+
+/* ── Animations ── */
+@keyframes heroFadeUp   { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:none} }
+@keyframes meshDrift     { 0%{transform:translate(0,0) scale(1)} 100%{transform:translate(-3%,2%) scale(1.05)} }
+@keyframes glowPulse     { from{transform:scale(1);opacity:.7} to{transform:scale(1.15);opacity:1} }
+@keyframes particleFloat { 0%{transform:translateY(0) translateX(0);opacity:0} 10%{opacity:1} 90%{opacity:1} 100%{transform:translateY(-100vh) translateX(var(--dx));opacity:0} }
+@keyframes glowOrange    { 0%,100%{box-shadow:0 4px 20px rgba(249,115,22,.35)} 50%{box-shadow:0 6px 40px rgba(249,115,22,.65),0 0 60px rgba(249,115,22,.18)} }
+@keyframes drawUnder     { from{transform:scaleX(0)} to{transform:scaleX(1)} }
+@keyframes gradShift     { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+/* ── Nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(15,23,42,.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  padding: 0 20px; height: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 8px;
+  text-decoration: none; color: #fff;
+  font-weight: 700; font-size: .92rem;
+}
+.nav-logo .logo-icon {
+  width: 38px; height: 38px; border-radius: 8px;
+  overflow: hidden; flex-shrink: 0;
+  background: #fff; box-shadow: var(--shadow-sm);
+}
+.nav-logo .logo-icon img { width: 100%; height: 100%; object-fit: cover; }
+.btn-nav {
+  background: var(--orange);
+  color: #fff; border: none; padding: 10px 20px;
+  border-radius: 6px; font-size: .82rem; font-weight: 800;
+  cursor: pointer; transition: all var(--tr);
+  min-height: 44px; white-space: nowrap;
+  text-decoration: none;
+}
+.btn-nav:hover { background: var(--orange2); transform: translateY(-2px); }
+
+/* ── Sections base ── */
+.sec { padding: 80px 24px; }
+@media(min-width:768px) { .sec { padding: 100px 40px; } }
+@media(max-width:640px) { .sec { padding: 52px 16px; } }
+.inner { max-width: 960px; margin: 0 auto; }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--sky); font-size: .75rem; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; margin-bottom: 14px;
+}
+.sec-tag::before {
+  content: ''; display: inline-block; width: 20px; height: 2px;
+  background: var(--sky); flex-shrink: 0;
+}
+h2.sec-title {
+  font-size: clamp(1.5rem,4.5vw,2.2rem); font-weight: 800;
+  line-height: 1.45; margin-bottom: 16px; letter-spacing: -.02em;
+  position: relative; display: inline-block;
+}
+h2.sec-title::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  height: 2px; width: 48px;
+  background: linear-gradient(90deg, var(--sky), var(--orange));
+  border-radius: 2px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .7s .3s cubic-bezier(.2,0,.1,1);
+}
+h2.sec-title.underline-show::after { transform: scaleX(1); }
+.accent { color: var(--sky); font-weight: 800; }
+.sec-lead { color: var(--sub); font-size: .95rem; line-height: 1.8; margin-bottom: 40px; max-width: 640px; }
+
+/* ── CTA Buttons ── */
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--orange);
+  color: #fff; border: none;
+  padding: 17px 36px; border-radius: 8px;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: background var(--tr), transform var(--tr), box-shadow var(--tr);
+  box-shadow: 0 4px 18px rgba(249,115,22,.3);
+  text-decoration: none; min-height: 52px;
+  width: 100%; max-width: 440px; text-align: center;
+}
+.btn-primary:hover { background: var(--orange2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(249,115,22,.35); }
+.glow-orange { animation: glowOrange 3s 2s ease-in-out infinite; }
+.glow-orange:hover { animation: none; }
+
+.btn-white {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: #fff; color: var(--sky-dark); border: none;
+  padding: 17px 36px; border-radius: 8px;
+  font-size: 1rem; font-weight: 700; cursor: pointer;
+  transition: all var(--tr);
+  box-shadow: var(--shadow-md);
+  text-decoration: none; min-height: 52px;
+  width: 100%; max-width: 440px; text-align: center;
+}
+.btn-white:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+.btn-hero-sub {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,.08); backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255,255,255,.2); color: #fff;
+  padding: 15px 36px; border-radius: 8px;
+  font-size: .95rem; font-weight: 700; cursor: pointer;
+  transition: all var(--tr); text-decoration: none; min-height: 52px;
+}
+.btn-hero-sub:hover { background: rgba(255,255,255,.15); border-color: rgba(255,255,255,.4); }
+
+/* ── Reveal / Stagger animations ── */
+.reveal { opacity:0; transform:translateY(22px); transition:opacity .65s ease,transform .65s ease; }
+.reveal-left { opacity:0; transform:translateX(-36px); transition:opacity .65s ease,transform .65s ease; }
+.reveal-right { opacity:0; transform:translateX(36px); transition:opacity .65s ease,transform .65s ease; }
+.reveal.show,.reveal-left.show,.reveal-right.show { opacity:1; transform:none; }
+.stagger > * { opacity:0; transform:translateY(20px); transition:opacity .5s ease,transform .5s ease; }
+.stagger.show > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger.show > *:nth-child(2){opacity:1;transform:none;transition-delay:.13s}
+.stagger.show > *:nth-child(3){opacity:1;transform:none;transition-delay:.21s}
+.stagger.show > *:nth-child(4){opacity:1;transform:none;transition-delay:.29s}
+.stagger.show > *:nth-child(5){opacity:1;transform:none;transition-delay:.37s}
+.stagger.show > *:nth-child(6){opacity:1;transform:none;transition-delay:.45s}
+.fi { opacity:0; transform:translateY(12px); transition:opacity .45s cubic-bezier(.25,.1,.25,1),transform .45s cubic-bezier(.25,.1,.25,1); }
+.fi.in { opacity:1; transform:translateY(0); }
+
+/* ══════════════════════════════════════
+   HERO — Dark premium (school LP style)
+   ══════════════════════════════════════ */
+#hero {
+  position: relative; overflow: hidden;
+  background: #071020;
+  min-height: 100vh; min-height: 100dvh;
+  display: flex; align-items: center;
+  padding: 0;
+}
+#hero::before {
+  content: ''; position: absolute; inset: -50%; z-index: 0;
+  background:
+    radial-gradient(ellipse 40% 40% at 20% 50%, rgba(14,165,233,.12), transparent),
+    radial-gradient(ellipse 50% 50% at 80% 30%, rgba(14,165,233,.08), transparent),
+    radial-gradient(ellipse 30% 60% at 60% 80%, rgba(249,115,22,.06), transparent);
+  animation: meshDrift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(90deg, rgba(7,16,32,.95) 0%, rgba(7,16,32,.7) 50%, rgba(7,16,32,.4) 100%);
+}
+.hero-overlay::after {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  background-size: 128px; pointer-events: none; opacity: .5;
+}
+/* Particles */
+.hero-particles {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden;
+}
+.hero-particle {
+  position: absolute; border-radius: 50%;
+  background: rgba(14,165,233,.35);
+  animation: particleFloat linear infinite;
+  will-change: transform, opacity;
+}
+/* Glow ring */
+.hero-glow {
+  position: absolute; top: 50%; left: 60%;
+  transform: translate(-50%, -50%);
+  width: min(70vw, 500px); height: min(50vw, 400px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(14,165,233,.15) 0%, transparent 70%);
+  animation: glowPulse 3s ease-in-out infinite alternate;
+  z-index: 0;
+}
+
+/* Hero content */
+.hero-left {
+  position: relative; z-index: 2;
+  width: 65%; padding: 120px 0 80px 5%;
+  max-width: 780px;
+}
+@media(max-width:900px) {
+  .hero-left { width: 100%; padding: 100px 20px 60px; max-width: none; text-align: center; }
+}
+.hero-eyecatch {
+  display: inline-flex; align-items: center;
+  font-family: var(--font-mono);
+  font-size: .72rem; font-weight: 800;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--sky);
+  padding: 8px 24px;
+  border: 1.5px solid rgba(14,165,233,.35);
+  border-radius: 4px;
+  background: rgba(14,165,233,.06);
+  backdrop-filter: blur(12px);
+  margin-bottom: 24px;
+  box-shadow: 0 0 24px rgba(14,165,233,.12);
+  opacity: 0; animation: heroFadeUp .5s .1s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-title-main {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: clamp(2rem, 5.5vw, 3.8rem);
+  font-weight: 900; line-height: 1.15; letter-spacing: -.02em;
+  color: #fff; margin-bottom: 12px;
+  text-shadow: 0 4px 48px rgba(0,0,0,.5), 0 0 100px rgba(14,165,233,.2);
+  opacity: 0; animation: heroFadeUp .7s .2s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-title-accent {
+  display: inline-block;
+  background: linear-gradient(115deg, #38bdf8 0%, #0ea5e9 35%, #f97316 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: heroFadeUp .7s .3s cubic-bezier(.25,.1,.25,1) forwards, gradShift 5s ease-in-out infinite;
+  opacity: 0;
+  filter: drop-shadow(0 4px 24px rgba(14,165,233,.35));
+}
+.hero-sub-tagline {
+  font-family: var(--font-mono);
+  font-size: clamp(.88rem, 2vw, 1.05rem);
+  font-weight: 700; letter-spacing: .06em;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 28px; padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  opacity: 0; animation: heroFadeUp .5s .4s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-sub-tagline::before { content: '-- '; color: rgba(14,165,233,.4); }
+
+/* Hero feature cards */
+.hero-features {
+  display: flex; gap: 14px; margin-bottom: 36px;
+  opacity: 0; animation: heroFadeUp .5s .45s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-feat {
+  flex: 1; padding: 24px 18px;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(16px);
+  border: 1.5px solid rgba(14,165,233,.3);
+  border-radius: 12px; text-align: center;
+  transition: transform .3s, border-color .3s;
+}
+.hero-feat:hover { transform: translateY(-3px); border-color: rgba(14,165,233,.6); }
+.hero-feat-num {
+  font-family: var(--font-display);
+  font-size: 1.6rem; font-weight: 900; color: var(--sky);
+  line-height: 1; margin-bottom: 4px;
+}
+.hero-feat-label { font-size: .75rem; color: rgba(255,255,255,.5); font-weight: 500; }
+
+/* Hero buttons */
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+  opacity: 0; animation: heroFadeUp .5s .55s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-btns .btn-primary { width: auto; max-width: none; padding: 18px 40px; font-size: .95rem; border-radius: 8px; }
+.hero-btns .btn-hero-sub { width: auto; }
+.hero-cta-note {
+  font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 10px;
+  opacity: 0; animation: heroFadeUp .5s .65s cubic-bezier(.25,.1,.25,1) forwards;
+}
+
+/* Scroll indicator */
+.hero-scroll {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: heroFadeUp .6s 1.2s cubic-bezier(.25,.1,.25,1) forwards;
+}
+.hero-scroll span { font-size: .68rem; color: rgba(255,255,255,.3); letter-spacing: .12em; text-transform: uppercase; font-weight: 600; }
+.hero-scroll-arrow {
+  width: 18px; height: 18px;
+  border-right: 1.5px solid rgba(255,255,255,.3);
+  border-bottom: 1.5px solid rgba(255,255,255,.3);
+  transform: rotate(45deg);
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+@keyframes scrollBounce { 0%,100%{transform:rotate(45deg) translateY(0);opacity:.5} 50%{transform:rotate(45deg) translateY(6px);opacity:1} }
+@media(max-width:900px) {
+  .hero-features { flex-direction: column; gap: 8px; }
+  .hero-feat { padding: 14px; }
+  .hero-btns { flex-direction: column; }
+  .hero-btns .btn-primary, .hero-btns .btn-hero-sub { width: 100%; max-width: 400px; text-align: center; justify-content: center; }
+  .hero-scroll { bottom: 16px; }
+}
+@media(max-width:640px) {
+  .hero-left { padding: 80px 16px 48px; }
+  .hero-title-main { font-size: clamp(1.6rem, 7.5vw, 3rem); }
+}
+
+/* ── Problem ── */
+#problem {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(14,165,233,.06), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(249,115,22,.04), transparent 30%),
+    #fff;
+  padding-bottom: 48px;
+}
+.problem-cards { display: grid; gap: 20px; }
+@media(min-width:640px) { .problem-cards { grid-template-columns: repeat(3,1fr); } }
+.problem-card {
+  background: var(--bg-gray); border: 1px solid var(--border);
+  border-radius: 12px; padding: 32px 24px; text-align: center;
+  transition: box-shadow var(--tr), transform var(--tr);
+}
+.problem-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.problem-icon { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+.problem-text { font-size: .9rem; color: var(--sub); line-height: 1.7; font-weight: 500; }
+
+/* ── Mid CTA (glassmorphism style) ── */
+.mid-cta {
+  position: relative; overflow: hidden;
+  padding: 44px 36px; text-align: center;
+  border-radius: 28px;
+  border: 1px solid rgba(14,165,233,.12);
+  background:
+    radial-gradient(circle at 12% 18%, rgba(14,165,233,.12), transparent 28%),
+    radial-gradient(circle at 88% 78%, rgba(249,115,22,.1), transparent 30%),
+    linear-gradient(135deg, #fdfeff, #eef6ff 58%, #fff8f0);
+  box-shadow: 0 10px 30px rgba(14,80,160,.06), inset 0 1px 0 rgba(255,255,255,.85);
+  margin: 0 auto; max-width: 960px;
+}
+.mid-cta::after {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.5) 45%, transparent 70%);
+  transform: translateX(-120%); transition: transform .9s ease; pointer-events: none;
+}
+.mid-cta:hover::after { transform: translateX(120%); }
+.mid-cta-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem); font-weight: 900;
+  color: var(--dark); margin-bottom: 8px; letter-spacing: -.02em;
+}
+.mid-cta-sub { font-size: .88rem; color: var(--muted); margin-bottom: 24px; }
+
+/* ── Solution ── */
+#solution {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(14,165,233,.06), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(14,165,233,.08), transparent 32%),
+    linear-gradient(180deg, #f0f9ff, #e8f4fd);
+  padding-top: 48px;
+}
+.feat-cards { display: grid; gap: 24px; }
+@media(min-width:640px) { .feat-cards { grid-template-columns: repeat(3,1fr); } }
+.feat-card {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 8px; padding: 32px 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--tr), transform var(--tr);
+}
+.feat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+.feat-num {
+  width: 36px; height: 36px; border-radius: 4px;
+  background: var(--sky); color: #fff;
+  font-size: .85rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.feat-title { font-size: 1rem; font-weight: 900; margin-bottom: 10px; color: var(--text); }
+.feat-desc { font-size: .83rem; color: var(--sub); line-height: 1.65; }
+
+/* ── Comparison (school LP comp-v2 style) ── */
+#comparison {
+  background: linear-gradient(170deg, #e8eef6 0%, #dfe6f0 50%, #edf2f8 100%);
+}
+.comp-v2 { display: grid; grid-template-columns: 1fr 1.2fr; gap: 32px; align-items: start; }
+@media(max-width:640px) { .comp-v2 { grid-template-columns: 1fr; } }
+.comp-v2-badge {
+  display: inline-block; font-size: .7rem; font-weight: 700;
+  padding: 5px 16px; margin-bottom: 20px;
+  letter-spacing: .1em; text-transform: uppercase;
+}
+.old-badge { background: #e8ecf0; color: #8896a6; border-radius: 20px; }
+.new-badge { background: linear-gradient(135deg, var(--sky), var(--orange)); color: #fff; border-radius: 20px; }
+.comp-v2-old {
+  background: #f7f8fa; padding: 36px 32px; border-radius: 20px;
+}
+.comp-v2-title-old { font-size: 1.1rem; font-weight: 800; color: var(--muted); margin-bottom: 12px; }
+.comp-v2-price-old { font-size: 1.8rem; font-weight: 900; color: #999; margin-bottom: 20px; font-family: var(--font-display); }
+.comp-v2-list-old { display: flex; flex-direction: column; gap: 0; }
+.comp-v2-row-old {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 0; border-bottom: 1px solid rgba(0,0,0,.06);
+  font-size: .92rem; color: var(--muted); font-weight: 500;
+}
+.comp-v2-row-old::before { content: '\2715'; color: #ccc; font-weight: 700; font-size: .8rem; flex-shrink: 0; }
+.comp-v2-row-old:last-child { border-bottom: none; }
+.comp-v2-new {
+  background: #fff; border-radius: 20px; padding: 40px 32px;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(14,165,233,.12), 0 2px 12px rgba(0,0,0,.04);
+}
+.comp-v2-new::before {
+  content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(135deg, var(--sky), var(--orange));
+  border-radius: 22px; z-index: -1;
+}
+.comp-v2-title-new { font-size: 1.15rem; font-weight: 800; margin-bottom: 20px; color: var(--dark); }
+.comp-v2-highlights {
+  display: flex; flex-direction: column; gap: 0;
+}
+.comp-v2-row-new {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 0; border-bottom: 1px solid #f0f0f0;
+  font-size: .88rem; color: var(--sub);
+}
+.comp-v2-row-new:last-child { border-bottom: none; }
+.comp-v2-row-new .check {
+  color: #fff; font-weight: 700; font-size: .65rem;
+  width: 20px; height: 20px; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--sky), var(--orange)); border-radius: 50%; flex-shrink: 0;
+}
+.comp-v2-row-new strong { color: var(--sky-dark); }
+.comp-v2-pills { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; }
+.comp-v2-pill {
+  font-size: .72rem; font-weight: 700; padding: 6px 16px;
+  border-radius: 20px; color: var(--sky); background: rgba(14,165,233,.08);
+}
+
+/* ── Works ── */
+#works {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(14,165,233,.06), transparent 28%),
+    radial-gradient(circle at 82% 76%, rgba(249,115,22,.04), transparent 32%),
+    linear-gradient(180deg, #fffdf8, #f3f8ff);
+}
+.works-grid { display: grid; gap: 20px; }
+@media(min-width:640px) { .works-grid { grid-template-columns: repeat(3,1fr); } }
+.work-card {
+  background: #fff; border-radius: 12px; overflow: hidden;
+  box-shadow: var(--shadow-sm); border: 1px solid var(--border);
+  transition: box-shadow var(--tr), transform var(--tr);
+}
+.work-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); }
+.work-thumb { aspect-ratio: 16/9; overflow: hidden; background: var(--bg-gray); }
+.work-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.work-card:hover .work-thumb img { transform: scale(1.05); }
+.work-body { padding: 20px; }
+.work-industry {
+  display: inline-block; font-size: .72rem; font-weight: 700;
+  color: var(--sky); background: var(--sky-light);
+  padding: 3px 10px; border-radius: 4px; margin-bottom: 8px;
+}
+.work-title { font-size: .92rem; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+.work-result { font-size: .82rem; color: var(--sub); line-height: 1.6; }
+
+/* ── Flow ── */
+#flow {
+  background:
+    radial-gradient(circle at 80% 20%, rgba(14,165,233,.06), transparent 30%),
+    radial-gradient(circle at 20% 80%, rgba(14,165,233,.08), transparent 32%),
+    linear-gradient(180deg, #fcfeff, #f3f8ff);
+}
+.flow-steps { display: flex; flex-direction: column; gap: 0; position: relative; }
+.flow-step {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 24px 0; position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute; left: 23px; top: 68px;
+  width: 2px; height: calc(100% - 28px);
+  background: linear-gradient(to bottom, var(--sky), transparent);
+}
+.flow-num {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--sky);
+  color: #fff; font-size: .95rem; font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; z-index: 1;
+  box-shadow: 0 4px 12px rgba(14,165,233,.25);
+}
+.flow-step:last-child .flow-num { background: var(--orange); box-shadow: 0 4px 12px rgba(249,115,22,.25); }
+.flow-content { flex: 1; padding-top: 4px; }
+.flow-title { font-size: 1rem; font-weight: 800; margin-bottom: 4px; color: var(--text); }
+.flow-desc { font-size: .85rem; color: var(--sub); line-height: 1.65; }
+
+/* ── Profile ── */
+#profile { background: var(--bg-gray); }
+.profile-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+.profile-avatar {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--sky), var(--sky-dark));
+  margin: 0 auto 16px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; box-shadow: var(--glow);
+}
+.profile-name { font-size: 1.1rem; font-weight: 800; margin-bottom: 4px; }
+.profile-role { font-size: .82rem; color: var(--muted); margin-bottom: 16px; }
+.profile-bio { font-size: .88rem; color: var(--sub); line-height: 1.8; text-align: left; }
+
+/* ── FAQ (school LP style) ── */
+#faq { background: #fff; }
+.faq-list { display: flex; flex-direction: column; gap: 8px; }
+.faq-item {
+  background: #f2f6f8; border: 1px solid #d5e3ea;
+  border-radius: 8px; overflow: hidden; transition: border-color var(--tr);
+}
+.faq-item[open] { border-color: var(--sky); background: #fff; box-shadow: 0 4px 14px rgba(14,165,233,.1); }
+.faq-q {
+  padding: 16px 18px; cursor: pointer;
+  font-size: .92rem; font-weight: 700; color: var(--text);
+  list-style: none; display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; min-height: 52px;
+}
+.faq-q::-webkit-details-marker { display: none; }
+.faq-q::after { content: '+'; color: var(--sky); font-size: 1.3rem; font-weight: 400; flex-shrink: 0; transition: transform var(--tr); }
+.faq-item[open] .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 18px 16px; font-size: .86rem; color: var(--sub);
+  line-height: 1.75; border-top: 1px solid rgba(14,165,233,.1); padding-top: 12px;
+}
+
+/* ── Final CTA ── */
+#final {
+  background: linear-gradient(170deg, #0e1e36 0%, #0a1628 60%, #071020 100%);
+  text-align: center; color: #fff;
+  padding: 100px 24px;
+  position: relative; overflow: hidden;
+}
+#final::before {
+  content: ''; position: absolute; inset: -50%; z-index: 0;
+  background:
+    radial-gradient(ellipse 40% 40% at 30% 50%, rgba(14,165,233,.1), transparent),
+    radial-gradient(ellipse 40% 40% at 70% 50%, rgba(249,115,22,.06), transparent);
+  animation: meshDrift 12s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+#final .inner { position: relative; z-index: 1; }
+#final .sec-tag { color: rgba(255,255,255,.6); }
+#final .sec-tag::before { background: linear-gradient(90deg, rgba(255,255,255,.5), var(--orange)); }
+#final h2 { color: #fff; }
+#final h2::after { background: linear-gradient(90deg, var(--sky), var(--orange)); }
+#final .sec-lead { color: rgba(255,255,255,.7); margin-left: auto; margin-right: auto; }
+.cta-note-dark { font-size: .78rem; color: rgba(255,255,255,.35); margin-top: 10px; }
+
+/* ── Float CTA ── */
+#float-cta {
+  position: fixed;
+  bottom: calc(20px + env(safe-area-inset-bottom));
+  left: 50%; transform: translateX(-50%) translateY(120px);
+  z-index: 200; opacity: 0; transition: all .4s cubic-bezier(.34,1.56,.64,1);
+  width: calc(100% - 40px); max-width: 480px;
+}
+#float-cta.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+#float-cta.hide { opacity: 0; transform: translateX(-50%) translateY(120px); pointer-events: none; }
+#float-cta .btn-primary { max-width: 100%; padding: 15px 20px; font-size: .9rem; }
+
+/* ── Footer ── */
+footer {
+  background: var(--dark); color: rgba(255,255,255,.45);
+  text-align: center; padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  font-size: .78rem;
+}
+footer a { color: rgba(255,255,255,.6); text-decoration: none; }
+footer a:hover { color: #fff; }
+
+/* ── Teal divider ── */
+.teal-divider { height: 1px; background: var(--border); }
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="logo-icon"><img src="school_icon.jpeg" alt="BUZPOS" width="38" height="38"></div>
+    BUZPOS
+  </a>
+  <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-nav">無料相談を予約</a>
+</nav>
+
+<!-- ══ Hero ══ -->
+<section id="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-glow"></div>
+  <!-- Particles -->
+  <div class="hero-particles">
+    <div class="hero-particle" style="width:3px;height:3px;left:15%;bottom:-10%;--dx:30px;animation-duration:8s;animation-delay:0s"></div>
+    <div class="hero-particle" style="width:2px;height:2px;left:35%;bottom:-10%;--dx:-20px;animation-duration:11s;animation-delay:2s"></div>
+    <div class="hero-particle" style="width:4px;height:4px;left:55%;bottom:-10%;--dx:15px;animation-duration:9s;animation-delay:1s"></div>
+    <div class="hero-particle" style="width:2px;height:2px;left:75%;bottom:-10%;--dx:-40px;animation-duration:12s;animation-delay:3s"></div>
+    <div class="hero-particle" style="width:3px;height:3px;left:90%;bottom:-10%;--dx:10px;animation-duration:10s;animation-delay:4s"></div>
+    <div class="hero-particle" style="width:2px;height:2px;left:25%;bottom:-10%;--dx:-15px;animation-duration:13s;animation-delay:5s"></div>
+  </div>
+
+  <div class="hero-left">
+    <div class="hero-eyecatch">AI VIDEO AD PRODUCTION</div>
+    <div class="hero-title-main">
+      撮影ゼロ、<span class="hero-title-accent">最短3日。</span><br>
+      AI動画広告を<span class="hero-title-accent">1本無料</span>で制作。
+    </div>
+    <div class="hero-sub-tagline">SNSでバズる構成を分析し、御社に最適な動画広告をAIで制作</div>
+
+    <div class="hero-features">
+      <div class="hero-feat">
+        <div class="hero-feat-num">50+</div>
+        <div class="hero-feat-label">制作実績</div>
+      </div>
+      <div class="hero-feat">
+        <div class="hero-feat-num">3日</div>
+        <div class="hero-feat-label">最短納品</div>
+      </div>
+      <div class="hero-feat">
+        <div class="hero-feat-num">1/10</div>
+        <div class="hero-feat-label">コスト削減</div>
+      </div>
+    </div>
+
+    <div class="hero-btns">
+      <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-primary glow-orange">まずは無料で相談する</a>
+    </div>
+    <div class="hero-cta-note">オンライン完結・顔出し不要・しつこい営業なし</div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>scroll</span>
+    <div class="hero-scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ══ Problem ══ -->
+<section id="problem" class="sec">
+  <div class="inner">
+    <span class="sec-tag">課題</span>
+    <h2 class="sec-title fi">動画広告、<span class="accent">始めたいけど始められない</span>理由</h2>
+    <div class="problem-cards stagger fi">
+      <div class="problem-card">
+        <span class="problem-icon">💰</span>
+        <p class="problem-text">動画広告を試したいが、制作会社に頼むと<strong>1本30万〜100万円</strong>かかる</p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📷</span>
+        <p class="problem-text">撮影・モデル・スタジオの手配が面倒で、<strong>なかなか始められない</strong></p>
+      </div>
+      <div class="problem-card">
+        <span class="problem-icon">📊</span>
+        <p class="problem-text">作ったところで、SNSで<strong>本当に見てもらえるか分からない</strong></p>
+      </div>
+    </div>
+
+    <!-- Mid CTA -->
+    <div class="mid-cta" style="margin-top:40px;">
+      <div class="mid-cta-title">これらの悩み、<span class="accent">すべて解決できます。</span></div>
+      <div class="mid-cta-sub">30分の無料相談で、御社に最適な動画の方向性をご提案します。</div>
+      <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-primary" style="max-width:360px;">まずは無料で相談する</a>
+    </div>
+  </div>
+</section>
+
+<div class="teal-divider"></div>
+
+<!-- ══ Solution ══ -->
+<section id="solution" class="sec">
+  <div class="inner">
+    <span class="sec-tag">サービスの特徴</span>
+    <h2 class="sec-title fi">だから、<span class="accent">AIで作る</span>という選択肢。</h2>
+    <p class="sec-lead fi">最新のAI動画生成技術と、SNSバズ動画のデータ分析を組み合わせた、これまでにない動画広告制作サービスです。</p>
+    <div class="feat-cards stagger fi">
+      <div class="feat-card">
+        <div class="feat-num">01</div>
+        <div class="feat-title">AI生成で従来の1/5〜1/10のコスト</div>
+        <div class="feat-desc">最新AI動画生成技術（Seedance 2.0、Kling等）で撮影・モデル・スタジオが不要。30万〜100万円の動画制作を数万円から実現。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">02</div>
+        <div class="feat-title">撮影ゼロ・最短3日納品</div>
+        <div class="feat-desc">素材はAIが生成。スタジオ予約もモデル手配も不要なため、ヒアリングから最短3日で完成動画をお届けします。</div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-num">03</div>
+        <div class="feat-title">バズ分析に基づく設計</div>
+        <div class="feat-desc">SNSで再生回数が伸びている動画の構成・フック・テンポをデータ分析。SNSで結果が出る動画を設計します。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Comparison (comp-v2 style) ══ -->
+<section id="comparison" class="sec">
+  <div class="inner">
+    <span class="sec-tag">他社との違い</span>
+    <h2 class="sec-title fi">従来の動画制作と<span class="accent">何が違うのか</span></h2>
+    <div class="comp-v2 fi">
+      <!-- Old -->
+      <div class="comp-v2-old">
+        <div class="comp-v2-badge old-badge">従来</div>
+        <div class="comp-v2-title-old">従来の動画制作会社</div>
+        <div class="comp-v2-price-old">30万〜100万円/本</div>
+        <div class="comp-v2-list-old">
+          <div class="comp-v2-row-old">納期 2週間〜1ヶ月</div>
+          <div class="comp-v2-row-old">スタジオ・モデルの手配が必要</div>
+          <div class="comp-v2-row-old">クリエイターの感覚頼み</div>
+          <div class="comp-v2-row-old">修正のたびに追加料金</div>
+          <div class="comp-v2-row-old">ブランディング動画が中心</div>
+        </div>
+      </div>
+      <!-- New -->
+      <div class="comp-v2-new">
+        <div class="comp-v2-badge new-badge">BUZPOS</div>
+        <div class="comp-v2-title-new">BUZPOSのAI動画広告</div>
+        <div class="comp-v2-pills">
+          <span class="comp-v2-pill">初回1本無料</span>
+          <span class="comp-v2-pill">最短3日納品</span>
+          <span class="comp-v2-pill">修正2回無料</span>
+        </div>
+        <div class="comp-v2-highlights">
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> 費用は従来の<strong>1/5〜1/10</strong>（3万〜10万円/本）</div>
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> 撮影<strong>完全不要</strong>（AI生成）</div>
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> 100万再生動画の<strong>データ分析</strong>に基づく設計</div>
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> 15秒ショートから60秒プロモまで対応</div>
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> <strong>バズ特化〜ブランディング</strong>まで幅広く</div>
+          <div class="comp-v2-row-new"><span class="check">&#10003;</span> 修正<strong>2回まで無料</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Works ══ -->
+<section id="works" class="sec">
+  <div class="inner">
+    <span class="sec-tag">制作事例</span>
+    <h2 class="sec-title fi">業種を問わず、<span class="accent">結果が出る動画</span>を制作</h2>
+    <p class="sec-lead fi">飲食・フィットネス・SaaSなど、様々な商品・サービスの動画広告を制作しています。</p>
+    <div class="works-grid stagger fi">
+      <div class="work-card">
+        <div class="work-thumb">
+          <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop" alt="飲食店の動画広告制作事例" width="600" height="340" loading="lazy">
+        </div>
+        <div class="work-body">
+          <div class="work-industry">飲食店</div>
+          <div class="work-title">新メニューPR動画（15秒）</div>
+          <div class="work-result">Instagram広告で<strong>CTR 3.2%</strong>（業界平均の2.5倍）</div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=340&fit=crop" alt="パーソナルジムの動画広告制作事例" width="600" height="340" loading="lazy">
+        </div>
+        <div class="work-body">
+          <div class="work-industry">パーソナルジム</div>
+          <div class="work-title">TikTok広告用ショート動画（30秒）</div>
+          <div class="work-result">TikTokで<strong>12万回再生</strong>・問い合わせ23件</div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-thumb">
+          <img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=340&fit=crop" alt="SaaSの動画広告制作事例" width="600" height="340" loading="lazy">
+        </div>
+        <div class="work-body">
+          <div class="work-industry">SaaS</div>
+          <div class="work-title">サービス紹介動画（60秒）</div>
+          <div class="work-result">LP埋め込みで<strong>CVR 1.8倍</strong>に改善</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="teal-divider"></div>
+
+<!-- ══ Flow ══ -->
+<section id="flow" class="sec">
+  <div class="inner">
+    <span class="sec-tag">制作の流れ</span>
+    <h2 class="sec-title fi"><span class="accent">4ステップ</span>で完成</h2>
+    <p class="sec-lead fi">初回の無料相談から納品まで、最短3日。シンプルなフローで進行します。</p>
+    <div class="flow-steps fi">
+      <div class="flow-step reveal-left">
+        <div class="flow-num">01</div>
+        <div class="flow-content">
+          <div class="flow-title">無料相談（30分）</div>
+          <p class="flow-desc">御社の商品・サービスについてヒアリング。どんな動画が最適かをご提案します。</p>
+        </div>
+      </div>
+      <div class="flow-step reveal-right">
+        <div class="flow-num">02</div>
+        <div class="flow-content">
+          <div class="flow-title">動画企画・設計</div>
+          <p class="flow-desc">バズ動画の分析結果をもとに、構成・テンポ・フックを設計します。</p>
+        </div>
+      </div>
+      <div class="flow-step reveal-left">
+        <div class="flow-num">03</div>
+        <div class="flow-content">
+          <div class="flow-title">AI動画制作</div>
+          <p class="flow-desc">最新AI技術で動画を生成・編集。高品質な動画を短期間で仕上げます。</p>
+        </div>
+      </div>
+      <div class="flow-step reveal-right">
+        <div class="flow-num">04</div>
+        <div class="flow-content">
+          <div class="flow-title">納品</div>
+          <p class="flow-desc">完成動画をお渡し。そのままSNS投稿・広告にご利用いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Profile ══ -->
+<section id="profile" class="sec">
+  <div class="inner">
+    <div class="profile-inner">
+      <span class="sec-tag">代表プロフィール</span>
+      <h2 class="sec-title fi">制作責任者</h2>
+      <div class="profile-avatar reveal">👤</div>
+      <div class="profile-name reveal">岩佐</div>
+      <div class="profile-role reveal">BUZPOS株式会社 代表</div>
+      <p class="profile-bio reveal">
+        AI動画生成ツールの登場初期から研究・実践を重ね、<strong>累計50本以上</strong>のAI動画広告を制作。
+        TikTok・Instagram Reels・YouTube Shortsなど、各プラットフォームのアルゴリズムに最適化した動画設計を得意とする。
+        「バズる動画には再現可能な構造がある」をモットーに、データドリブンな動画制作を提供。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FAQ ══ -->
+<section id="faq" class="sec">
+  <div class="inner" style="max-width:680px;">
+    <span class="sec-tag">よくある質問</span>
+    <h2 class="sec-title fi">FAQ</h2>
+    <div class="faq-list fi">
+      <details class="faq-item">
+        <summary class="faq-q">AI動画のクオリティは実際どうですか？</summary>
+        <div class="faq-a">最新のAI動画生成技術（Seedance 2.0等）は実写と見分けがつかないレベルに達しています。納品前にサンプルをお見せし、ご納得いただいてから完成版を制作します。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">著作権や利用権はどうなりますか？</summary>
+        <div class="faq-a">納品後の動画の利用権は御社に帰属します。SNS投稿・広告出稿・Webサイト掲載など、自由にご活用いただけます。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">無料制作の1本に条件はありますか？</summary>
+        <div class="faq-a">特にありません。15〜30秒のショート動画1本を無料で制作します。継続のご契約義務もありません。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">どんな業種でも対応できますか？</summary>
+        <div class="faq-a">飲食・美容・フィットネス・不動産・SaaSなど幅広い業種に対応しています。まずはご相談ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">修正は可能ですか？</summary>
+        <div class="faq-a">はい。初回納品後、2回まで無料で修正対応いたします。</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ══ Final CTA ══ -->
+<section id="final">
+  <div class="inner">
+    <span class="sec-tag">無料で始める</span>
+    <h2 class="sec-title fi" style="margin-bottom: 20px;">御社の商品で1本、<br><span class="accent">無料</span>で作ります。</h2>
+    <p class="sec-lead fi" style="color: rgba(255,255,255,.7); margin-left: auto; margin-right: auto;">
+      御社の商品・サービスに合わせたAI動画広告を1本、無料で制作いたします。<br>
+      完成した動画はそのままSNSや広告にご活用いただけます。<br>
+      まずは30分のオンライン相談で、御社に最適な動画の方向性をご提案します。
+    </p>
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+      <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-white">まずは無料で相談する</a>
+      <span class="cta-note-dark">オンライン完結・顔出し不要・しつこい営業なし</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div>BUZPOS株式会社｜代表 岩佐</div>
+  <a href="https://buzpos.co.jp" target="_blank" rel="noopener">https://buzpos.co.jp</a>
+</footer>
+
+<!-- Float CTA -->
+<div id="float-cta">
+  <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-primary glow-orange">初回1本無料 ─ 今すぐ相談する</a>
+</div>
+
+<script>
+(function(){
+  // ── Float CTA ──
+  var fc = document.getElementById('float-cta');
+  var fin = document.getElementById('final');
+  var fcShown = false;
+  function updateFloat() {
+    var y = window.scrollY;
+    var finRect = fin.getBoundingClientRect();
+    var finVisible = finRect.top < window.innerHeight && finRect.bottom > 0;
+    if (y > 500 && !finVisible) {
+      if (!fcShown) { fc.className = 'show'; fcShown = true; }
+    } else {
+      if (fcShown) { fc.className = 'hide'; fcShown = false; }
+    }
+  }
+  window.addEventListener('scroll', updateFloat, {passive:true});
+
+  // ── Scroll reveal ──
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        e.target.classList.add('in');
+        // H2 underline
+        if (e.target.tagName === 'H2') e.target.classList.add('underline-show');
+      }
+    });
+  }, {threshold: 0.15, rootMargin: '0px 0px -40px 0px'});
+
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.fi,.stagger,h2.sec-title').forEach(function(el) {
+    obs.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>
