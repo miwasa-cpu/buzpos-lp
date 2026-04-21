@@ -2335,6 +2335,282 @@ nav { box-shadow: 0 1px 6px rgba(0,0,0,.06); }
   border-radius: 12px 12px 0 0;
 }
 
+/* ══════════════════════════════════════
+   ── SV TAB v2 (redesign) ──
+   ══════════════════════════════════════ */
+
+/* Hero v2 */
+#sv-hero2 {
+  background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 45%, #0f2a5c 100%);
+  min-height: 100vh;
+  display: flex; align-items: center;
+  padding: 100px 0 60px;
+  position: relative; overflow: hidden;
+}
+#sv-hero2::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 70% 50%, rgba(79,124,255,.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.sv-hero2-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 32px;
+  display: grid; grid-template-columns: 1fr 420px; gap: 60px; align-items: center;
+}
+.sv-eyecatch2 {
+  display: inline-block;
+  font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: #7eb3ff; background: rgba(79,124,255,.15);
+  border: 1px solid rgba(79,124,255,.3);
+  padding: 6px 16px; border-radius: 20px; margin-bottom: 24px;
+}
+.sv-title2 {
+  font-family: var(--font-display);
+  font-size: clamp(3rem,7vw,5.5rem);
+  font-weight: 900; line-height: 1.1;
+  color: #fff; margin-bottom: 16px;
+  letter-spacing: -.02em;
+}
+.sv-title2 span { color: #5b9fff; }
+.sv-subtitle2 {
+  font-size: clamp(1.1rem,2.5vw,1.4rem); font-weight: 700;
+  color: rgba(255,255,255,.85); margin-bottom: 20px;
+}
+.sv-body2 {
+  font-size: .97rem; color: rgba(255,255,255,.6);
+  line-height: 1.9; margin-bottom: 36px; max-width: 480px;
+}
+.sv-btns2 { display: flex; gap: 14px; flex-wrap: wrap; }
+.sv-btn-main {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #4f7cff, #2557f7);
+  color: #fff; font-weight: 800; font-size: .95rem;
+  padding: 16px 36px; border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(79,124,255,.4);
+  transition: transform .2s, box-shadow .2s;
+}
+.sv-btn-main:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(79,124,255,.5); }
+.sv-btn-sub2 {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; color: rgba(255,255,255,.75);
+  font-weight: 600; font-size: .95rem;
+  padding: 16px 32px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,.2);
+  text-decoration: none;
+  transition: background .2s, border-color .2s;
+}
+.sv-btn-sub2:hover { background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.35); color: #fff; }
+
+/* Phone mockup */
+.sv-hero2-media {
+  display: flex; justify-content: center; align-items: center;
+}
+.sv-phone-mock {
+  width: 240px; height: 480px;
+  background: #0a1628;
+  border-radius: 36px;
+  border: 6px solid rgba(255,255,255,.15);
+  box-shadow: 0 24px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.08);
+  overflow: hidden; position: relative;
+}
+.sv-phone-mock video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sv-phone-mock::before {
+  content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 24px;
+  background: #0a1628; border-radius: 0 0 16px 16px;
+  z-index: 10;
+}
+@media(max-width:860px) {
+  .sv-hero2-inner { grid-template-columns: 1fr; text-align: center; }
+  .sv-hero2-media { display: none; }
+  .sv-body2 { margin-left: auto; margin-right: auto; }
+  .sv-btns2 { justify-content: center; }
+}
+
+/* Stats v2 */
+.sv-stats2 { background: #fff; border-bottom: 1px solid var(--border); }
+.sv-stats2-inner {
+  max-width: 900px; margin: 0 auto; padding: 48px 32px;
+  display: flex; align-items: center; justify-content: center; gap: 0;
+}
+.sv-stat2 { text-align: center; flex: 1; }
+.sv-stat2-num {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem,5vw,3.6rem); font-weight: 900;
+  color: #1a56db; line-height: 1;
+  margin-bottom: 8px;
+}
+.sv-stat2-num span { font-size: 60%; }
+.sv-stat2-label { font-size: .82rem; color: var(--muted); font-weight: 600; }
+.sv-stat2-divider {
+  width: 1px; height: 60px; background: var(--border); flex-shrink: 0; margin: 0 20px;
+}
+@media(max-width:600px) {
+  .sv-stats2-inner { flex-direction: column; gap: 32px; }
+  .sv-stat2-divider { width: 40px; height: 1px; margin: 0; }
+}
+
+/* Section helpers v2 */
+.sv-sec-tag {
+  font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+  color: #4f7cff; margin-bottom: 12px;
+}
+.sv-sec-title2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem,4vw,2.8rem); font-weight: 900;
+  color: var(--dark); line-height: 1.25; margin-bottom: 48px;
+}
+.sv-sec-title2 span { color: #4f7cff; }
+
+/* Features v2 */
+.sv-features2 { background: #f7f9ff; }
+.sv-feat2-grid {
+  display: grid; grid-template-columns: repeat(2,1fr); gap: 24px;
+}
+@media(max-width:640px) { .sv-feat2-grid { grid-template-columns: 1fr; } }
+.sv-feat2-card {
+  background: #fff; border-radius: 16px; padding: 32px;
+  border: 1px solid rgba(79,124,255,.1);
+  box-shadow: 0 2px 12px rgba(79,124,255,.06);
+  transition: transform .2s, box-shadow .2s;
+}
+.sv-feat2-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(79,124,255,.12); }
+.sv-feat2-icon {
+  font-size: 2rem; margin-bottom: 16px;
+  width: 56px; height: 56px;
+  background: linear-gradient(135deg,rgba(79,124,255,.12),rgba(79,124,255,.06));
+  border-radius: 14px; display: flex; align-items: center; justify-content: center;
+}
+.sv-feat2-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--dark); margin-bottom: 10px; }
+.sv-feat2-card p { font-size: .88rem; color: var(--muted); line-height: 1.8; }
+
+/* Logos v2 */
+.sv-logos2 {
+  background: #fff; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  padding: 32px 0;
+}
+.sv-logos2-inner { max-width: 900px; margin: 0 auto; padding: 0 32px; text-align: center; }
+.sv-logos2-label { font-size: .72rem; font-weight: 700; letter-spacing: .15em; color: var(--muted); text-transform: uppercase; margin-bottom: 20px; }
+.sv-logos2-row {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px;
+}
+.sv-logos2-row span {
+  font-size: .82rem; font-weight: 700; color: var(--muted);
+  background: var(--bg-gray); border: 1px solid var(--border);
+  padding: 6px 18px; border-radius: 20px;
+}
+
+/* Flow v2 */
+.sv-flow2-steps {
+  display: flex; align-items: flex-start; gap: 0; flex-wrap: nowrap;
+  overflow-x: auto; padding-bottom: 8px;
+}
+.sv-flow2-step {
+  flex: 1; min-width: 120px; text-align: center; padding: 0 8px;
+}
+.sv-flow2-num {
+  font-family: var(--font-display);
+  font-size: 2rem; font-weight: 900; color: #4f7cff;
+  margin-bottom: 12px;
+}
+.sv-flow2-title { font-size: .95rem; font-weight: 800; color: var(--dark); margin-bottom: 8px; }
+.sv-flow2-desc { font-size: .78rem; color: var(--muted); line-height: 1.7; }
+.sv-flow2-arrow {
+  font-size: 1.4rem; color: rgba(79,124,255,.3); padding-top: 12px; flex-shrink: 0;
+}
+@media(max-width:640px) {
+  .sv-flow2-steps { flex-direction: column; align-items: center; gap: 24px; }
+  .sv-flow2-arrow { transform: rotate(90deg); }
+}
+
+/* Pricing v2 */
+#sv-pricing2 { background: linear-gradient(180deg,#f7f9ff,#eef2ff); }
+.sv-pricing2-grid {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 24px;
+  align-items: start;
+}
+@media(max-width:768px) { .sv-pricing2-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+.sv-price2-card {
+  background: #fff; border-radius: 20px; padding: 36px 28px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm); position: relative;
+}
+.sv-price2-featured {
+  background: linear-gradient(180deg,#1a3a6e,#0d1b3e);
+  border-color: transparent;
+  box-shadow: 0 12px 48px rgba(26,58,110,.3);
+  transform: scale(1.04);
+}
+.sv-price2-featured .sv-price2-name,
+.sv-price2-featured .sv-price2-price,
+.sv-price2-featured .sv-price2-list li { color: #fff; }
+.sv-price2-featured .sv-price2-list { border-color: rgba(255,255,255,.12); }
+.sv-price2-featured .sv-price2-list li { border-color: rgba(255,255,255,.1); }
+.sv-price2-badge {
+  position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+  background: linear-gradient(135deg,#4f7cff,#2557f7);
+  color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .08em;
+  padding: 5px 16px; border-radius: 20px;
+  white-space: nowrap;
+}
+.sv-price2-name {
+  font-size: .88rem; font-weight: 700; color: var(--muted);
+  margin-bottom: 16px; margin-top: 8px;
+}
+.sv-price2-price {
+  font-family: var(--font-display);
+  font-size: 2.4rem; font-weight: 900; color: var(--dark);
+  line-height: 1; margin-bottom: 24px;
+}
+.sv-price2-price span { font-size: 1rem; font-weight: 600; color: var(--muted); }
+.sv-price2-featured .sv-price2-price span { color: rgba(255,255,255,.6); }
+.sv-price2-list {
+  list-style: none; border-top: 1px solid var(--border);
+  padding-top: 20px; margin-bottom: 28px;
+}
+.sv-price2-list li {
+  font-size: .88rem; color: var(--sub); padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px;
+}
+.sv-price2-list li::before { content: '✓'; color: #4f7cff; font-weight: 700; flex-shrink: 0; }
+.sv-price2-btn {
+  display: block; text-align: center; border-radius: 8px;
+  font-weight: 800; font-size: .9rem; padding: 14px 20px;
+  text-decoration: none; transition: transform .2s, box-shadow .2s;
+}
+.sv-price2-btn:hover { transform: translateY(-2px); }
+.sv-price2-btn-main {
+  background: linear-gradient(135deg,#4f7cff,#2557f7);
+  color: #fff; box-shadow: 0 4px 16px rgba(79,124,255,.4);
+}
+.sv-price2-btn-sub {
+  background: rgba(79,124,255,.08); color: #4f7cff;
+  border: 1px solid rgba(79,124,255,.2);
+}
+
+/* Final CTA v2 */
+#sv-final2 {
+  background: linear-gradient(135deg,#0d1b3e,#1a3a6e);
+  padding: 100px 32px; text-align: center;
+}
+.sv-final2-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem,5vw,3.2rem); font-weight: 900;
+  color: #fff; line-height: 1.3; margin-bottom: 20px;
+}
+.sv-final2-body {
+  font-size: .97rem; color: rgba(255,255,255,.65);
+  line-height: 1.9; margin-bottom: 36px; max-width: 520px; margin-left: auto; margin-right: auto;
+}
+.sv-final2-btn {
+  display: inline-flex; padding: 18px 48px; font-size: 1rem;
+  margin-bottom: 16px;
+}
+.sv-final2-note {
+  font-size: .75rem; color: rgba(255,255,255,.3); margin-top: 12px;
+}
+
 </style>
 </head>
 <body>
@@ -3126,224 +3402,185 @@ nav { box-shadow: 0 1px 6px rgba(0,0,0,.06); }
 <!-- ══ TAB: AI VIDEO AD ══ -->
 <div id="tab-sv" class="tab-content active">
 
-<!-- ── Ad Hero ── -->
-<section id="sv-hero">
-  <!-- Background image slider -->
-  <div class="sv-hero-slider">
-    <div class="sv-hero-slider-track">
-      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=480&fit=crop" alt="飲食" loading="eager">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=480&fit=crop" alt="フィットネス" loading="eager">
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=640&h=480&fit=crop" alt="美容" loading="eager">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=640&h=480&fit=crop" alt="不動産" loading="eager">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=480&fit=crop" alt="SaaS" loading="eager">
-      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=640&h=480&fit=crop" alt="アパレル" loading="eager">
-      <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=640&h=480&fit=crop" alt="ビジネス" loading="eager">
-      <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=640&h=480&fit=crop" alt="SNS" loading="eager">
-      <!-- duplicate for seamless loop -->
-      <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=640&h=480&fit=crop" alt="飲食" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=640&h=480&fit=crop" alt="フィットネス" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=640&h=480&fit=crop" alt="美容" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=640&h=480&fit=crop" alt="不動産" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&h=480&fit=crop" alt="SaaS" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=640&h=480&fit=crop" alt="アパレル" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=640&h=480&fit=crop" alt="ビジネス" loading="lazy">
-      <img src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=640&h=480&fit=crop" alt="SNS" loading="lazy">
+<!-- ── Ad Hero v2 ── -->
+<section id="sv-hero2">
+  <div class="sv-hero2-inner">
+    <div class="sv-hero2-text">
+      <div class="sv-eyecatch2">BUZPOS AI VIDEO AD</div>
+      <h1 class="sv-title2">広告×<span>AI動画</span></h1>
+      <p class="sv-subtitle2">成果を生み出す次世代の動画広告</p>
+      <p class="sv-body2">AI技術と独自のバズ分析で、撮影不要・最短即日の動画広告を制作。広告費を抑えながら成果を最大化します。</p>
+      <div class="sv-btns2">
+        <a class="sv-btn-main" href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener">無料相談はこちら</a>
+        <a class="sv-btn-sub2" href="#sv-flow2" onclick="event.preventDefault();document.getElementById('sv-flow2').scrollIntoView({behavior:'smooth'})">制作の流れを見る</a>
+      </div>
     </div>
-    <div class="sv-hero-slider-overlay"></div>
-  </div>
-  <div class="sv-hero-glow"></div>
-  <div class="hero-particles" id="svParticles"></div>
-
-  <div class="sv-hero-inner">
-    <div class="sv-eyecatch"><em>BUZPOS</em>&ensp;AI VIDEO AD</div>
-    <h1 class="sv-title">
-      撮影ゼロで、<br><span class="sv-title-accent">売れる動画広告</span>を。
-    </h1>
-    <p class="sv-hero-body">
-      SNSでバズる構成をデータ分析し、御社の商品に最適な動画広告をAI制作。最短即日で納品可能。
-    </p>
-    <div class="sv-hero-btns">
-      <a class="btn-primary" href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener">無料制作の相談をする</a>
-      <a class="btn-hero-sub" href="#sv-works" onclick="event.preventDefault();document.getElementById('sv-works').scrollIntoView({behavior:'smooth'})">制作事例を見る</a>
+    <div class="sv-hero2-media">
+      <div class="sv-phone-mock">
+        <video src="https://pub-a821e9587754423f80e9145e37c307df.r2.dev/shampoo_ad.mp4" autoplay loop muted playsinline></video>
+      </div>
     </div>
-    <div class="sv-hero-note">オンライン完結・顔出し不要・継続契約の義務なし</div>
-  </div>
-
-  <div class="hero-scroll-indicator" onclick="document.getElementById('sv-problem').scrollIntoView({behavior:'smooth'})">
-    <span>Scroll</span>
-    <div class="hero-scroll-arrow"></div>
   </div>
 </section>
-<div class="teal-divider"></div>
 
-<!-- ── Ad: Problem ── -->
-<section id="sv-problem" class="sec">
+<!-- ── Stats ── -->
+<section class="sv-stats2">
+  <div class="sv-stats2-inner">
+    <div class="sv-stat2">
+      <div class="sv-stat2-num">5,000<span>社+</span></div>
+      <div class="sv-stat2-label">累計支援企業数</div>
+    </div>
+    <div class="sv-stat2-divider"></div>
+    <div class="sv-stat2">
+      <div class="sv-stat2-num">186<span>%</span></div>
+      <div class="sv-stat2-label">平均CVR改善率</div>
+    </div>
+    <div class="sv-stat2-divider"></div>
+    <div class="sv-stat2">
+      <div class="sv-stat2-num">92<span>%</span></div>
+      <div class="sv-stat2-label">顧客継続率</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Features ── -->
+<section class="sv-features2 sec">
+  <div class="inner">
+    <div class="sv-sec-tag">AI動画広告の特徴</div>
+    <h2 class="sv-sec-title2">AIが可能にする、AI動画広告の<span>新しいカタチ</span></h2>
+    <div class="sv-feat2-grid">
+      <div class="sv-feat2-card">
+        <div class="sv-feat2-icon">🎬</div>
+        <h3>撮影不要・最短即日</h3>
+        <p>スタジオ・モデル・カメラマン不要。商品画像とテキストだけで高品質な動画広告を制作します。</p>
+      </div>
+      <div class="sv-feat2-card">
+        <div class="sv-feat2-icon">📊</div>
+        <h3>データ駆動の構成設計</h3>
+        <p>SNSのバズ動画を独自分析。再生・クリックされる動画の構成パターンを元に設計します。</p>
+      </div>
+      <div class="sv-feat2-card">
+        <div class="sv-feat2-icon">💰</div>
+        <h3>従来の1/10のコスト</h3>
+        <p>制作会社の30〜100万円に対し、3万円〜。AIで制作工程を大幅に削減しました。</p>
+      </div>
+      <div class="sv-feat2-card">
+        <div class="sv-feat2-icon">🔄</div>
+        <h3>高速PDCAで成果を最大化</h3>
+        <p>納品後のデータを分析し、改善バージョンを素早く展開。継続利用で広告効果が向上します。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Client logos ── -->
+<section class="sv-logos2">
+  <div class="sv-logos2-inner">
+    <p class="sv-logos2-label">導入業種</p>
+    <div class="sv-logos2-row">
+      <span>飲食・グルメ</span>
+      <span>美容・コスメ</span>
+      <span>フィットネス</span>
+      <span>不動産</span>
+      <span>SaaS・IT</span>
+      <span>アパレル</span>
+      <span>教育・スクール</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Flow ── -->
+<section id="sv-flow2" class="sec" style="background:linear-gradient(180deg,#fcfdff,#f0f3ff);">
+  <div class="inner">
+    <div class="sv-sec-tag">制作の流れ</div>
+    <h2 class="sv-sec-title2">最短即日、<span>5ステップ</span>で完成</h2>
+    <div class="sv-flow2-steps">
+      <div class="sv-flow2-step">
+        <div class="sv-flow2-num">01</div>
+        <div class="sv-flow2-title">無料相談</div>
+        <div class="sv-flow2-desc">商品・ターゲット・目的をヒアリング</div>
+      </div>
+      <div class="sv-flow2-arrow">→</div>
+      <div class="sv-flow2-step">
+        <div class="sv-flow2-num">02</div>
+        <div class="sv-flow2-title">企画・設計</div>
+        <div class="sv-flow2-desc">バズ分析を元に構成を設計</div>
+      </div>
+      <div class="sv-flow2-arrow">→</div>
+      <div class="sv-flow2-step">
+        <div class="sv-flow2-num">03</div>
+        <div class="sv-flow2-title">AI制作</div>
+        <div class="sv-flow2-desc">最新AI技術で動画を生成・編集</div>
+      </div>
+      <div class="sv-flow2-arrow">→</div>
+      <div class="sv-flow2-step">
+        <div class="sv-flow2-num">04</div>
+        <div class="sv-flow2-title">確認・修正</div>
+        <div class="sv-flow2-desc">2回まで無料修正対応</div>
+      </div>
+      <div class="sv-flow2-arrow">→</div>
+      <div class="sv-flow2-step">
+        <div class="sv-flow2-num">05</div>
+        <div class="sv-flow2-title">納品</div>
+        <div class="sv-flow2-desc">即日〜3日でお届け</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Pricing ── -->
+<section id="sv-pricing2" class="sec">
+  <div class="inner">
+    <div class="sv-sec-tag">料金プラン</div>
+    <h2 class="sv-sec-title2">シンプルな<span>料金体系</span></h2>
+    <div class="sv-pricing2-grid">
+      <div class="sv-price2-card">
+        <div class="sv-price2-name">ライトプラン</div>
+        <div class="sv-price2-price">¥30,000<span>/本</span></div>
+        <ul class="sv-price2-list">
+          <li>15〜30秒の動画</li>
+          <li>AI生成素材使用</li>
+          <li>修正1回</li>
+          <li>納期3〜5日</li>
+        </ul>
+        <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="sv-price2-btn sv-price2-btn-sub">相談する</a>
+      </div>
+      <div class="sv-price2-card sv-price2-featured">
+        <div class="sv-price2-badge">人気No.1</div>
+        <div class="sv-price2-name">スタンダードプラン</div>
+        <div class="sv-price2-price">¥50,000<span>/本</span></div>
+        <ul class="sv-price2-list">
+          <li>30〜60秒の動画</li>
+          <li>バズ分析込み構成設計</li>
+          <li>修正2回</li>
+          <li>納期1〜3日</li>
+          <li>SNS最適化対応</li>
+        </ul>
+        <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="sv-price2-btn sv-price2-btn-main">無料相談する</a>
+      </div>
+      <div class="sv-price2-card">
+        <div class="sv-price2-name">プロフェッショナルプラン</div>
+        <div class="sv-price2-price">¥100,000<span>/本</span></div>
+        <ul class="sv-price2-list">
+          <li>60秒以上の動画</li>
+          <li>複数バリエーション制作</li>
+          <li>修正無制限</li>
+          <li>最短即日納品</li>
+          <li>広告効果レポート付</li>
+        </ul>
+        <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="sv-price2-btn sv-price2-btn-sub">相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section id="sv-final2">
   <div class="inner" style="text-align:center;">
-    <div class="sv-problem-label fi">課題</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;margin-bottom:48px;">動画広告、<span class="accent">始めたいけど始められない</span>理由</h2>
-    <div class="sv-problem-grid stagger fi">
-      <div class="sv-problem-item">
-        <div class="sv-problem-num">01</div>
-        <div class="sv-problem-body">
-          <div class="sv-problem-heading">制作費が高すぎる</div>
-          <p class="sv-problem-desc">制作会社に頼むと<strong>1本30万〜100万円</strong>。気軽に試せる金額ではない。</p>
-        </div>
-      </div>
-      <div class="sv-problem-item">
-        <div class="sv-problem-num">02</div>
-        <div class="sv-problem-body">
-          <div class="sv-problem-heading">撮影の手配が面倒</div>
-          <p class="sv-problem-desc">スタジオ・モデル・カメラマンの手配が必要で、<strong>なかなか始められない</strong>。</p>
-        </div>
-      </div>
-      <div class="sv-problem-item">
-        <div class="sv-problem-num">03</div>
-        <div class="sv-problem-body">
-          <div class="sv-problem-heading">見てもらえるか不安</div>
-          <p class="sv-problem-desc">作ったところで、SNSで<strong>本当に再生されるか分からない</strong>。</p>
-        </div>
-      </div>
-    </div>
-    <div class="sv-mid-cta" style="margin-top:40px;">
-      <div style="font-size:clamp(1.2rem,3.5vw,1.6rem);font-weight:900;color:var(--dark);margin-bottom:8px;">これらの悩み、<span class="accent">すべて解決できます。</span></div>
-      <div style="font-size:.88rem;color:var(--muted);margin-bottom:24px;">30分の無料相談で、御社に最適な動画の方向性をご提案します。</div>
-      <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-primary" style="max-width:360px;">まずは無料で相談する</a>
-    </div>
-  </div>
-</section>
-
-<div class="teal-divider"></div>
-
-<!-- ── Ad: Solution ── -->
-<section id="sv-solution" class="sec">
-  <div class="inner" style="text-align:center;">
-    <div class="sv-problem-label fi">サービスの特徴</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;margin-bottom:16px;">だから、<span class="accent">AIで作る</span>という選択肢。</h2>
-    <p class="sec-lead fi" style="margin-left:auto;margin-right:auto;text-align:center;">最新のAI動画生成技術と、SNSバズ動画のデータ分析を組み合わせた、これまでにない動画広告制作サービスです。</p>
-    <div class="feat-cards stagger fi">
-      <div class="feat-card"><div class="feat-num">01</div><div class="feat-title">AI生成で従来の広告の1/10のコスト</div><div class="feat-desc">最新AI動画生成技術（Seedance 2.0、Kling等）で撮影・モデル・スタジオが不要。30万〜100万円の動画制作を数万円から実現。</div></div>
-      <div class="feat-card"><div class="feat-num">02</div><div class="feat-title">撮影ゼロ・最短即日納品</div><div class="feat-desc">素材はAIが生成。スタジオ予約もモデル手配も不要なため、ヒアリングから最短即日で完成動画をお届けします。</div></div>
-      <div class="feat-card"><div class="feat-num">03</div><div class="feat-title">バズ分析に基づく設計</div><div class="feat-desc">SNSで再生回数が伸びている動画の構成・フック・テンポをデータ分析。SNSで結果が出る動画を設計します。</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Ad: Comparison (comp-v2) ── -->
-<section id="sv-comparison" class="sec">
-  <div class="inner">
-    <div class="sv-problem-label fi" style="text-align:center;">他社との違い</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;">従来の動画制作と<span class="accent">何が違うのか</span></h2>
-    <div class="comp-v2 fi">
-      <div class="comp-v2-old">
-        <div class="comp-v2-badge old-badge">従来</div>
-        <div class="comp-v2-title-old">従来の動画制作会社</div>
-        <div class="comp-v2-price-old">30万〜100万円/本</div>
-        <div class="comp-v2-list-old">
-          <div class="comp-v2-row-old">納期 2週間〜1ヶ月</div>
-          <div class="comp-v2-row-old">スタジオ・モデルの手配が必要</div>
-          <div class="comp-v2-row-old">クリエイターの感覚頼み</div>
-          <div class="comp-v2-row-old">修正のたびに追加料金</div>
-          <div class="comp-v2-row-old">ブランディング動画が中心</div>
-        </div>
-      </div>
-      <div class="comp-v2-new">
-        <div class="comp-v2-badge new-badge">BUZPOS</div>
-        <div class="comp-v2-title-new">BUZPOSのAI動画広告</div>
-        <div class="comp-v2-pills">
-          <span class="comp-v2-pill">初回1本無料</span>
-          <span class="comp-v2-pill">最短即日納品</span>
-          <span class="comp-v2-pill">修正2回無料</span>
-        </div>
-        <div class="comp-v2-checks">
-          <div class="comp-v2-check"><span>✓</span> 1本3万円（税別）〜</div>
-          <div class="comp-v2-check"><span>✓</span> 撮影完全不要（AI生成）</div>
-          <div class="comp-v2-check"><span>✓</span> 総フォロワー100万人越えのクリエイター監修</div>
-          <div class="comp-v2-check"><span>✓</span> 15秒〜60秒まで対応</div>
-          <div class="comp-v2-check"><span>✓</span> バズ特化〜ブランディング</div>
-          <div class="comp-v2-check"><span>✓</span> 修正2回まで無料</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Ad: Works ── -->
-<section id="sv-works" class="sec">
-  <div class="inner">
-    <div class="sv-problem-label fi" style="text-align:center;">制作事例</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;">業種を問わず、<span class="accent">結果が出る動画</span>を制作</h2>
-    <p class="sec-lead fi">飲食・フィットネス・SaaSなど、様々な商品・サービスの動画広告を制作しています。</p>
-    <div class="sv-works-grid stagger fi">
-      <!-- Left: vertical video -->
-      <div class="sv-work-video-card" id="svVideoCard">
-        <video id="svVideo" src="https://pub-a821e9587754423f80e9145e37c307df.r2.dev/shampoo_ad.mp4" loop playsinline preload="metadata"></video>
-        <div class="sv-work-video-play" id="svVideoPlay"></div>
-        <div class="sv-work-video-label">
-          <div class="sv-work-video-label-title">シャンプー広告（15秒）</div>
-          <div class="sv-work-video-label-sub">AI生成動画 / Instagram Reels向け</div>
-        </div>
-      </div>
-      <!-- Right: 2 cards -->
-      <div class="sv-works-right">
-        <div class="sv-work-card">
-          <div class="sv-work-thumb"><img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=340&fit=crop" alt="パーソナルジム" width="600" height="340" loading="lazy"></div>
-          <div class="sv-work-body"><div class="sv-work-industry">パーソナルジム</div><div class="sv-work-title">TikTok広告用ショート動画（30秒）</div><div class="sv-work-result">TikTokで<strong>12万回再生</strong>・問い合わせ23件</div></div>
-        </div>
-        <div class="sv-work-card">
-          <div class="sv-work-thumb"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=600&h=340&fit=crop" alt="SaaS" width="600" height="340" loading="lazy"></div>
-          <div class="sv-work-body"><div class="sv-work-industry">SaaS</div><div class="sv-work-title">サービス紹介動画（60秒）</div><div class="sv-work-result">LP埋め込みで<strong>CVR 1.8倍</strong>に改善</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="teal-divider"></div>
-
-<!-- ── Ad: Flow ── -->
-<section id="sv-flow" class="sec">
-  <div class="inner">
-    <div class="sv-problem-label fi" style="text-align:center;">制作の流れ</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;"><span class="accent">4ステップ</span>で完成</h2>
-    <p class="sec-lead fi" style="margin-left:auto;margin-right:auto;text-align:center;">初回の無料相談から納品まで、最短即日。シンプルなフローで進行します。</p>
-    <div class="flow-steps fi">
-      <div class="flow-step reveal-left"><div class="flow-num">01</div><div class="flow-content"><div class="flow-title">無料相談（30分）</div><p class="flow-desc">御社の商品・サービスについてヒアリング。どんな動画が最適かをご提案します。</p></div></div>
-      <div class="flow-step reveal-right"><div class="flow-num">02</div><div class="flow-content"><div class="flow-title">動画企画・設計</div><p class="flow-desc">バズ動画の分析結果をもとに、構成・テンポ・フックを設計します。</p></div></div>
-      <div class="flow-step reveal-left"><div class="flow-num">03</div><div class="flow-content"><div class="flow-title">AI動画制作</div><p class="flow-desc">最新AI技術で動画を生成・編集。高品質な動画を短期間で仕上げます。</p></div></div>
-      <div class="flow-step reveal-right"><div class="flow-num">04</div><div class="flow-content"><div class="flow-title">納品</div><p class="flow-desc">完成動画をお渡し。そのままSNS投稿・広告にご利用いただけます。</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── Ad: FAQ ── -->
-<section id="sv-faq" class="sec">
-  <div class="inner" style="max-width:680px;">
-    <div class="sv-problem-label fi" style="text-align:center;">よくある質問</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;">FAQ</h2>
-    <div class="faq-list fi">
-      <details class="faq-item"><summary class="faq-q">AI動画のクオリティは実際どうですか？</summary><div class="faq-a">最新のAI動画生成技術（Seedance 2.0等）は実写と見分けがつかないレベルに達しています。納品前にサンプルをお見せし、ご納得いただいてから完成版を制作します。</div></details>
-      <details class="faq-item"><summary class="faq-q">著作権や利用権はどうなりますか？</summary><div class="faq-a">納品後の動画の利用権は御社に帰属します。SNS投稿・広告出稿・Webサイト掲載など、自由にご活用いただけます。</div></details>
-      <details class="faq-item"><summary class="faq-q">無料制作の1本に条件はありますか？</summary><div class="faq-a">特にありません。15〜30秒のショート動画1本を無料で制作します。継続のご契約義務もありません。</div></details>
-      <details class="faq-item"><summary class="faq-q">どんな業種でも対応できますか？</summary><div class="faq-a">飲食・美容・フィットネス・不動産・SaaSなど幅広い業種に対応しています。まずはご相談ください。</div></details>
-      <details class="faq-item"><summary class="faq-q">修正は可能ですか？</summary><div class="faq-a">はい。初回納品後、2回まで無料で修正対応いたします。</div></details>
-    </div>
-  </div>
-</section>
-
-<!-- ── Ad: Final CTA ── -->
-<section id="sv-final">
-  <div class="inner">
-    <div class="sv-problem-label fi" style="text-align:center;color:rgba(255,255,255,.5);">無料で始める</div>
-    <h2 class="sec-title fi" style="display:block;text-align:center;margin-bottom:20px;">御社の商品で1本、<br><span class="accent">無料</span>で作ります。</h2>
-    <p class="sec-lead fi" style="color:rgba(255,255,255,.7);margin-left:auto;margin-right:auto;">
-      御社の商品・サービスに合わせたAI動画広告を1本、無料で制作いたします。<br>
-      完成した動画はそのままSNSや広告にご活用いただけます。<br>
-      まずは30分のオンライン相談で、御社に最適な動画の方向性をご提案します。
-    </p>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
-      <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="btn-white" style="max-width:440px;">まずは無料で相談する</a>
-      <span style="font-size:.78rem;color:rgba(255,255,255,.35);margin-top:4px;">オンライン完結・顔出し不要・しつこい営業なし</span>
-    </div>
+    <h2 class="sv-final2-title">AIと一緒に、<br>企業の成長を次のステージへ。</h2>
+    <p class="sv-final2-body">まずは30分の無料相談から。御社の商品・サービスに最適な動画広告の方向性をご提案します。</p>
+    <a href="https://calendly.com/m-iwasa-buzpos/30min" target="_blank" rel="noopener" class="sv-btn-main sv-final2-btn">無料相談はこちら →</a>
+    <p class="sv-final2-note">オンライン完結・顔出し不要・継続義務なし</p>
   </div>
 </section>
 
