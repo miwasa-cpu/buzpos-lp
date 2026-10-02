@@ -42,9 +42,8 @@
 <link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2" crossorigin>
 <link rel="preload" as="image" href="sns_assets/images/fv_img_person_20250710.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
 <style>
-/* ══ 旧 SNS タブから移植した CSS（sns-youtube〜sns-contact・フッター・モーダルで使うルールだけ。現行 index.html の inline style から機械抽出） ══ */
+/* ══ 旧 SNS タブから移植した CSS（sns-performance-result〜sns-contact・フッター・モーダルで使うルールだけ。現行 index.html の inline style から機械抽出） ══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --teal:       #00b4c6;
@@ -179,19 +178,6 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   #tab-sns .cta-contact, #tab-sns .cta-request { width: min(75vw, 450px); order: 2; }
   #tab-sns .cta-line { order: 1; }
 }
-#sns-youtube { padding-top: min(10vw, 80px); padding-bottom: min(8vw, 40px); }
-#tab-sns .tit-youtube-achievement { width: min(70vw, 418px); height: min(25vw, 150px); margin: 0 auto !important; }
-#sns-swiper-youtube { width: 100%; padding: 20px; }
-#tab-sns .swiper-slide { overflow: hidden; position: relative; background: linear-gradient(to bottom, rgba(77,77,77,1) 0%,rgba(77,77,77,1) 50%,rgba(255,255,255,1) 51%,rgba(255,255,255,1) 100%); border-radius: 10px; filter: drop-shadow(0 0 8px rgba(0,0,0,.5)); transition: all 0.3s ease; cursor: pointer; }
-#tab-sns .swiper-slide:hover { filter: drop-shadow(0 0 8px rgba(0,0,0,.5)) brightness(1.1); }
-#tab-sns .youtube-thumb { overflow: hidden; aspect-ratio: 16/9; border-radius: 10px; }
-#tab-sns .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
-#tab-sns .youtube-works { display: flex; justify-content: center; gap: 3px; padding: 6px; }
-#tab-sns .youtube-works li { background: var(--color_blue); color: #fff; border-radius: 50vw; padding: .25em 1em; font-size: min(3vw, 14px); }
-#tab-sns .youtube-head { padding: .25em; color: white; font-size: min(3.8vw, 18px); text-align: center; }
-#tab-sns .swiper-button-prev, #tab-sns .swiper-button-next { width: clamp(36px, 5vw, 50px); height: clamp(36px, 5vw, 50px); background: linear-gradient(135deg, #2aa2fb, #0b7dd1); border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,.3); transition: transform .15s, box-shadow .15s; }
-#tab-sns .swiper-button-prev:hover, #tab-sns .swiper-button-next:hover { transform: scale(1.1); box-shadow: 0 6px 18px rgba(0,0,0,.4); }
-#tab-sns .swiper-button-next:after, #tab-sns .swiper-button-prev:after { color: white; font-size: clamp(12px, 1.8vw, 16px); font-weight: 800; }
 #sns-videoModal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); animation: fadeInSns 0.3s ease; }
 #sns-videoModal.show { display: flex; align-items: center; justify-content: center; }
 #sns-videoModal .modal-content { position: relative; width: 100%; max-width: 800px; background: #555; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: slideInSns 0.3s ease; }
@@ -255,7 +241,6 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 #tab-sns .point-list li:nth-child(2) .point-read { width: calc(100% - 390px); }
 #tab-sns .point-list li:nth-child(3) .point-read { width: calc(90% - 350px); }
 #tab-sns .point-read .txt-big { padding-top: .8em; font-size: clamp(16px, 2vw, 22px); font-weight: bold; line-height: 1.6; }
-#sns-swiper-short .swiper-slide { filter: none; }
 #tab-sns .frame-hint { overflow: hidden; background-color: #fcfcf4; background-image: url(sns_assets/images/bg_paper.png); border-left: 8px solid #ffa60b; margin-top: clamp(16px, 2vw, 24px); border-radius: 10px; }
 #tab-sns .hint-head { display: flex; align-items: center; gap: .3em; padding: .7em 1em; background-color: #fff9d6; font-size: clamp(15px, 1.8vw, 19px); color: var(--color_orange); font-weight: 700; }
 #tab-sns .hint-head i { font-size: clamp(22px, 2.8vw, 30px); }
@@ -527,14 +512,42 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   </div>
 </section>
 
-<!-- ══ 03 ショート実績（旧「BUZPOSの特徴」Point 2 から前倒し） ══ -->
+<!-- ══ 03 YouTube 横型動画の制作実績（主力。旧 sns-youtube から移植・Swiper は使わない） ══ -->
+<section class="v2-sec v2-yt" id="v2-youtube" aria-labelledby="v2-youtube-title">
+  <div class="v2-yt__bgword" aria-hidden="true">YOUTUBE</div>
+  <div class="v2-wrap" data-rail-wrap>
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">03</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">Works / YouTube</span>
+    </div>
+    <h2 class="v2-h2" id="v2-youtube-title" data-reveal="fade"><span class="v2-ib"><span class="v2-en">YouTube</span> 横型動画の</span><span class="v2-ib">制作実績</span></h2>
+    <div class="v2-yt__lead">
+      <p class="v2-yt__sub" data-reveal="split">様々なジャンルに対応可能です！</p>
+      <p class="v2-works__hint">横にスクロールできます</p>
+      <div class="v2-rail__navs">
+        <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-yt-rail" aria-label="前の制作実績">&larr;</button>
+        <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-yt-rail" aria-label="次の制作実績">&rarr;</button>
+      </div>
+    </div>
+    <ul class="v2-rail v2-yt__rail" id="v2-yt-rail" data-step="2">
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=lo7TmYzRahQ" target="_blank" rel="noopener" data-video-id="lo7TmYzRahQ" aria-label="YouTube 横型動画の制作実績 1（パーソナルジム）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_1.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">パーソナルジム</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">01<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=B2-AIgHGhnM" target="_blank" rel="noopener" data-video-id="B2-AIgHGhnM" aria-label="YouTube 横型動画の制作実績 2（体操教室）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_2.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">02<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=Yc70cQwsDDE" target="_blank" rel="noopener" data-video-id="Yc70cQwsDDE" aria-label="YouTube 横型動画の制作実績 3（体操教室）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_3.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">03<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=dWA5GpAlLwY" target="_blank" rel="noopener" data-video-id="dWA5GpAlLwY" data-noembed aria-label="YouTube 横型動画の制作実績 4（ハウスクリーニング）を YouTube で再生（新しいタブで開きます）"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_4.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ハウスクリーニング</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">04<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=MkWWzreKWcU" target="_blank" rel="noopener" data-video-id="MkWWzreKWcU" aria-label="YouTube 横型動画の制作実績 5（ホスト）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_5.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">05<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=NDG1GZrifuo" target="_blank" rel="noopener" data-video-id="NDG1GZrifuo" aria-label="YouTube 横型動画の制作実績 6（ホスト）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_6.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">06<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=HDGn0QLZoUE" target="_blank" rel="noopener" data-video-id="HDGn0QLZoUE" aria-label="YouTube 横型動画の制作実績 7（登録者200万人実業家）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_8.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者200万人実業家</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">07<i>/</i>08</span></span></a></li>
+        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=sbqcjNrODzI" target="_blank" rel="noopener" data-video-id="sbqcjNrODzI" aria-label="YouTube 横型動画の制作実績 8（登録者100万人筋肉系Youtuber）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_7.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者100万人筋肉系Youtuber</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">08<i>/</i>08</span></span></a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ══ 04 ショート実績（YouTube 横型の補助。控えめに：見出し 1 段下げ・端末枠を縮小・背景文字なし） ══ -->
 <section class="v2-sec v2-shorts" id="v2-shorts" aria-labelledby="v2-shorts-title">
-  <div class="v2-shorts__bgword" aria-hidden="true">SHORTS</div>
   <div class="v2-wrap">
     <div class="v2-sechead">
-      <span class="v2-sechead__idx">03</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">YouTube Shorts</span>
+      <span class="v2-sechead__idx">04</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">YouTube Shorts</span>
     </div>
-    <h2 class="v2-h2" id="v2-shorts-title" data-reveal="fade"><span class="v2-ib">「まず数字を作る」</span><span class="v2-ib">フェーズには、</span><br><span class="v2-ib"><span class="v2-en">Shorts</span> が</span><span class="v2-ib">最短距離</span></h2>
+    <h2 class="v2-h2 v2-h2--s" id="v2-shorts-title" data-reveal="fade"><span class="v2-ib">「まず数字を作る」</span><span class="v2-ib">フェーズには、</span><br><span class="v2-ib"><span class="v2-en">Shorts</span> が</span><span class="v2-ib">最短距離</span></h2>
     <div class="v2-shorts__grid">
       <div class="v2-shorts__body" data-reveal="fade">
         <p class="v2-body"><strong><em>新規チャンネル</em>や、<em>制作コストを抑えて</em>数字を伸ばしたい方、<em>短期間で収益化</em>したいという方には<em>YouTube Shorts</em> がおススメ！</strong><br>BUZPOSは<strong>ショート動画の企画・制作を得意</strong>としています。</p>
@@ -543,21 +556,23 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
         <h3 class="v2-h3" data-reveal="fade">BUZPOSがショートに強い理由</h3>
         <ol class="v2-reasons__list">
           <li class="v2-reason">
-            <div class="v2-reason__head"><span class="v2-reason__idx">01</span><span class="v2-reason__line"></span></div>
+            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
             <h4 class="v2-reason__t" data-reveal="split">最初の 1 秒に “何を置くか” を熟知している</h4>
           </li>
           <li class="v2-reason">
-            <div class="v2-reason__head"><span class="v2-reason__idx">02</span><span class="v2-reason__line"></span></div>
+            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
             <h4 class="v2-reason__t" data-reveal="split">最適なカット間隔やテンポの良さを演出する編集ノウハウがある</h4>
           </li>
           <li class="v2-reason">
-            <div class="v2-reason__head"><span class="v2-reason__idx">03</span><span class="v2-reason__line"></span></div>
+            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
             <h4 class="v2-reason__t" data-reveal="split">投稿後、継続してデータ取得し、最適なリメイクを行う</h4>
           </li>
         </ol>
       </div>
+    </div>
+    <div class="v2-shorts__media">
       <div class="v2-logic">
-        <h3 class="v2-h3">このロジックを詰め込んだ内容を<br>1分でご紹介</h3>
+        <h3 class="v2-h3"><span class="v2-ib">このロジックを</span><span class="v2-ib">詰め込んだ</span><span class="v2-ib">内容を</span><br>1分でご紹介</h3>
         <div class="v2-logic__frame" data-reveal="clip">
           <a class="v2-phone v2-phone--logic" href="sns_assets/images/logic.mp4" data-fullvideo="sns_assets/images/logic.mp4" aria-label="1分紹介動画をフルスクリーン再生（音あり）">
             <span class="v2-phone__screen">
@@ -569,112 +584,32 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
         </div>
         <p class="v2-logic__cta" data-fullvideo="sns_assets/images/logic.mp4"><i class="icon-touch"></i>フルスクリーン再生</p>
       </div>
-    </div>
-
-    <div class="v2-works">
-      <div class="v2-works__head">
-        <h3 class="v2-h3" data-reveal="fade">ショート動画の制作実績</h3>
-        <p class="v2-works__hint">横にスクロールできます</p>
-        <div class="v2-rail__navs">
-          <button class="v2-rail__nav" type="button" data-rail="prev" aria-label="前の制作実績">&larr;</button>
-          <button class="v2-rail__nav" type="button" data-rail="next" aria-label="次の制作実績">&rarr;</button>
+      <div class="v2-works" data-rail-wrap>
+        <div class="v2-works__head">
+          <h3 class="v2-h3" data-reveal="fade">ショート動画の制作実績</h3>
+          <p class="v2-works__hint">横にスクロールできます</p>
+          <div class="v2-rail__navs">
+            <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-rail" aria-label="前の制作実績">&larr;</button>
+            <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-rail" aria-label="次の制作実績">&rarr;</button>
+          </div>
         </div>
+        <ul class="v2-rail v2-rail--phones" id="v2-rail" data-step="3" data-center>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/stxFYOPDk3I" target="_blank" rel="noopener" data-video-id="stxFYOPDk3I" aria-label="ショート動画の制作実績 1 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_01.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/nOdT3yY4LVg" target="_blank" rel="noopener" data-video-id="nOdT3yY4LVg" aria-label="ショート動画の制作実績 2 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_02.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/6nPhyzZPY_g" target="_blank" rel="noopener" data-video-id="6nPhyzZPY_g" aria-label="ショート動画の制作実績 3 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_03.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/Msj3U1HqQ6c" target="_blank" rel="noopener" data-video-id="Msj3U1HqQ6c" aria-label="ショート動画の制作実績 4 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_04.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/5eTlWEvecO8" target="_blank" rel="noopener" data-video-id="5eTlWEvecO8" aria-label="ショート動画の制作実績 5 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_05.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/XzfTtU5OO5Y" target="_blank" rel="noopener" data-video-id="XzfTtU5OO5Y" aria-label="ショート動画の制作実績 6 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_06.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/91TJejM9j6A" target="_blank" rel="noopener" data-video-id="91TJejM9j6A" aria-label="ショート動画の制作実績 7 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_07.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
+        </ul>
+        <p class="v2-works__foot"><i class="icon-touch"></i>フルスクリーン再生</p>
       </div>
-      <ul class="v2-rail" id="v2-rail">
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/stxFYOPDk3I" target="_blank" rel="noopener" data-video-id="stxFYOPDk3I" aria-label="ショート動画の制作実績 1 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_01.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/nOdT3yY4LVg" target="_blank" rel="noopener" data-video-id="nOdT3yY4LVg" aria-label="ショート動画の制作実績 2 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_02.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/6nPhyzZPY_g" target="_blank" rel="noopener" data-video-id="6nPhyzZPY_g" aria-label="ショート動画の制作実績 3 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_03.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/Msj3U1HqQ6c" target="_blank" rel="noopener" data-video-id="Msj3U1HqQ6c" aria-label="ショート動画の制作実績 4 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_04.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/5eTlWEvecO8" target="_blank" rel="noopener" data-video-id="5eTlWEvecO8" aria-label="ショート動画の制作実績 5 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_05.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/XzfTtU5OO5Y" target="_blank" rel="noopener" data-video-id="XzfTtU5OO5Y" aria-label="ショート動画の制作実績 6 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_06.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/91TJejM9j6A" target="_blank" rel="noopener" data-video-id="91TJejM9j6A" aria-label="ショート動画の制作実績 7 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_07.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-      </ul>
-      <p class="v2-works__foot"><i class="icon-touch"></i>フルスクリーン再生</p>
     </div>
   </div>
 </section>
 
 <!-- ══ 以降は現行の SNS セクション（第2段以降で順次作り直す） ══ -->
 <div id="tab-sns" class="v2-legacy">
-        <!-- Youtube実績 -->
-        <section id="sns-youtube">
-            <h2><figure class="tit-youtube-achievement"><img width="418" height="150" loading="lazy" src="sns_assets/images/tit_youtube_achievement.png" alt="Youtube制作実績"></figure></h2>
-            <div id="sns-swiper-youtube" class="swiper">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide" data-video-id="lo7TmYzRahQ">
-                        <p class="youtube-head">パーソナルジム</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_1.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="B2-AIgHGhnM">
-                        <p class="youtube-head">体操教室</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_2.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="Yc70cQwsDDE">
-                        <p class="youtube-head">体操教室</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_3.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="dWA5GpAlLwY">
-                        <p class="youtube-head">ハウスクリーニング</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_4.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="MkWWzreKWcU">
-                        <p class="youtube-head">ホスト</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_5.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="NDG1GZrifuo">
-                        <p class="youtube-head">ホスト</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_6.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画撮影</li>
-                            <li>動画編集</li>
-                            <li>企画</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="HDGn0QLZoUE">
-                        <p class="youtube-head">登録者200万人実業家</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_8.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画制作</li>
-                        </ul>
-                    </div>
-                    <div class="swiper-slide" data-video-id="sbqcjNrODzI">
-                        <p class="youtube-head">登録者100万人筋肉系Youtuber</p>
-                        <figure class="youtube-thumb"><img width="454" height="255" loading="lazy" src="sns_assets/images/img_youtube_achievement_7.webp"></figure>
-                        <ul class="youtube-works">
-                            <li>動画制作</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </section>
-
         <!-- 運用実績 -->
         <section id="sns-performance-result" class="content-wrap padding-section bg-blue">
             <h2><figure class="tit-performance-result"><img width="206" height="81" loading="lazy" src="sns_assets/images/tit_performance_result.png" alt="運用実績"></figure></h2>
@@ -1210,28 +1145,16 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   <a class="v2-linebar__form" href="#sns-contact">フォームで相談</a>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 <script>
 // ══ SNS（旧 SNS タブの初期化スクリプトを移植）══
-// 変更点：タブ切替なしで読み込み時に初期化／ショート動画の Swiper・クリックと logic.mp4 は新セクション（motion.js）へ移設／
+// 変更点：タブ切替なしで読み込み時に初期化／YouTube 横型・ショート動画のレールとクリック、logic.mp4 は新セクション（motion.js）へ移設
+//         （旧 sns-youtube の Swiper は第1b段で撤去。Swiper はどのセクションでも使わないので CDN の読み込みも外した）／
 //         openSnsModal を window に公開（ショートは縦長の modal-short で開く）／
 //         既存の中央寄せ CSS（#sns-videoModal.show）が効くよう .show を付与し、閉じるボタン（.close）を追加
 var snsTabInited = false;
 function initSnsTab() {
   if (snsTabInited) return;
   snsTabInited = true;
-
-  // Swiper: YouTube実績
-  if (typeof Swiper === 'function') {
-    new Swiper('#sns-swiper-youtube', {
-      slidesPerView: 1.2,
-      spaceBetween: 16,
-      centeredSlides: true,
-      loop: true,
-      navigation: { nextEl: '#sns-swiper-youtube .swiper-button-next', prevEl: '#sns-swiper-youtube .swiper-button-prev' },
-      breakpoints: { 768: { slidesPerView: 2.2 }, 1024: { slidesPerView: 3, centeredSlides: false } }
-    });
-  }
 
   // YouTube動画モーダル
   var modal = document.getElementById('sns-videoModal');
@@ -1257,16 +1180,8 @@ function initSnsTab() {
   window.openSnsModal = openSnsModal;
   window.closeSnsModal = closeSnsModal;
 
-  // YouTube サムネイルクリック
+  // YouTube 横型・ショートのサムネイルのクリックは新セクション（motion.js）で openSnsModal を呼ぶ
   var snsTab = document.getElementById('tab-sns');
-  snsTab.querySelectorAll('#sns-swiper-youtube .swiper-slide').forEach(function(slide) {
-    slide.style.cursor = 'pointer';
-    slide.addEventListener('click', function() {
-      var videoId = slide.dataset.videoId;
-      var head = slide.querySelector('.youtube-head');
-      if (videoId) openSnsModal(videoId, head ? head.textContent : '');
-    });
-  });
 
   // モーダル閉じる
   if (modal) {

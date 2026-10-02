@@ -1,4 +1,5 @@
-/* BUZPOS SNS運用代行 LP v2 — 第1段の動き（GSAP 3.13 + ScrollTrigger / jsdelivr）
+/* BUZPOS SNS運用代行 LP v2 — 第1段・第1b段の動き（GSAP 3.13 + ScrollTrigger / jsdelivr）
+   - 第1b段：03 = YouTube 横型の制作実績（背景「YOUTUBE」の scrub）、04 = ショート（背景文字なし）
    - hero の 0〜2.3 秒は CSS keyframes のみ（このファイルは関与しない）
    - GSAP が無い・失敗した時は .js を外して中身を全部見せる
    - prefers-reduced-motion: reduce の時は GSAP で何もしない */
@@ -78,35 +79,41 @@
     }).observe(ticker);
   }
 
-  /* ---------- 実績レール：SP は中央の 1 台だけ強調、PC は矢印で送る ---------- */
-  function initRail() {
-    var rail = $('#v2-rail');
-    if (!rail) return;
-    var items = $$('.v2-rail__item', rail);
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) { e.target.classList.toggle('is-center', e.isIntersecting); });
-      }, { root: rail, rootMargin: '0px -45% 0px -45%', threshold: 0 });
-      items.forEach(function (it) { io.observe(it); });
-    }
-    var prev = $('[data-rail="prev"]');
-    var next = $('[data-rail="next"]');
-    function step() {
-      var it = items[0];
-      if (!it) return 300;
-      var gap = parseFloat(getComputedStyle(rail).columnGap) || 24;
-      return (it.getBoundingClientRect().width + gap) * 2;
-    }
-    function state() {
-      var max = rail.scrollWidth - rail.clientWidth - 2;
-      if (prev) prev.disabled = rail.scrollLeft <= 2;
-      if (next) next.disabled = rail.scrollLeft >= max;
-    }
-    if (prev) prev.addEventListener('click', function () { rail.scrollBy({ left: -step(), behavior: (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') }); });
-    if (next) next.addEventListener('click', function () { rail.scrollBy({ left: step(), behavior: (window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth') }); });
-    rail.addEventListener('scroll', state, { passive: true });
-    window.addEventListener('resize', state);
-    state();
+  /* ---------- 実績レール（YouTube 横型・ショート共用）：PC は矢印で送る。data-center のレールは SP で中央の 1 台だけ強調 ---------- */
+  function initRails() {
+    $$('.v2-rail').forEach(function (rail) {
+      var items = $$('.v2-rail__item', rail);
+      if (rail.hasAttribute('data-center') && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { e.target.classList.toggle('is-center', e.isIntersecting); });
+        }, { root: rail, rootMargin: '0px -45% 0px -45%', threshold: 0 });
+        items.forEach(function (it) { io.observe(it); });
+      }
+      var prev = rail.id ? $('[data-rail="prev"][aria-controls="' + rail.id + '"]') : null;
+      var next = rail.id ? $('[data-rail="next"][aria-controls="' + rail.id + '"]') : null;
+      var wrap = rail.closest('[data-rail-wrap]');
+      var per = parseInt(rail.getAttribute('data-step') || '2', 10) || 2;
+      function step() {
+        var it = items[0];
+        if (!it) return 300;
+        var gap = parseFloat(getComputedStyle(rail).columnGap) || 24;
+        return (it.getBoundingClientRect().width + gap) * per;
+      }
+      function state() {
+        var max = rail.scrollWidth - rail.clientWidth - 2;
+        if (prev) prev.disabled = rail.scrollLeft <= 2;
+        if (next) next.disabled = rail.scrollLeft >= max;
+        if (wrap) wrap.classList.toggle('is-fit', max <= 0);
+      }
+      function go(dir) {
+        rail.scrollBy({ left: dir * step(), behavior: (mqReduce.matches ? 'auto' : 'smooth') });
+      }
+      if (prev) prev.addEventListener('click', function () { go(-1); });
+      if (next) next.addEventListener('click', function () { go(1); });
+      rail.addEventListener('scroll', state, { passive: true });
+      window.addEventListener('resize', state);
+      state();
+    });
   }
 
   /* ---------- 端末枠の自動再生：可視 50% 以上で play、外れたら pause。同時再生 SP 1 本 / PC 2 本 ---------- */
@@ -172,6 +179,17 @@
 
   /* ---------- タップ再生：ショートは既存の YouTube ライトボックス、1 分紹介は音ありフルスクリーン ---------- */
   function initPlayers() {
+    /* YouTube 横型：旧 sns-youtube と同じ 16:9 のライトボックス（タイトルはジャンル名）。
+       data-noembed のカード（所有者が埋め込みを無効にしている動画。oEmbed 401）はライトボックスを開かず、
+       href の YouTube を新しいタブで開く */
+    $$('.v2-yt__card[data-video-id]:not([data-noembed])').forEach(function (el) {
+      el.addEventListener('click', function (ev) {
+        if (typeof window.openSnsModal !== 'function') return; /* 失敗時は YouTube へのリンクとして動く */
+        ev.preventDefault();
+        var g = $('.v2-yt__genre', el);
+        window.openSnsModal(el.getAttribute('data-video-id'), g ? g.textContent : '', false);
+      });
+    });
     $$('.v2-phone[data-video-id]').forEach(function (el) {
       el.addEventListener('click', function (ev) {
         if (typeof window.openSnsModal !== 'function') return; /* 失敗時は YouTube へのリンクとして動く */
@@ -246,8 +264,17 @@
     } else {
       parts = Array.from(text);
     }
-    el.setAttribute('aria-label', text.replace(/\s+/g, ' ').trim());
+    var label = text.replace(/\s+/g, ' ').trim();
     var frag = d.createDocumentFragment();
+    /* 見出しは aria-label で全文を持たせる。<p> などは aria-label が読まれないので、読み上げ用の全文を別に置く */
+    if (/^H[1-6]$/.test(el.tagName)) {
+      el.setAttribute('aria-label', label);
+    } else {
+      var sr = d.createElement('span');
+      sr.className = 'v2-sr';
+      sr.textContent = label;
+      frag.appendChild(sr);
+    }
     var box = d.createElement('span');
     box.setAttribute('aria-hidden', 'true');
     parts.forEach(function (ch) {
@@ -376,14 +403,14 @@
         });
       }
 
-      /* 「SHORTS」背景文字：セクション全長で +6vw → -18vw */
-      var shorts = $('#v2-shorts');
-      var word = $('.v2-shorts__bgword');
-      if (shorts && word) {
+      /* 「YOUTUBE」背景文字：セクション全長で +6vw → -18vw（scrub はこれと hero 離脱の 2 本だけ） */
+      var ytSec = $('#v2-youtube');
+      var word = $('.v2-yt__bgword');
+      if (ytSec && word) {
         gsap.fromTo(word,
           { x: function () { return window.innerWidth * 0.06; } },
           { x: function () { return window.innerWidth * -0.18; }, ease: 'none',
-            scrollTrigger: { trigger: shorts, start: 'top bottom', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
+            scrollTrigger: { trigger: ytSec, start: 'top bottom', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
       }
 
       if (!revealAlive) return; /* 安全タイマーで .js が外れた後は出現演出をしない（見えている中身を隠さない） */
@@ -427,10 +454,19 @@
         }
       });
 
-      /* 端末枠の入場：viewport 70% で clip-path、左から stagger .08s */
-      var rail = $('#v2-rail');
-      if (rail) {
-        var railItems = $$('.v2-rail__item', rail);
+      /* 1 文字 split-reveal（強い理由以外：YouTube のサブコピーなど） */
+      $$('[data-reveal="split"]').forEach(function (el) {
+        if (el.closest('.v2-reason')) return;
+        var cs = splitGraphemes(el);
+        var tl3 = gsap.timeline({ scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
+        tl3.set(el, { opacity: 1 }, 0);
+        tl3.fromTo(cs, { yPercent: 110 }, { yPercent: 0, duration: 0.8, ease: expo, stagger: 0.025, clearProps: 'transform' }, 0);
+      });
+
+      /* カード・端末枠の入場（YouTube 横型・ショート共通）：viewport 70% で clip-path、左から stagger .08s */
+      $$('.v2-rail').forEach(function (rail) {
+        var railItems = $$('.v2-rail__item[data-reveal="rail"]', rail);
+        if (!railItems.length) return;
         gsap.set(railItems, { opacity: 1, clipPath: 'inset(0 100% 0 0)' });
         ST.create({
           trigger: rail, start: 'top 70%', once: true,
@@ -438,7 +474,7 @@
             gsap.to(railItems, { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: expo, stagger: 0.08, clearProps: 'clipPath' });
           }
         });
-      }
+      });
       var logic = $('[data-reveal="clip"]');
       if (logic) {
         gsap.fromTo(logic, { opacity: 1, clipPath: 'inset(0 100% 0 0)' },
@@ -513,7 +549,7 @@
     initHeader();
     initLineBar();
     initTickerIO();
-    initRail();
+    initRails();
     initVideos();
     initPlayers();
     try {

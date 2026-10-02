@@ -1,5 +1,6 @@
 /* ==========================================================================
    BUZPOS SNS運用代行 LP v2 — 第1段（hero / ティッカー＋5社限定 / ショート実績）
+   第1b段：03 を YouTube 横型の制作実績（主力）に、ショートは 04 へ移して控えめに
    色はすべて現行 index.html の値を継承（新色なし）
      --v2-blue       #009fe8  … 現行 #tab-sns --color_blue（hero 背景）
      --v2-blue-dark  #0b7dd1  … 現行 #tab-sns --color_dark_blue
@@ -309,8 +310,8 @@
   height: auto;
   animation: v2-float 6s ease-in-out infinite;
 }
-.v2-hero__icon--yt { width: 96px; right: 4%; top: 44%; animation-delay: -1s; }
-.v2-hero__icon--tt { width: 56px; left: 4%; top: 12%; animation-delay: -3s; }
+.v2-hero__icon--yt { width: 110px; right: 4%; top: 44%; animation-delay: -1s; } /* 第1b段：96px × 1.15 */
+.v2-hero__icon--tt { width: 48px; left: 4%; top: 12%; animation-delay: -3s; } /* 第1b段：56px × .85 */
 .v2-hero__icon--ig { width: 76px; left: -2%; top: 60%; animation-delay: -5s; }
 
 .v2-sechead--hero { color: var(--v2-white); margin-bottom: clamp(10px, 1.8vh, 20px); animation: v2-fade .5s linear .05s both; }
@@ -636,17 +637,19 @@
 .js .v2-marker { background-size: 0% 6px; }
 
 /* ==========================================================================
-   03 ショート実績（前倒し）
+   03 YouTube 横型動画の制作実績（主力。旧 sns-youtube の 8 本をネイティブ scroll-snap で）
    ========================================================================== */
-.v2-shorts {
-  background: var(--v2-gray);
-  padding: clamp(72px, 9vw, 150px) 0 clamp(72px, 9vw, 140px);
+.v2-yt {
+  background: var(--v2-blue);
+  color: var(--v2-white);
+  padding: clamp(72px, 9vw, 150px) 0 clamp(56px, 7vw, 120px);
   z-index: 1;
 }
-.v2-shorts__bgword {
+/* 背景のアウトライン文字（セクション全長で +6vw → -18vw の scrub。ページ内の scrub は hero 離脱とこれの 2 本だけ） */
+.v2-yt__bgword {
   position: absolute;
   z-index: 0;
-  top: clamp(40px, 5vw, 80px);
+  top: clamp(90px, 9vw, 140px);
   left: 0;
   font-family: var(--v2-anton);
   font-size: 22vw;
@@ -654,29 +657,146 @@
   letter-spacing: .01em;
   white-space: nowrap;
   color: transparent;
-  -webkit-text-stroke: 1px var(--v2-dark);
-  opacity: .22;
+  -webkit-text-stroke: 1px var(--v2-white);
+  opacity: .4;
   transform: translateX(6vw);
   pointer-events: none;
   user-select: none;
 }
-.v2-shorts .v2-wrap { z-index: 1; }
+.v2-yt .v2-wrap { z-index: 1; }
+.v2-yt .v2-sechead { color: var(--v2-white); }
+.v2-yt .v2-h2 { color: var(--v2-white); }
+.v2-yt .v2-h2 .v2-en { color: var(--v2-yellow); }
+.v2-yt__lead {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px 24px;
+  margin-top: clamp(14px, 1.6vw, 22px);
+}
+.v2-yt__sub {
+  margin-right: auto;
+  font-weight: 900;
+  font-size: clamp(16px, 1.6vw, 22px);
+  line-height: 1.5;
+  letter-spacing: .04em;
+  font-feature-settings: "palt";
+}
+.v2-yt .v2-works__hint { color: var(--v2-white); }
+.v2-yt .v2-rail__nav { border-color: var(--v2-white); color: var(--v2-white); }
+.v2-yt .v2-rail__nav:hover { background: var(--v2-white); color: var(--v2-blue); }
+.v2-yt .v2-yt__rail { --pw: clamp(300px, 34vw, 520px); padding-bottom: 8px; }
+
+.v2-yt__card {
+  display: block;
+  color: var(--v2-white);
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.v2-yt__card:focus-visible { outline: 3px solid var(--v2-yellow); outline-offset: 3px; }
+.v2-yt__thumb {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: var(--v2-dark);
+  transform: translateZ(0);
+  isolation: isolate;
+}
+.v2-yt__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--v2-expo);
+}
+.v2-yt__play {
+  position: absolute;
+  z-index: 2;
+  right: 12px;
+  bottom: 12px;
+  display: grid;
+  place-items: center;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 29, 47, .72);
+}
+.v2-yt__play::before {
+  content: "";
+  display: block;
+  width: 0; height: 0;
+  margin-left: 4px;
+  border-style: solid;
+  border-width: 9px 0 9px 15px;
+  border-color: transparent transparent transparent var(--v2-white);
+}
+/* カード下：左下に白い角丸なしチップ（ジャンル）、その下に役割（Space Mono 11px）、右下に「01 / 08」 */
+.v2-yt__meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.v2-yt__info { display: block; min-width: 0; }
+.v2-yt__genre {
+  display: inline-block;
+  max-width: 100%;
+  padding: 9px 14px 10px;
+  border-radius: 0;
+  background: var(--v2-white);
+  color: var(--v2-dark);
+  font-weight: 900;
+  font-size: 15px;
+  line-height: 1.25;
+  letter-spacing: .02em;
+  font-feature-settings: "palt";
+}
+.v2-yt__roles {
+  display: block;
+  margin-top: 8px;
+  font-family: "Space Mono", "Noto Sans JP", ui-monospace, monospace;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .06em;
+}
+.v2-yt__count {
+  flex: none;
+  padding-top: 10px;
+  font-family: var(--v2-anton);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+}
+.v2-yt__count i { font-style: normal; margin: 0 .28em; opacity: .55; }
+@media (hover: hover) and (pointer: fine) {
+  .v2-yt__card:hover .v2-yt__thumb img { transform: scale(1.04); }
+}
+
+/* ==========================================================================
+   04 ショート実績（YouTube 横型の補助。見出し 1 段下げ・端末枠を縮小・背景文字なし）
+   ========================================================================== */
+.v2-shorts {
+  background: var(--v2-gray);
+  padding: clamp(64px, 7vw, 112px) 0 clamp(64px, 7vw, 112px);
+  z-index: 1;
+}
+.v2-h2--s { font-size: clamp(24px, 3.6vw, 48px); line-height: 1.15; }
+/* 本文（左）と「強い理由」3 点（右）を 1 ブロックに */
 .v2-shorts__grid {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   column-gap: var(--v2-gap);
-  grid-template-areas:
-    "body body body body body body body . logic logic logic logic"
-    "rsn  rsn  rsn  rsn  rsn  rsn  rsn  . logic logic logic logic";
-  grid-template-rows: auto 1fr;
-  margin-top: clamp(32px, 4vw, 56px);
+  align-items: start;
+  margin-top: clamp(24px, 3vw, 40px);
 }
-.v2-shorts__body { grid-area: body; }
-.v2-reasons { grid-area: rsn; margin-top: clamp(40px, 4vw, 64px); }
-.v2-logic { grid-area: logic; align-self: start; }
+.v2-shorts__body { grid-column: 1 / span 5; }
+.v2-reasons { grid-column: 7 / span 6; }
 
 .v2-body {
   max-width: 38em;
+  word-break: auto-phrase;
   font-weight: 400;
   font-size: clamp(15px, 1.2vw, 17px);
   line-height: 1.95;
@@ -685,31 +805,36 @@
 .v2-body strong { font-weight: 700; }
 .v2-body em { font-style: normal; font-weight: 700; color: var(--v2-orange); }
 
-.v2-reasons__list { list-style: none; margin-top: 20px; }
-.v2-reason { padding: 18px 0 20px; }
-.v2-reason__head { display: flex; align-items: center; gap: 14px; }
+.v2-reasons .v2-h3 { font-size: clamp(17px, 1.5vw, 21px); }
+.v2-reasons__list { list-style: none; margin-top: 10px; }
+.v2-reason {
+  position: relative;
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  align-items: baseline;
+  padding: 13px 0 12px;
+}
+.v2-reason__line {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: rgba(15, 29, 47, .35);
+  transform-origin: left center;
+}
 .v2-reason__idx {
-  flex: none;
   font-family: var(--v2-barlow);
   font-weight: 800;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
   letter-spacing: .18em;
   color: var(--v2-blue-dark);
 }
-.v2-reason__line {
-  flex: 1 1 auto;
-  height: 1px;
-  background: var(--v2-dark);
-  opacity: .35;
-  transform-origin: left center;
-}
 .v2-reason__t {
-  margin-top: 14px;
+  margin: 0;
   font-family: var(--v2-jp);
   font-weight: 900;
-  font-size: clamp(19px, 1.8vw, 26px);
-  line-height: 1.45;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.5;
   letter-spacing: -.01em;
   font-feature-settings: "palt";
   color: var(--v2-dark);
@@ -718,8 +843,16 @@
 .v2-split__m { display: inline-block; clip-path: inset(-.3em -.1em 0 -.1em); }
 .v2-split__c { display: inline-block; }
 
-/* 実績レール（ネイティブ scroll-snap。Swiper 不使用） */
-.v2-works { margin-top: clamp(64px, 8vw, 120px); }
+/* 1 分紹介（左）＋ ショート 7 本のレール（右） */
+.v2-shorts__media {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  column-gap: clamp(32px, 4vw, 64px);
+  align-items: center;
+  margin-top: clamp(40px, 5vw, 72px);
+}
+
+/* 実績レール（ネイティブ scroll-snap。Swiper 不使用。YouTube 横型とショートで共用） */
 .v2-works__head { display: flex; align-items: flex-end; gap: 16px 24px; }
 .v2-works__head .v2-h3 { margin-right: auto; }
 .v2-works__hint {
@@ -745,8 +878,10 @@
 }
 .v2-rail__nav:hover { background: var(--v2-dark); color: var(--v2-white); }
 .v2-rail__nav[disabled] { opacity: .3; cursor: default; pointer-events: none; }
+/* 全部が 1 画面に収まる幅では「横にスクロールできます」と矢印を出さない（motion.js が .is-fit を付ける） */
+.is-fit .v2-works__hint, .is-fit .v2-rail__navs { display: none; }
 .v2-rail {
-  --pw: clamp(200px, 17vw, 250px);
+  --pw: 140px;
   display: flex;
   gap: var(--v2-gap);
   list-style: none;
@@ -762,6 +897,15 @@
 }
 .v2-rail::-webkit-scrollbar { display: none; }
 .v2-rail__item { flex: 0 0 var(--pw); scroll-snap-align: start; }
+/* ショートの見出し行は右列で幅が狭いので、1100px 以下は見出しを 1 行目、ヒントと矢印を 2 行目に */
+@media (max-width: 1100px) and (min-width: 751px) {
+  .v2-shorts .v2-works__head { flex-wrap: wrap; align-items: center; }
+  .v2-shorts .v2-works__head .v2-h3 { flex: 1 0 100%; }
+  .v2-shorts .v2-works__hint { margin-right: auto; }
+}
+.v2-works__hint { white-space: nowrap; }
+/* ショートのレールは右列に置くので左へははみ出さず、右端だけ画面端まで流す */
+.v2-shorts .v2-rail { margin-left: 0; padding-left: 0; scroll-padding-inline: 0 var(--v2-gutter); }
 .v2-works__foot {
   margin-top: 4px;
   font-size: 13px;
@@ -770,12 +914,13 @@
   text-align: center;
 }
 
-/* 縦型端末枠（CSS だけで描画） */
+/* 縦型端末枠（CSS だけで描画）。--bz ベゼル / --r 外 / --ri 内（既定は第1段の 10 / 44 / 36px） */
 .v2-phone {
+  --bz: 10px; --r: 44px; --ri: 36px;
   position: relative;
   display: block;
-  padding: 10px;
-  border-radius: 44px;
+  padding: var(--bz);
+  border-radius: var(--r);
   background: var(--v2-dark);
   color: var(--v2-white);
   text-decoration: none;
@@ -788,10 +933,10 @@
   content: "";
   position: absolute;
   z-index: 3;
-  top: 20px;
+  top: calc(var(--bz) * 2);
   left: 50%;
   width: 30%;
-  height: 16px;
+  height: calc(var(--bz) * 1.6);
   border-radius: 999px;
   background: var(--v2-dark);
   transform: translateX(-50%);
@@ -800,7 +945,7 @@
   position: relative;
   display: block;
   overflow: hidden;
-  border-radius: 36px;
+  border-radius: var(--ri);
   aspect-ratio: 482 / 806;
   background: var(--v2-dark);
   transform: translateZ(0);
@@ -814,14 +959,16 @@
   height: 100%;
   object-fit: cover;
 }
+/* 140px の端末枠：角丸とベゼルも同じ比率で縮める（250px 時の 10 / 44 / 36 → 6 / 26 / 20） */
+.v2-rail--phones .v2-phone { --bz: 6px; --r: 26px; --ri: 20px; }
 .v2-phone__badge {
   position: absolute;
   z-index: 2;
-  right: 16px;
-  bottom: 16px;
+  right: 12px;
+  bottom: 12px;
   display: grid;
   place-items: center;
-  width: 44px; height: 44px;
+  width: 34px; height: 34px;
   border-radius: 50%;
   background: rgba(15, 29, 47, .72);
 }
@@ -829,9 +976,9 @@
   content: "";
   display: block;
   width: 0; height: 0;
-  margin-left: 4px;
+  margin-left: 3px;
   border-style: solid;
-  border-width: 8px 0 8px 13px;
+  border-width: 6px 0 6px 10px;
   border-color: transparent transparent transparent var(--v2-white);
 }
 @media (hover: hover) and (pointer: fine) {
@@ -839,10 +986,12 @@
 }
 
 .v2-logic { text-align: center; }
-.v2-logic .v2-h3 { font-size: clamp(18px, 1.6vw, 22px); }
+.v2-logic .v2-h3 { font-size: clamp(16px, 1.3vw, 18px); }
+/* 1 分紹介の端末：300px → 233px（レールの端末と同じ比率で縮小） */
 .v2-phone--logic {
-  width: min(100%, 300px);
-  margin: 20px auto 0;
+  --bz: 7px; --r: 30px; --ri: 24px;
+  width: min(100%, 180px);
+  margin: 16px auto 0;
 }
 .v2-phone--logic .v2-phone__screen { aspect-ratio: 9 / 16; }
 .v2-phone__video { opacity: 0; transition: opacity .4s ease; }
@@ -864,7 +1013,7 @@
   display: inline-flex;
   align-items: center;
   gap: .4em;
-  margin-top: 14px;
+  margin-top: 12px;
   font-size: 14px;
   font-weight: 700;
   color: var(--v2-blue-dark);
@@ -974,8 +1123,8 @@
     container-type: normal;
   }
   .v2-hero__photo { right: 0; height: 105%; }
-  .v2-hero__icon--yt { width: 60px; right: auto; left: -16%; top: 16%; }
-  .v2-hero__icon--tt { width: 38px; left: 70%; top: -2%; }
+  .v2-hero__icon--yt { width: 69px; right: auto; left: -16%; top: 16%; } /* 60px × 1.15 */
+  .v2-hero__icon--tt { width: 32px; left: 70%; top: -2%; } /* 38px × .85 */
   .v2-hero__icon--ig { width: 48px; left: -12%; top: 40%; }
   .v2-hero__swirl { top: calc(var(--v2-header-h) + 30vh); right: -6vw; width: 52vw; opacity: .9; }
   .v2-hero__scroll { display: none; }
@@ -988,7 +1137,7 @@
   .v2-limit__read { margin-top: 28px; padding-bottom: 0; }
 
   .v2-shorts__grid { display: block; }
-  .v2-logic { margin-top: clamp(56px, 12vw, 96px); }
+  .v2-reasons { margin-top: clamp(28px, 5vw, 40px); }
 }
 @media (min-width: 751px) and (max-width: 899px) {
   .v2-hero__visual { width: 46%; }
@@ -1055,17 +1204,41 @@
   .v2-works__head { display: block; }
   .v2-rail__navs { display: none; }
   .v2-works__hint { margin-top: 8px; }
-  .v2-rail {
-    --pw: 62vw;
-    padding-inline: 19vw;
+
+  /* YouTube 横型（主力）：カード 84vw（仕様の 78vw から拡大。ショートより大きく見せる）、次の 1 枚が右に約 30px 覗く */
+  .v2-yt__lead { display: block; }
+  .v2-yt .v2-yt__rail { --pw: 84vw; }
+  .v2-yt__genre { padding: 8px 12px 9px; font-size: 15px; }
+  .v2-yt__count { font-size: 22px; }
+  .v2-yt__play { width: 40px; height: 40px; right: 10px; bottom: 10px; }
+  .v2-yt__play::before { border-width: 8px 0 8px 13px; margin-left: 3px; }
+
+  /* ショート（補助）：縦積み。中央の 1 台 46vw（仕様の 60vw から縮小。両隣は .96 / .7 で左右に約 2 割ずつ覗く）、
+     1 分紹介も同じ比率で 49vw → 38vw */
+  .v2-shorts__media { display: block; }
+  .v2-works { margin-top: clamp(40px, 10vw, 56px); }
+  .v2-shorts .v2-rail--phones {
+    --pw: 46vw;
+    margin-left: calc(-1 * var(--v2-gutter));
+    padding-inline: 27vw;
     scroll-padding-inline: 0;
   }
-  .v2-rail__item { scroll-snap-align: center; }
-  .v2-rail__item .v2-phone { transform: translateZ(0) scale(.96); opacity: .7; }
-  .v2-rail__item.is-center .v2-phone { transform: translateZ(0) scale(1); opacity: 1; }
-  .v2-phone { border-radius: 40px; }
-  .v2-phone__screen { border-radius: 32px; }
-  .v2-phone--logic { width: 64vw; }
+  .v2-rail--phones .v2-rail__item { scroll-snap-align: center; }
+  .v2-rail--phones .v2-rail__item .v2-phone { transform: translateZ(0) scale(.96); opacity: .7; }
+  .v2-rail--phones .v2-rail__item.is-center .v2-phone { transform: translateZ(0) scale(1); opacity: 1; }
+  .v2-rail--phones .v2-phone { --bz: 7px; --r: 30px; --ri: 24px; }
+  .v2-phone--logic { --bz: 6px; --r: 26px; --ri: 20px; width: 38vw; margin: 0; }
+  /* 1 分紹介は端末（左）と見出し・再生ボタン（右）を横並びにして縦の占有を抑える */
+  .v2-logic {
+    display: grid;
+    grid-template-columns: 38vw minmax(0, 1fr);
+    grid-template-rows: 1fr auto 1fr;
+    column-gap: 16px;
+    text-align: left;
+  }
+  .v2-logic__frame { grid-column: 1; grid-row: 1 / span 3; }
+  .v2-logic .v2-h3 { grid-column: 2; grid-row: 2; font-size: 16px; }
+  .v2-logic__cta { grid-column: 2; grid-row: 3; align-self: start; }
 }
 @media (max-width: 359px) {
   .v2-stat__jp { font-size: 26px; }
