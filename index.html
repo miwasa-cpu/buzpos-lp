@@ -23,14 +23,16 @@
   window.__motionTimer = setTimeout(function () { if (!window.__motionReady) h.classList.remove('js'); }, 3000);
 })(document.documentElement);
 </script>
-<title>BUZPOS｜完全成果報酬型のSNS運用代行</title>
-<meta name="description" content="SNS運用会社では珍しい完全成果報酬型のSNS運用代行。SNS登録者数100万人のインフルエンサーが企画・立案・構成。求人・集客にもう困らない！BUZPOS（バズポス）">
-<meta name="keywords" content="BUZPOS,バズポス,SNS運用代行,完全成果報酬型,YouTube Shorts,ショート動画,TikTok,動画制作">
-<meta property="og:title" content="BUZPOS｜完全成果報酬型のSNS運用代行">
-<meta property="og:description" content="SNS運用会社では珍しい完全成果報酬型。SNS登録者数100万人のインフルエンサーが企画・立案・構成。">
+<title>BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行</title>
+<meta name="description" content="横型YouTubeの制作から、LINEで問い合わせを受けるところまで。どの動画から何件の問い合わせが出たかを、毎月お渡しします。">
+<meta name="keywords" content="BUZPOS,バズポス,SNS運用代行,YouTube,横型動画,ショート動画,動画制作,LINE">
+<meta property="og:title" content="BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行">
+<meta property="og:description" content="横型YouTubeの制作から、LINEで問い合わせを受けるところまで。どの動画から何件の問い合わせが出たかを、毎月お渡しします。">
 <meta property="og:url" content="https://buzpos-lp.pages.dev/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://buzpos-lp.pages.dev/sns_assets/images/og_img.png">
+<meta property="og:image" content="https://buzpos-lp.pages.dev/sns_assets/images/og_img_v2.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
@@ -43,7 +45,7 @@
 <link rel="preload" as="image" href="sns_assets/images/fv_img_person_20250710.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
-/* ══ 旧 SNS タブから移植した CSS（sns-performance-result〜sns-contact・フッター・モーダルで使うルールだけ。現行 index.html の inline style から機械抽出） ══ */
+/* ══ 共通の土台（リセット・:root・フッター・アイコンフォント・動画ライトボックス）。旧タブから移植した各セクション用 CSS は第2段で削除 ══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
   --teal:       #00b4c6;
@@ -76,7 +78,7 @@
   --font-display: "Barlow Condensed", "Noto Sans JP", sans-serif;
   --font-mono: "Space Mono", "Menlo", monospace;
 }
-html { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+html { -webkit-overflow-scrolling: touch; } /* scroll-behavior: smooth は ScrollTrigger の refresh と競合し #sns-contact 着地が途中で止まるので外した。ページ内リンクは motion.js が smooth にする */
 body {
   font-family: "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
   background: var(--bg);
@@ -87,10 +89,7 @@ body {
 }
 a, button, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 input, select, textarea { font-size: 1rem; }
-.faq-list { display: flex; flex-direction: column; gap: 8px; }
 footer { background: var(--dark); color: rgba(255,255,255,.45); text-align: center; padding: 24px 20px calc(24px + env(safe-area-inset-bottom)); font-size: .78rem; }
-.tab-content { display: none; }
-.tab-content.active { display: block; }
 html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 @media (prefers-reduced-motion:reduce) {
   *,*::before,*::after { animation-duration:.01ms!important; animation-iteration-count:1!important; transition-duration:.01ms!important; }
@@ -117,67 +116,6 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 .icon-touch:before { font-size: min(5vw, 24px); content: "\e902"; }
 .icon-x:before { content: "\e903"; }
 .icon-youtube:before { content: "\e904"; }
-#tab-sns img { width: 100%; height: auto; }
-#tab-sns {
-  --color_text: #232323;
-  --color_blue: #009fe8;
-  --color_dark_blue: #0b7dd1;
-  --color_orange: #ff7e00;
-  --color_yellow: #ffee49;
-  --font_anton: "Anton", sans-serif;
-  --sns-base: clamp(13px, 1.8vw, 16px);
-  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  font-size: var(--sns-base);
-  line-height: 1.75;
-  letter-spacing: 0.04em;
-  color: var(--color_text);
-}
-#tab-sns .anton { font-family: var(--font_anton); font-weight: 400; font-style: normal; }
-#tab-sns a { display: block; }
-#tab-sns li { list-style: none; }
-#tab-sns h2 figure[class^="tit-"] { margin: 2.5em auto 1em; }
-#tab-sns .tit-h3-wrap { position: relative; width: min(80vw, 859px); margin: -2em auto 1em; }
-#tab-sns .tit-h3-wrap::after { position: absolute; content: ""; width: 100%; height: 100%; background: linear-gradient(to right, rgba(72,137,232,1) 0%,rgba(38,179,243,1) 100%); border-radius: 50vw; top: .6em; left: 0; }
-#tab-sns .tit-h3-wrap > figure { position: relative; display: flex; justify-content: center; width: 100%; padding: .75em 2em; background-color: #4d4d4d; border-radius: 50vw; text-align: center; z-index: 1; }
-#tab-sns .tit-h3-wrap > figure img { width: auto; height: 28px; }
-#tab-sns .tit-h3-wrap + div { padding-top: min(5vw, 50px); }
-#tab-sns .h3-line-both { display: flex; justify-content: center; align-items: center; gap: 1em; position: relative; width: 100%; margin: 2em 0 1.2em; color: var(--color_dark_blue); text-align: center; }
-#tab-sns .h3-line-both::before, #tab-sns .h3-line-both::after { display: block; content: ""; width: 100%; height: 1px; background-color: var(--color_dark_blue); opacity: .5; }
-#tab-sns .h3-line-both h3 { position: relative; display: inline-block; flex: none; width: auto; font-size: clamp(15px, 1.8vw, 20px); white-space: normal; overflow-wrap: break-word; }
-#tab-sns .h4-common { position: relative; margin-bottom: .6em; padding: .3em 0 .3em 1em; font-size: clamp(17px, 2.4vw, 24px); line-height: 1.55; }
-#tab-sns .h4-common::before { position: absolute; content: ""; width: 5px; height: 100%; background-color: var(--color_dark_blue); top: 0; left: 0; border-radius: 3px; }
-#tab-sns .h4-common + p, #tab-sns .point-layout.reverse .point-read p:first-of-type { font-size: clamp(14px, 1.8vw, 17px); line-height: 1.85; }
-#tab-sns .for-pc { display: block; }
-#tab-sns .for-sp { display: none; }
-#tab-sns .flexbox { display: flex; justify-content: center; }
-#tab-sns .content-wrap { position: relative; width: min(1100px, 100%); margin: 0 auto; }
-#tab-sns .content-inner { width: 90%; max-width: 1100px; margin: 0 auto; }
-#tab-sns .padding-section { padding: clamp(40px, 8vw, 80px) 0 clamp(50px, 8vw, 80px); }
-#tab-sns .txt-yellow { color: var(--color_yellow); }
-#tab-sns .txt-orange { color: var(--color_orange); }
-@media (max-width: 750px) {
-  #tab-sns .for-pc { display: none; }
-  #tab-sns .for-sp { display: block; }
-  #tab-sns .tit-h3-wrap > figure img { height: 5vw; }
-}
-@media (max-width: 1099px) {
-  #tab-sns .content-wrap { width: 100%; }
-}
-#tab-sns .tit-cta { margin: 0 auto min(2vw, 40px); text-align: center; }
-#tab-sns .cta { width: 100%; padding: min(8vw, 50px) min(3vw, 20px); }
-#tab-sns .cta-btn-area { flex-wrap: wrap; gap: 8px 6px; }
-#tab-sns .cta a:hover { filter: brightness(1.1); }
-#tab-sns .speech { margin-bottom: min(6.863vw, 20px); font-weight: 700; color: white; text-align: center; }
-#tab-sns .speech.blue { margin-bottom: .5em; color: var(--color_dark_blue); }
-#tab-sns .speech > * { display: inline-block; position: relative; font-size: min(4.3vw, 24px); }
-#tab-sns .speech > *::before, #tab-sns .speech > *::after { position: absolute; content: ""; width: 2px; height: 100%; background-color: white; bottom: 0; }
-#tab-sns .speech.blue > *::before, #tab-sns .speech.blue > *::after { background-color: var(--color_dark_blue); }
-#tab-sns .speech > *::before { transform: rotate(-22deg); left: -1.5em !important; }
-#tab-sns .speech > *::after { transform: rotate(22deg); right: -1.5em; }
-@media (max-width: 750px) {
-  #tab-sns .cta-contact, #tab-sns .cta-request { width: min(75vw, 450px); order: 2; }
-  #tab-sns .cta-line { order: 1; }
-}
 #sns-videoModal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); animation: fadeInSns 0.3s ease; }
 #sns-videoModal.show { display: flex; align-items: center; justify-content: center; }
 #sns-videoModal .modal-content { position: relative; width: 100%; max-width: 800px; background: #555; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: slideInSns 0.3s ease; }
@@ -188,229 +126,6 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 #sns-videoModal.modal-short .video-container { padding-bottom: 0; height: 100%; }
 @keyframes fadeInSns { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideInSns { from { opacity: 0; transform: translateY(-50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
-#tab-sns .bg-blue { width: 100%; background-color: var(--color_blue); }
-#tab-sns .tit-performance-result { width: min(40vw, 206px); height: auto; margin: 0 auto; }
-#sns-performance-result .flexbox { flex-wrap: wrap; gap: clamp(16px, 3vw, 40px); justify-content: center; }
-#sns-performance-result .flexbox figure { width: min(349px, 46%); height: auto; }
-#sns-performance-result .flexbox figure img { width: 100%; height: auto; display: block; }
-@media (max-width: 750px) {
-  #sns-performance-result .content-inner { width: 100%; }
-  #sns-performance-result .flexbox { padding: clamp(20px, 5vw, 40px) 0; }
-  #sns-performance-result .flexbox figure { width: min(349px, 90%); }
-}
-#tab-sns .bg-light-gradation { width: 100%; background: linear-gradient(-45deg, rgba(228,236,255,1) 0%,rgba(203,235,253,1) 51%,rgba(229,255,242,1) 100%); }
-#tab-sns .tit-results-in-numbers { width: min(64vw, 302px); height: auto; margin: 0 auto; }
-#sns-results-in-numbers .flexbox { flex-wrap: wrap; gap: clamp(16px, 3vw, 40px); justify-content: center; }
-#sns-results-in-numbers .flexbox figure { width: min(349px, 46%); height: auto; }
-#sns-results-in-numbers .flexbox figure img { width: 100%; height: auto; display: block; }
-@media (max-width: 750px) {
-  #sns-results-in-numbers .flexbox figure { width: min(349px, 90%); }
-}
-#sns-forte { width: 100%; background: linear-gradient(-45deg, rgba(100,166,247,1) 0%,rgba(38,179,243,1) 19%,rgba(85,202,183,1) 41%,rgba(38,179,243,1) 64%,rgba(73,201,244,1) 84%,rgba(38,179,243,1) 100%); }
-#tab-sns .tit-forte { width: min(69vw, 350px); height: min(16vw, 81px); margin: 0 auto; }
-#tab-sns .tit-h3-wrap > figure.tit-point-4.for-pc img { max-width: 589px; }
-#tab-sns .tit-point-1.for-sp, #tab-sns .tit-point-4.for-sp { display: none; }
-#tab-sns .point-list { counter-reset: point; flex-direction: column; width: min(100%, 1020px); margin: 0 auto; }
-#tab-sns .point-list > li { position: relative; width: 100%; margin: clamp(100px, 12vw, 140px) auto clamp(30px, 5vw, 50px); padding: 0 clamp(20px, 4vw, 46px) clamp(30px, 5vw, 50px); background-color: white; border-radius: clamp(20px, 4vw, 40px); box-shadow: 0 8px 32px rgba(0,0,0,.08); }
-#tab-sns .point-list > li::before { counter-increment: point; content: "Point " counter(point); position: absolute; color: white; font-family: var(--font_anton); font-size: clamp(52px, 8vw, 80px); top: clamp(-90px, -8vw, -70px); left: 50%; transform: translateX(-50%); mix-blend-mode: overlay; opacity: .35; white-space: nowrap; }
-#tab-sns .profile-section { flex-wrap: wrap; justify-content: space-between; margin-bottom: 2.5em; }
-#tab-sns .profile-card { flex-wrap: wrap; justify-content: flex-start; gap: min(3.5vw, 20px); width: min(100%, 384px); padding: 1.5em; background-color: #f1f2f5; border: solid 1px var(--color_dark_blue); }
-#tab-sns .profile-photo { overflow: hidden; width: min(20vw, 90px); height: min(20vw, 90px); border-radius: 100%; }
-#tab-sns .profile-photo + div { width: 67%; }
-#tab-sns .name { margin-bottom: .5em; padding: .5em 0; border-bottom: solid 2px var(--color_dark_blue); color: var(--color_dark_blue); font-size: min(3.5vw, 16px); font-weight: 700; }
-#tab-sns .kana { margin-bottom: 1em; color: var(--color_dark_blue); }
-#tab-sns .kana span { font-size: .65em; }
-#tab-sns .social { justify-content: flex-start; gap: .5em; font-size: min(6vw, 25px); }
-#tab-sns .social a { display: flex; text-decoration: none; height: auto; align-items: center; }
-#tab-sns .icon-youtube { color: #ff0000; font-size: min(8vw, 32px); }
-#tab-sns .icon-insta { background: linear-gradient(135deg,rgba(133,57,254,1) 10%,rgba(250,108,80,1) 31%,rgba(254,0,193,1) 59%,rgba(255,165,0,1) 80%,rgba(253,15,124,1) 100%); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-#tab-sns .icon-x { color: var(--color_text); }
-#tab-sns .desc small { font-size: min(2.5vw, 12px); }
-#tab-sns .profile-content { width: min(100%, 513px); }
-#tab-sns .video-placeholder { overflow: hidden; width: min(300px, 100%); max-height: 500px; margin: 0 auto; border-radius: 10px; }
-#tab-sns .logic-video { width: 100%; height: 100%; object-fit: cover; cursor: pointer; }
-#tab-sns .video-vertical { width: min(100%, 313px); margin: 0 auto; cursor: pointer; transition: transform 0.3s ease; }
-#tab-sns .video-vertical:hover { transform: scale(1.05); }
-#tab-sns .fullscreen-btn { padding: .75em 0; color: var(--color_dark_blue); font-size: clamp(12px, 1.4vw, 14px); text-align: center; letter-spacing: -.03em; cursor: pointer; user-select: none; opacity: .85; transition: opacity .2s; }
-#tab-sns .fullscreen-btn:hover { opacity: 1; }
-#tab-sns .point-layout { flex-wrap: wrap; gap: min(5vw, 50px); }
-#tab-sns .point-layout.reverse { flex-direction: row-reverse; }
-#tab-sns .img-youtube-short { width: min(35vw, 200px); height: min(47vw, 269px); }
-#tab-sns .img-man-hours { width: min(60vw, 340px); height: min(67vw, 379px); }
-#tab-sns .point-read { width: calc(100% - 250px); }
-#tab-sns .point-list li:nth-child(2) .point-read { width: calc(100% - 390px); }
-#tab-sns .point-list li:nth-child(3) .point-read { width: calc(90% - 350px); }
-#tab-sns .point-read .txt-big { padding-top: .8em; font-size: clamp(16px, 2vw, 22px); font-weight: bold; line-height: 1.6; }
-#tab-sns .frame-hint { overflow: hidden; background-color: #fcfcf4; background-image: url(sns_assets/images/bg_paper.png); border-left: 8px solid #ffa60b; margin-top: clamp(16px, 2vw, 24px); border-radius: 10px; }
-#tab-sns .hint-head { display: flex; align-items: center; gap: .3em; padding: .7em 1em; background-color: #fff9d6; font-size: clamp(15px, 1.8vw, 19px); color: var(--color_orange); font-weight: 700; }
-#tab-sns .hint-head i { font-size: clamp(22px, 2.8vw, 30px); }
-#tab-sns .frame-hint ol { counter-reset: hint; display: flex; flex-direction: column; gap: .9em; padding: 1.4em 1.4em 1.4em 1.2em; font-size: clamp(14px, 1.7vw, 18px); font-weight: 700; }
-#tab-sns .frame-hint ol li { position: relative; padding-left: clamp(42px, 5vw, 52px); }
-#tab-sns .frame-hint ol li::before { display: flex; justify-content: center; align-items: center; counter-increment: hint; content: counter(hint); position: absolute; width: clamp(28px, 3vw, 34px); height: clamp(28px, 3vw, 34px); background-color: var(--color_orange); border-radius: 50%; left: 0; top: 0; font-weight: bold; color: white; font-size: clamp(13px, 1.4vw, 15px); }
-#tab-sns .frame-blue { width: 100%; margin-top: clamp(30px, 6vw, 60px); padding: clamp(24px, 3vw, 40px) clamp(16px, 5vw, 80px) clamp(30px, 6vw, 60px); background-color: var(--color_blue); border-radius: 20px; }
-#tab-sns .frame-blue p { padding: .8em .5em 1.2em; font-size: clamp(16px, 2.2vw, 22px); font-weight: bold; color: white; text-align: center; line-height: 1.8; }
-#tab-sns .frame-blue figure { max-width: 720px; margin: 0 auto; }
-#tab-sns .tit-comparison { width: min(70vw, 463px); height: min(13vw, 89px); margin: min(8vw, 65px) auto min(4vw, 35px); }
-#tab-sns .img-influencer { width: min(50vw, 300px); height: min(55vw, 332px); }
-@media (max-width: 1099px) {
-  #tab-sns .profile-card { width: 100%; margin-bottom: 2.4em; }
-  #tab-sns .profile-photo + div { width: calc(100% - 110px); }
-}
-@media (max-width: 960px) {
-  #tab-sns .point-list li:nth-child(3) .point-read { width: 100%; }
-}
-@media (max-width: 750px) {
-  #tab-sns .tit-point-1.for-pc, #tab-sns .tit-point-4.for-pc { display: none; }
-  #tab-sns .tit-point-1.for-sp, #tab-sns .tit-point-4.for-sp { display: block; }
-  #tab-sns .tit-h3-wrap > figure.tit-point-1 img, #tab-sns .tit-h3-wrap > figure.tit-point-4 img { width: auto; max-width: 400px; height: 10vw; }
-  #tab-sns .profile-photo + div { width: calc(100% - 23.5vw); }
-  #tab-sns .point-list > li::before { top: -23.5vw; }
-  #tab-sns .point-layout { flex-direction: column; align-items: center; }
-  #tab-sns .point-read, #tab-sns .point-list li:nth-child(2) .point-read { width: 100%; }
-  #tab-sns .video-placeholder { width: 100%; }
-  #tab-sns .frame-hint ol { padding-left: 1.5em; }
-}
-#tab-sns .comparison-table, #tab-sns .plan-table, #tab-sns .option-table { overflow: hidden; max-width: 800px; margin: 0 auto; }
-#tab-sns .plan-table { max-width: 900px; }
-#tab-sns .common-table { width: 100%; border-collapse: collapse; font-size: min(3.5vw, 18px); }
-#tab-sns .empty-cell { background-color: transparent; }
-#tab-sns .header-row th { padding: 20px 15px; text-align: center; font-weight: bold; font-size: 16px; }
-#tab-sns .buzpos-header { background-color: white; border-top: 3px solid #ff6601; border-left: 3px solid #ff6601; border-right: 3px solid #ff6601; }
-#tab-sns .buzpos-logo { display: flex; align-items: center; justify-content: center; width: min(30vw, 196px); margin: 0 auto; }
-#tab-sns .buzpos-logo img { width: 100%; height: auto; }
-#tab-sns .general-header { background-color: #666; color: white; }
-#tab-sns .row-header { width: 25%; background-color: #deeaef; color: #333; font-weight: bold; padding: 15px; text-align: center; }
-#tab-sns .push-cell { background-color: white; border-left: 3px solid #ff6601; border-right: 3px solid #ff6601; padding: 15px; text-align: center; font-weight: bold; }
-#tab-sns .push-cell.txt-big { font-size: min(3.8vw, 22px); }
-#tab-sns .general-cell { background-color: #f9f9f9; padding: 15px; text-align: center; }
-#tab-sns tr:nth-child(even) .row-header { background-color: #f0f8fc; }
-#tab-sns tr:nth-child(even) .push-cell { background-color: #FFF5F0; }
-#tab-sns tr:nth-child(even) .general-cell { background-color: #F0F0F0; }
-#tab-sns .common-table td { border: 1px solid #d5d5d5; }
-#tab-sns .push-cell.highlight, #tab-sns .push-cell.benefit { color: #ff6601; }
-#tab-sns tr:last-child .push-cell { border-bottom: 3px solid #ff6601; }
-#tab-sns td.push-cell { border-left: 3px solid #ff6601; border-right: 3px solid #ff6601; }
-#tab-sns .scroll-indicator-wrap { width: 100%; margin: 1em 0; text-align: right; }
-#tab-sns .scroll-indicator { display: inline-block; color: white; margin-right: 1em; padding: .2em 1em; background-color: #ffa443; border-radius: 20px; font-size: 12px; font-weight: bold; animation: slideIndicatorSns 2s infinite; }
-#tab-sns .scroll-indicator::after { content: "→"; margin-left: 5px; }
-@keyframes slideIndicatorSns { 0%,100%{transform:translateX(0)} 50%{transform:translateX(5px)} }
-@media (max-width: 750px) {
-  #tab-sns .comparison-table, #tab-sns .plan-table { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 10px; font-size: 14px; }
-  #tab-sns .comparison-table .common-table { min-width: 467px; }
-  #tab-sns .comparison-table { width: 80vw; }
-  #tab-sns .plan-table { width: 100vw; padding-right: 10vw; }
-  #tab-sns .plan-table .common-table { min-width: 750px; }
-  #tab-sns .header-row th { padding: 15px 10px; white-space: nowrap; }
-  #tab-sns .row-header, #tab-sns .push-cell, #tab-sns .general-cell { padding: 12px 8px; white-space: nowrap; }
-}
-@media (max-width: 640px) {
-  #tab-sns .plan-table .common-table { min-width: 420px; }
-}
-#tab-sns .tit-plan { width: min(45vw, 229px); height: min(16vw, 82px); margin: 0 auto; }
-#tab-sns .plan-table { padding-top: 1em; }
-#tab-sns .plan-header { width: 23%; padding: .5em; background-color: var(--color_dark_blue); color: white; font-size: min(3.75vw, 20px); }
-#tab-sns .dark, #tab-sns .row-header.dark, #tab-sns tr:nth-child(even) .row-header.dark { background-color: #7b89a3; color: #fff; }
-#tab-sns .plan-header.standard { position: relative; padding-top: .85em; background-color: #ff6601; border-top: 3px solid #ff6601; border-left: 3px solid #ff6601; border-right: 3px solid #ff6601; }
-#tab-sns .recommendation-badge { display: inline-block; position: absolute; padding: 0 .85em; background-color: #e63c00; border-radius: 50vw; font-size: min(2.8vw, 16px); top: -1em; left: 5%; right: 5%; }
-#tab-sns .plan-cell { background-color: white; text-align: center; font-weight: bold; }
-#tab-sns .common-table .anton { font-size: min(5.2vw, 40px); }
-#tab-sns .common-table .unit { font-size: min(4vw, 28px); padding-left: .1em; }
-#tab-sns .plan-table .plan-cell, #tab-sns .plan-table .common-table .push-cell { padding: 0; }
-#tab-sns .common-table .row-header { padding: .5em; line-height: 1.2; }
-#tab-sns .sub-text { font-size: min(2.5vw, 16px); font-weight: normal; }
-#tab-sns .support-wrap { flex-wrap: wrap; gap: 1em; width: 100%; margin-bottom: clamp(40px, 8vw, 70px); }
-#tab-sns .support-container { width: calc(33% - .75em); background-color: white; border-radius: 12px; color: var(--color_dark_blue); font-weight: bold; box-shadow: 0 4px 16px rgba(0,0,0,.08); overflow: hidden; }
-#tab-sns .support-container h4 { justify-content: center; align-items: center; gap: .5em; padding: 1.1em 0 .6em; font-size: clamp(14px, 1.6vw, 17px); }
-#tab-sns .support-container i { width: clamp(48px, 5.5vw, 64px); height: clamp(48px, 5.5vw, 64px); }
-#tab-sns .support-list { display: flex; flex-direction: column; gap: .3em; width: 100%; padding: .5em .8em 1em; }
-#tab-sns .support-list li { width: 100%; padding: .5em .8em; background-color: #eef2fb; border-radius: 5px; font-size: clamp(12px, 1.4vw, 14px); }
-@media (max-width: 750px) {
-  #tab-sns .support-container { display: flex; width: 100%; }
-  #tab-sns .support-container h4 { flex-direction: column; align-self: flex-start; gap: 0; width: 35%; padding-top: 1em; font-size: min(3.6vw, 20px); }
-  #tab-sns .support-list { width: 65%; padding: 1em 1em 1em 0; }
-}
-#tab-sns .plan-intro-block { text-align: center; margin-bottom: 2.5em; }
-#tab-sns .plan-main-title { font-size: clamp(46px, 6.5vw, 80px); font-weight: 900; color: var(--color_dark_blue); line-height: 1.15; margin: .2em 0 .55em; letter-spacing: .06em; }
-#tab-sns .plan-main-title span { color: #ff6601; }
-#tab-sns .plan-sub-read { font-size: clamp(15px, 1.8vw, 19px); color: #444; line-height: 1.9; }
-#tab-sns .plan-sub-read strong { color: var(--color_dark_blue); font-size: clamp(16px, 2vw, 21px); }
-#tab-sns .zero-cost-wrap { display: flex; justify-content: center; gap: clamp(12px, 2vw, 24px); margin: 1.5em auto 2.5em; flex-wrap: wrap; }
-#tab-sns .zero-cost-item { display: flex; flex-direction: column; align-items: center; min-width: clamp(140px, 18vw, 190px); background: white; border-radius: 16px; padding: 1em 1.8em; box-shadow: 0 4px 20px rgba(0,0,0,.08); border-top: 4px solid var(--color_dark_blue); }
-#tab-sns .zero-cost-item.accent-orange { border-top-color: #ff6601; }
-#tab-sns .zero-label { font-size: clamp(12px, 1.3vw, 14px); color: #555; font-weight: 600; }
-#tab-sns .zero-value { font-family: var(--font_anton); font-size: clamp(38px, 5vw, 58px); color: var(--color_dark_blue); line-height: 1.05; margin: .08em 0; }
-#tab-sns .zero-cost-item.accent-orange .zero-value { color: #ff6601; }
-#tab-sns .zero-sub { font-size: clamp(10px, 1.1vw, 12px); color: #888; }
-#tab-sns .features-wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(10px, 1.5vw, 18px); margin: .5em 0 2.5em; }
-#tab-sns .feature-card { background: white; border-radius: 16px; padding: 1.5em 1em 1.2em; box-shadow: 0 4px 20px rgba(0,0,0,.08); text-align: center; }
-#tab-sns .feature-num { display: inline-flex; justify-content: center; align-items: center; width: clamp(34px, 3.5vw, 46px); height: clamp(34px, 3.5vw, 46px); margin-bottom: .7em; background-color: var(--color_yellow); border: solid 3px var(--color_dark_blue); border-radius: 50%; color: var(--color_dark_blue); font-family: var(--font_anton); font-size: clamp(14px, 1.6vw, 18px); }
-#tab-sns .feature-card h4 { margin-bottom: .5em; color: var(--color_dark_blue); font-size: clamp(13px, 1.5vw, 17px); font-weight: 700; line-height: 1.4; }
-#tab-sns .feature-price { margin: .3em 0 .6em; color: #ff6601; font-weight: 700; font-size: clamp(13px, 1.5vw, 16px); line-height: 1.35; }
-#tab-sns .feature-price .big { font-family: var(--font_anton); font-size: clamp(22px, 2.8vw, 34px); }
-#tab-sns .feature-desc { font-size: clamp(11px, 1.2vw, 13px); color: #555; line-height: 1.65; }
-#tab-sns .plan-header.naiseika { background-color: #2d6a4f; }
-#tab-sns .plan-note { margin: .8em 0 0; font-size: clamp(11px, 1.2vw, 13px); color: #666; text-align: left; line-height: 1.75; }
-#tab-sns .plan-note li { list-style: none; padding-left: 1em; text-indent: -1em; }
-#tab-sns .plan-note li::before { content: "※"; }
-#tab-sns #sns-plan .plan-table { max-width: 1060px; }
-#tab-sns #sns-plan .plan-header { width: 18%; }
-@media (max-width: 767px) {
-  #tab-sns .features-wrap { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 750px) {
-  #tab-sns #sns-plan .plan-table .common-table { min-width: 860px; }
-}
-@media (max-width: 640px) {
-  #tab-sns #sns-plan .plan-table .common-table { min-width: 560px; }
-}
-@media (max-width: 480px) {
-  #tab-sns .features-wrap { gap: .6em; }
-  #tab-sns .zero-cost-item { padding: .8em 1.2em; }
-}
-#tab-sns .tit-flow { width: min(54vw, 275px); height: min(16vw, 81px); margin: 0 auto; }
-#tab-sns .flow-list { counter-reset: flow; display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(40px, 4vw, 56px) clamp(16px, 2vw, 28px); width: min(100%, 1000px); margin: clamp(40px, 6vw, 60px) auto 0; }
-#tab-sns .flow-list li { position: relative; width: calc(33% - clamp(10px, 1.5vw, 20px)); padding: 2em clamp(12px, 1.5vw, 20px) 1.2em; background-color: white; border-radius: clamp(10px, 1.5vw, 16px); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,.08); transition: transform .2s, box-shadow .2s; }
-#tab-sns .flow-list li:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
-#tab-sns .flow-list li::before { counter-increment: flow; content: "0" counter(flow); position: absolute; display: flex; justify-content: center; align-items: center; width: clamp(42px, 5vw, 52px); height: clamp(42px, 5vw, 52px); background-color: var(--color_yellow); border: solid 3px var(--color_dark_blue); border-radius: 50%; color: var(--color_dark_blue); font-family: var(--font_anton); font-size: clamp(18px, 2.2vw, 24px); top: clamp(-26px, -2.8vw, -22px); left: 50%; transform: translateX(-50%); }
-#tab-sns .flow-list li::after { position: absolute; content: ""; width: clamp(12px, 1.5vw, 17px); height: clamp(18px, 2.5vw, 28px); clip-path: polygon(100% 50%, 0 0, 0 100%); background-color: white; top: 50%; right: clamp(-18px, -2vw, -15px); transform: translateY(-50%); }
-#tab-sns .flow-list li:nth-child(3n):after { display: none; }
-#tab-sns .flow-list li h3 { color: var(--color_dark_blue); font-size: clamp(14px, 1.6vw, 17px); margin-bottom: .4em; }
-#tab-sns .flow-list li p { font-size: clamp(12px, 1.4vw, 14px); color: #555; line-height: 1.7; }
-#tab-sns .flow-list i { display: inline-block; width: clamp(54px, 7vw, 72px); height: clamp(54px, 7vw, 72px); margin-bottom: .4em; }
-@media (max-width: 750px) {
-  #tab-sns .flow-list li { width: calc(50% - 1em); }
-  #tab-sns .flow-list li::before { top: -6vw; }
-  #tab-sns .flow-list li:nth-child(3n):after { display: block; }
-  #tab-sns .flow-list li:nth-child(2n):after { display: none; }
-  #tab-sns .flow-list li::after { right: -4.5vw; }
-}
-#tab-sns .tit-faq { width: min(54vw, 275px); height: min(16vw, 81px); margin: 0 auto; }
-#tab-sns .faq-list { display: flex; flex-direction: column; gap: 1.5em; border: none; background: none; padding: 0; }
-#tab-sns .faq-list li { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.07); }
-#tab-sns .faq-list h3 { position: relative; padding: .65rem 1rem .65rem 2.8rem; background: linear-gradient(135deg, #0b7dd1, #009fe8); border-radius: 0; color: white; font-size: clamp(14px, 1.7vw, 17px); line-height: 1.6; }
-#tab-sns .faq-list h3:before { position: absolute; content: "Q"; font-family: var(--font_anton); font-size: 1.6rem; font-weight: normal; top: 50%; left: .8rem; transform: translateY(-50%); opacity: .9; }
-#tab-sns .faq-list p { position: relative; padding: 1rem 1.2rem .8rem 3rem; font-size: clamp(13px, 1.5vw, 15px); line-height: 1.8; color: #333; }
-#tab-sns .faq-list p:before { position: absolute; content: "A"; font-family: var(--font_anton); color: var(--color_dark_blue); font-size: 1.6rem; font-weight: normal; top: .6rem; left: .9rem; }
-#tab-sns .tit-contact { width: min(56vw, 281px); height: min(16vw, 81px); margin: 2.5em auto 2em !important; }
-#tab-sns .form-container { width: min(90%, 450px); margin: 0 auto; background: white; border-radius: 8px; overflow: hidden; border: solid 2px white; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-#tab-sns .form-body { padding: 20px; }
-#tab-sns .form-group { margin-bottom: 1.5em; }
-#tab-sns .form-label { display: block; padding-bottom: .25em; font-size: 14px; font-weight: bold; color: #333; }
-#tab-sns .required { color: #e74c3c; }
-#tab-sns .form-input { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #444; background-color: #fafafa; transition: border-color .2s, box-shadow .2s; }
-#tab-sns .form-input:focus { outline: none; border-color: var(--color_blue); box-shadow: 0 0 0 3px rgba(0,159,232,.15); background-color: white; }
-#tab-sns .form-select { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #444; background-color: #fafafa; -webkit-appearance: none; appearance: none; padding-right: 40px; }
-#tab-sns .form-select:focus { outline: none; border-color: var(--color_blue); box-shadow: 0 0 0 3px rgba(0,159,232,.15); }
-#tab-sns .form-textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; color: #444; background-color: #fafafa; resize: vertical; min-height: 120px; font-family: inherit; transition: border-color .2s, box-shadow .2s; }
-#tab-sns .form-textarea:focus { outline: none; border-color: var(--color_blue); box-shadow: 0 0 0 3px rgba(0,159,232,.15); }
-#tab-sns .privacy-section { overflow-y: scroll; height: 90px; padding: 10px; background-color: #f8f9fa; border-radius: 4px; font-size: 12px; line-height: 1.5; color: #666; }
-#tab-sns .agree-group { display: flex; justify-content: center; align-items: center; gap: 8px; width: 100%; margin: 15px 0; padding: 1em; background-color: #fff2f1; border-radius: 4px; }
-#tab-sns .checkbox-label { font-size: 14px; color: #333; cursor: pointer; }
-#tab-sns .checkbox-options { display: flex; flex-wrap: wrap; }
-#tab-sns .checkbox-item { display: flex; width: 50%; padding: .85em; align-items: center; gap: .5em; }
-#tab-sns .checkbox-item label { line-height: 1; }
-#tab-sns .submit-btn { width: 100%; padding: 14px 8px; background: linear-gradient(135deg, #ff9a00, var(--color_orange)); color: white; border: none; border-radius: 30px; font-size: clamp(16px, 1.8vw, 18px); font-weight: bold; cursor: pointer; letter-spacing: .05em; box-shadow: 0 4px 16px rgba(255,126,0,.35); transition: all .2s; }
-#tab-sns .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,107,53,.45); }
 </style>
 <link rel="stylesheet" href="sns_assets/css/v2.css">
 <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -427,6 +142,7 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 
 <main id="main">
 
+
 <!-- ══ 01 HERO ══ -->
 <section class="v2-sec v2-hero" id="sns-top" aria-labelledby="v2-hero-title">
   <div class="v2-hero__swirl" aria-hidden="true"></div>
@@ -435,32 +151,32 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
       <div class="v2-sechead v2-sechead--hero" aria-hidden="true">
         <span class="v2-sechead__idx">01</span><span class="v2-sechead__line"></span><span class="v2-sechead__kicker">SNS Operation</span>
       </div>
-      <p class="v2-hero__kicker">SNS運用会社では珍しい</p>
-      <h1 class="v2-hero__h1" id="v2-hero-title" aria-label="完全成果報酬型 SNS運用代行します！ 売上100万円増">
-        <span class="v2-hero__l1">完全成果報酬型</span>
-        <span class="v2-hero__l2"><span class="ch v2-en" style="--i:0" aria-hidden="true">S</span><span class="ch v2-en" style="--i:1" aria-hidden="true">N</span><span class="ch v2-en" style="--i:2" aria-hidden="true">S</span><span class="ch" style="--i:3" aria-hidden="true">運</span><span class="ch" style="--i:4" aria-hidden="true">用</span><span class="ch" style="--i:5" aria-hidden="true">代</span><span class="ch" style="--i:6" aria-hidden="true">行</span><span class="ch" style="--i:7" aria-hidden="true">し</span><span class="ch" style="--i:8" aria-hidden="true">ま</span><span class="ch" style="--i:9" aria-hidden="true">す</span><span class="ch" style="--i:10" aria-hidden="true">！</span></span>
-        <span class="v2-hero__l3">
-          <span class="v2-hero__uri">売上</span>
-          <span class="v2-odo v2-odo--run v2-hero__num"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:1.06s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:.98s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:.9s"></span></span></span></span>
-          <span class="v2-hero__man"><span>万円増</span></span>
-        </span>
+      <p class="v2-hero__kicker">SNS運用代行</p>
+      <h1 class="v2-hero__h1" id="v2-hero-title" aria-label="動画を、問い合わせに変える。">
+        <span class="v2-hero__l1">動画を、</span>
+        <span class="v2-hero__l2"><span class="ch" style="--i:0" aria-hidden="true">問</span><span class="ch" style="--i:1" aria-hidden="true">い</span><span class="ch" style="--i:2" aria-hidden="true">合</span><span class="ch" style="--i:3" aria-hidden="true">わ</span><span class="ch" style="--i:4" aria-hidden="true">せ</span><span class="ch" style="--i:5" aria-hidden="true">に</span><span class="ch" style="--i:6" aria-hidden="true">変</span><span class="ch" style="--i:7" aria-hidden="true">え</span><span class="ch" style="--i:8" aria-hidden="true">る</span><span class="ch" style="--i:9" aria-hidden="true">。</span></span>
       </h1>
-      <p class="v2-hero__sub"><span class="y">SNS登録者数<span class="v2-en">100</span>万人</span>の<br class="v2-br-sp">インフルエンサーが企画・立案・構成<br><span class="y">求人・集客</span>にもう困らない！</p>
+      <p class="v2-hero__sub">横型YouTubeの制作から、<br class="v2-br-sp">LINEで問い合わせを受けるところまで。<br><mark class="v2-marker">どの動画から何件の問い合わせが出たか</mark>を、<br class="v2-br-sp">毎月お渡しします。</p>
+      <ul class="v2-chips">
+        <li class="v2-chip" style="--k:0">制作費は固定単価</li>
+        <li class="v2-chip" style="--k:1">成果報酬は契約で決めた成果にだけ</li>
+        <li class="v2-chip" style="--k:2">月契約・違約金なし</li>
+      </ul>
       <ul class="v2-stats">
         <li class="v2-stat" style="--k:0">
           <span class="v2-stat__line" aria-hidden="true"></span>
           <span class="v2-stat__label">導入実績</span>
           <span class="v2-stat__val">
-            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:1.56s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.48s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.4s"></span></span></span></span>
+            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:1.56s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.48s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.40s"></span></span></span></span>
             <span class="v2-stat__unit">社以上</span>
           </span>
         </li>
         <li class="v2-stat" style="--k:1">
           <span class="v2-stat__line" aria-hidden="true"></span>
-          <span class="v2-stat__label">平均問い合わせ</span>
+          <span class="v2-stat__label">制作本数（累計）</span>
           <span class="v2-stat__val">
-            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">3.2</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:14;--d:1.63s"></span></span><span class="v2-odo__dot" style="--d:1.55s">.</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:13;--d:1.55s"></span></span></span></span>
-            <span class="v2-stat__unit">倍UP</span>
+            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">2,000</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:1.79s"></span></span><span class="v2-odo__dot" style="--d:1.79s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.71s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.63s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.55s"></span></span></span></span>
+            <span class="v2-stat__unit">本以上</span>
           </span>
         </li>
         <li class="v2-stat" style="--k:2">
@@ -473,10 +189,10 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
         </li>
       </ul>
       <div class="v2-hero__cta">
-        <p class="v2-hero__note">無料相談も可能です！</p>
+        <p class="v2-hero__note">ご相談だけで終わっても<br class="v2-br-sp">費用はかかりません。</p>
         <div class="v2-hero__btns">
-          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener" data-magnetic><span class="v2-flip"><span class="v2-flip__a">LINEでお見積り・お問い合わせ</span><span class="v2-flip__b" aria-hidden="true">LINEでお見積り・お問い合わせ</span></span></a></div>
-          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--ghost" href="#sns-contact" data-magnetic><span class="v2-flip"><span class="v2-flip__a">お見積り・お問い合わせ</span><span class="v2-flip__b" aria-hidden="true">お見積り・お問い合わせ</span></span></a></div>
+          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener" data-magnetic><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span class="v2-flip__b" aria-hidden="true">LINEで無料相談する</span></span></a></div>
+          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--ghost" href="#sns-contact" data-magnetic><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span class="v2-flip__b" aria-hidden="true">お問い合わせフォーム</span></span></a></div>
         </div>
       </div>
     </div>
@@ -490,29 +206,63 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   <div class="v2-hero__scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
 </section>
 
-<!-- ══ 02 丸投げ OK ティッカー ＋ 毎月5社限定 ══ -->
-<section class="v2-sec v2-limit" id="v2-limit" aria-labelledby="v2-limit-title">
+<!-- ══ 02 お任せいただける範囲（ティッカー ＋ 3 列） ══ -->
+<section class="v2-sec v2-service" id="v2-service" aria-labelledby="v2-service-title">
   <div class="v2-ticker" id="v2-ticker">
-    <p class="v2-sr">全て丸投げOK！ 企画戦略・動画制作・効果測定・SNS運用</p>
+    <p class="v2-sr">動画 → LINE → 問い合わせ。企画・撮影・編集、投稿・コメント返信、LINEで問い合わせを受ける、毎月の件数表</p>
     <div class="v2-ticker__band" aria-hidden="true">
       <div class="v2-ticker__track">
-        <div class="v2-ticker__set"><span class="hl">全て丸投げOK！</span><span class="sep">—</span><span>企画戦略</span><span class="sep">—</span><span>動画制作</span><span class="sep">—</span><span>効果測定</span><span class="sep">—</span><span>SNS運用</span><span class="sep">—</span><span class="hl">全て丸投げOK！</span><span class="sep">—</span><span>企画戦略</span><span class="sep">—</span><span>動画制作</span><span class="sep">—</span><span>効果測定</span><span class="sep">—</span><span>SNS運用</span><span class="sep">—</span></div>
-        <div class="v2-ticker__set"><span class="hl">全て丸投げOK！</span><span class="sep">—</span><span>企画戦略</span><span class="sep">—</span><span>動画制作</span><span class="sep">—</span><span>効果測定</span><span class="sep">—</span><span>SNS運用</span><span class="sep">—</span><span class="hl">全て丸投げOK！</span><span class="sep">—</span><span>企画戦略</span><span class="sep">—</span><span>動画制作</span><span class="sep">—</span><span>効果測定</span><span class="sep">—</span><span>SNS運用</span><span class="sep">—</span></div>
+        <div class="v2-ticker__set"><span class="hl">動画 → LINE → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>LINEで問い合わせを受ける</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → LINE → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>LINEで問い合わせを受ける</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
+        <div class="v2-ticker__set"><span class="hl">動画 → LINE → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>LINEで問い合わせを受ける</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → LINE → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>LINEで問い合わせを受ける</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
       </div>
     </div>
   </div>
-  <div class="v2-wrap v2-limit__body">
+  <div class="v2-wrap v2-service__body">
     <div class="v2-sechead">
-      <span class="v2-sechead__idx">02</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">Limited / Monthly</span>
+      <span class="v2-sechead__idx">02</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SERVICE</span>
     </div>
-    <div class="v2-limit__grid">
-      <h2 class="v2-limit__title" id="v2-limit-title"><span class="v2-limit__pre">毎月</span><span class="v2-limit__num"><span class="v2-limit__five" id="v2-five" data-reveal="mask">5</span></span><span class="v2-limit__post">社限定</span></h2>
-      <p class="v2-limit__read">数を追わない、だからこそ、<br class="v2-br-sp"><mark class="v2-marker">一社一社に深く向き合えます</mark>。<br><strong>戦略</strong>から<strong>運用、改善</strong>まで<strong>徹底的に伴走</strong>するため、<br>あえて<mark class="v2-marker">月５社まで</mark>に限定しています。<br>制作する側も<mark class="v2-marker">本気の運用</mark>を始めませんか？</p>
+    <h2 class="v2-h2" id="v2-service-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">お任せいただける範囲</span></span></h2>
+    <ol class="v2-service__grid" data-reveal-group data-stagger=".1">
+      <li class="v2-svc" data-reveal="wipe-down">
+        <span class="v2-svc__no" aria-hidden="true">01</span>
+        <h3 class="v2-h3 v2-svc__t">制作</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">企画・撮影・編集</li>
+          <li data-reveal="rise">投稿・コメント返信</li>
+          <li data-reveal="rise">納品動画は他媒体へ二次利用無料</li>
+        </ul>
+      </li>
+      <li class="v2-svc" data-reveal="wipe-down">
+        <span class="v2-svc__no" aria-hidden="true">02</span>
+        <h3 class="v2-h3 v2-svc__t">LINEで受ける仕組み</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">動画ごとに専用リンクとQRを発行</li>
+          <li data-reveal="rise">追加した人へ自動で3通、次の行動を案内</li>
+          <li data-reveal="rise">反応のよい動画だけ少額の広告へ</li>
+        </ul>
+      </li>
+      <li class="v2-svc" data-reveal="wipe-down">
+        <span class="v2-svc__no" aria-hidden="true">03</span>
+        <h3 class="v2-h3 v2-svc__t">毎月の報告</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">動画ごとの問い合わせ件数表</li>
+          <li data-reveal="rise">御社も同じ画面で件数を確認</li>
+          <li data-reveal="rise">月1回の打合せで次月の企画を決定</li>
+        </ul>
+      </li>
+    </ol>
+    <div class="v2-flow" aria-hidden="true" data-reveal-group data-start="top 82%" data-stagger=".14">
+      <span class="v2-flow__w v2-mask" data-reveal="mask"><span class="v2-mask__in">動画</span></span>
+      <span class="v2-flow__arr"><svg class="v2-flow__arrow" data-reveal="stroke" viewBox="0 0 120 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5"/></svg></span>
+      <span class="v2-flow__w v2-flow__w--line v2-mask" data-reveal="mask"><span class="v2-mask__in">LINE</span></span>
+      <span class="v2-flow__arr"><svg class="v2-flow__arrow" data-reveal="stroke" viewBox="0 0 120 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5"/></svg></span>
+      <span class="v2-flow__w v2-flow__w--goal v2-mask" data-reveal="mask"><span class="v2-mask__in">問い合わせ</span></span>
     </div>
+    <p class="v2-body v2-service__close" data-reveal="rise">動画 → LINE → 問い合わせ。<br class="v2-br-sp">この流れを、まとめて受け持ちます。</p>
   </div>
 </section>
 
-<!-- ══ 03 YouTube 横型動画の制作実績（主力。旧 sns-youtube から移植・Swiper は使わない） ══ -->
+<!-- ══ 03 YouTube 横型動画の制作実績（第2段では変更しない） ══ -->
 <section class="v2-sec v2-yt" id="v2-youtube" aria-labelledby="v2-youtube-title">
   <div class="v2-yt__bgword" aria-hidden="true">YOUTUBE</div>
   <div class="v2-wrap" data-rail-wrap>
@@ -541,7 +291,7 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   </div>
 </section>
 
-<!-- ══ 04 ショート実績（YouTube 横型の補助。控えめに：見出し 1 段下げ・端末枠を縮小・背景文字なし） ══ -->
+<!-- ══ 04 ショート実績（第2段では変更しない） ══ -->
 <section class="v2-sec v2-shorts" id="v2-shorts" aria-labelledby="v2-shorts-title">
   <div class="v2-wrap">
     <div class="v2-sechead">
@@ -557,7 +307,7 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
         <ol class="v2-reasons__list">
           <li class="v2-reason">
             <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
-            <h4 class="v2-reason__t" data-reveal="split">最初の 1 秒に “何を置くか” を熟知している</h4>
+            <h4 class="v2-reason__t" data-reveal="split">最初の 2 秒に “何を置くか” を熟知している</h4>
           </li>
           <li class="v2-reason">
             <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
@@ -594,409 +344,326 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
   </div>
 </section>
 
-<!-- ══ 以降は現行の SNS セクション（第2段以降で順次作り直す） ══ -->
-<div id="tab-sns" class="v2-legacy">
-        <!-- 運用実績 -->
-        <section id="sns-performance-result" class="content-wrap padding-section bg-blue">
-            <h2><figure class="tit-performance-result"><img width="206" height="81" loading="lazy" src="sns_assets/images/tit_performance_result.png" alt="運用実績"></figure></h2>
-            <div class="content-inner">
-                <div class="flexbox">
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/performance_result_01.png" alt="総再生回数：5億回以上突破！"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/performance_result_02.png" alt="投稿からわずか1週間で、300万回再生達成！"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/performance_result_03.png" alt="運用3ヶ月で収益化達成！"></figure>
-                </div>
-            </div>
-        </section>
+<!-- ══ 05 制作・支援実績 ══ -->
+<section class="v2-sec v2-res" id="v2-works" aria-labelledby="v2-works-title">
+  <div class="v2-bgword v2-res__bgword" aria-hidden="true" data-bgword>RESULTS</div>
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">05</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">WORKS</span>
+    </div>
+    <h2 class="v2-h2" id="v2-works-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">制作・支援実績</span></span></h2>
+    <ul class="v2-res__nums" data-reveal-group data-stagger=".1">
+      <li class="v2-res__item" data-reveal="rise">
+        <span class="v2-res__line" aria-hidden="true"></span>
+        <span class="v2-res__label">制作本数（単月）</span>
+        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">200</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.31s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.23s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.15s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
+      </li>
+      <li class="v2-res__item" data-reveal="rise">
+        <span class="v2-res__line" aria-hidden="true"></span>
+        <span class="v2-res__label">制作本数（累計）</span>
+        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">2,000</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.49s"></span></span><span class="v2-odo__dot" style="--d:0.49s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.41s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.25s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
+      </li>
+      <li class="v2-res__item" data-reveal="rise">
+        <span class="v2-res__line" aria-hidden="true"></span>
+        <span class="v2-res__label">運用開始3か月の<wbr>月間総再生数</span>
+        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.51s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.35s"></span></span></span></span><span class="v2-res__unit">万回突破</span></span>
+      </li>
+      <li class="v2-res__item" data-reveal="rise">
+        <span class="v2-res__line" aria-hidden="true"></span>
+        <span class="v2-res__label">導入実績</span>
+        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.61s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.53s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.45s"></span></span></span></span><span class="v2-res__unit">社以上</span></span>
+      </li>
+    </ul>
+    <div class="v2-res__clients">
+      <h3 class="v2-h3" data-reveal="rise">支援企業例</h3>
+      <div class="v2-res__logos" data-reveal="rise" data-y="4"><img class="v2-res__logos-all" src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="支援企業のロゴ: REJUVENATE、PROISM、バクトレ、GYMFIT、FIT FOUNDER、パルトレ、youth 本店、GYM ORSO、P.espacio style" loading="lazy" decoding="async"><span class="v2-res__crop v2-res__crop--a" aria-hidden="true"><img src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="" loading="lazy" decoding="async"></span><span class="v2-res__crop v2-res__crop--b" aria-hidden="true"><img src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="" loading="lazy" decoding="async"></span></div>
+    </div>
+  </div>
+</section>
 
-        <!-- 数値で見る実績-->
-        <section id="sns-results-in-numbers" class="content-wrap padding-section bg-light-gradation">
-            <h2><figure class="tit-results-in-numbers"><img width="302" height="81" loading="lazy" src="sns_assets/images/tit_results_in_numbers.png" alt="数値で見る実績"></figure></h2>
-            <div class="content-inner">
-                <div class="flexbox">
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/results_in_numbers_03.png?20250714-2316" alt="店舗系チャンネル"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/results_in_numbers_04.png?20250714-2316" alt="ダイエット系アプリ会社"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/results_in_numbers_05.png?20250714-2316" alt="体操教室チャンネル"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/results_in_numbers_02.png?20250714-2316" alt="パーソナルジムチャンネル"></figure>
-                    <figure class="performance-result-1"><img width="349" height="305" loading="lazy" src="sns_assets/images/results_in_numbers_01.png?20250714-2316" alt="アクロバット教室チャンネル"></figure>
-                </div>
-            </div>
-        </section>
+<!-- ══ 06 支援事例 ══ -->
+<section class="v2-sec v2-cases" id="v2-cases" aria-labelledby="v2-cases-title">
+  <div class="v2-wrap" data-rail-wrap>
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">06</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CASE STUDY</span>
+    </div>
+    <div class="v2-cases__head">
+      <h2 class="v2-h2" id="v2-cases-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">支援事例</span></span></h2>
+      <p class="v2-works__hint">横にスクロールできます</p>
+      <div class="v2-rail__navs">
+        <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-cases-rail" aria-label="前の支援事例">&larr;</button>
+        <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-cases-rail" aria-label="次の支援事例">&rarr;</button>
+      </div>
+    </div>
+    <ul class="v2-rail v2-cases__rail" id="v2-cases-rail" data-step="1" data-stagger=".1">
+      <li class="v2-rail__item v2-case" data-reveal="rail">
+        <article class="v2-case__card" aria-labelledby="v2-case-1">
+          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">01</span>TIKTOK × 集客</p>
+          <h3 class="v2-case__t" id="v2-case-1">アクロバット教室</h3>
+          <p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月10本 <span class="v2-case__sep">／</span> 6か月〜</p>
+          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">半年で売上<span class="v2-case__num">150%</span>UP</span></p>
+          <ul class="v2-case__notes">
+          <li>1か月目から総再生50万回突破</li>
+          <li>フォロワー 1,400人 → 12,000人</li>
+          </ul>
+        </article>
+      </li>
+      <li class="v2-rail__item v2-case" data-reveal="rail">
+        <article class="v2-case__card" aria-labelledby="v2-case-2">
+          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">02</span>TIKTOK × YOUTUBE</p>
+          <h3 class="v2-case__t" id="v2-case-2">ホストクラブ</h3>
+          <p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月14本 <span class="v2-case__sep">／</span> 12か月〜</p>
+          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">運用<span class="v2-case__num">3</span>か月でYouTube収益化</span></p>
+          <ul class="v2-case__notes">
+          <li>採用問い合わせ 月平均2〜3名増</li>
+          <li>フォロワー 0人 → 5,090人</li>
+          </ul>
+        </article>
+      </li>
+      <li class="v2-rail__item v2-case" data-reveal="rail">
+        <article class="v2-case__card" aria-labelledby="v2-case-3">
+          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">03</span>YOUTUBE SHORTS × 認知</p>
+          <h3 class="v2-case__t" id="v2-case-3">再生エネルギー事業</h3>
+          <p class="v2-case__meta">出演: 社長 <span class="v2-case__sep">／</span> 動画5本 <span class="v2-case__sep">／</span> 単月</p>
+          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">2本目の投稿で<span class="v2-case__num">80</span>万回再生</span></p>
+          <ul class="v2-case__notes">
+          <li>撮影から編集までを単月で担当</li>
+          <li>日常音を活かしたASMR形式</li>
+          </ul>
+        </article>
+      </li>
+    </ul>
+  </div>
+</section>
 
-        <!-- BUZPOSの特徴 -->
-        <section id="sns-forte" class="content-wrap padding-section">
-            <h2><figure class="tit-forte"><img width="350" height="81" loading="lazy" src="sns_assets/images/tit_forte.png" alt="BUZPOSの特徴"></figure></h2>
-            <div class="content-inner">
-                <ul class="point-list flexbox">
-                    <li>
-                        <h3 class="tit-h3-wrap">
-                            <figure class="tit-point-1 for-pc"><img width="756" height="28" loading="lazy" src="sns_assets/images/tit_point_1.png" alt="総フォロワー約100万人の実績を持つアクトレが監修"></figure>
-                            <figure class="tit-point-1 for-sp"><img width="350" height="81" loading="lazy" src="sns_assets/images/tit_point_1_sp.png" alt="総フォロワー約100万人の実績を持つアクトレが監修"></figure>
-                        </h3>
-                        <div class="profile-section flexbox">
-                            <div class="profile-card flexbox">
-                                <figure class="profile-photo"><img width="90" height="90" loading="lazy" src="sns_assets/images/photo_actre.webp" alt="アクトレブログ"></figure>
-                                <div>
-                                    <p class="name">アクトレブログ</p>
-                                    <p class="kana">庵林 隼<span>（ひろばやし じゅん）</span></p>
-                                    <div class="social flexbox">
-                                        <a href="https://www.youtube.com/channel/UCTfuU0u1bdofWDqkFTz4QaA" target="_blank"><i class="icon-youtube"></i></a>
-                                        <a href="https://www.instagram.com/actrevlog/?hl=ja" target="_blank"><i class="icon-insta"></i></a>
-                                        <a href="https://x.com/cirque_flyer" target="_blank"><i class="icon-x"></i></a>
-                                    </div>
-                                </div>
-                                <p class="desc">
-                                YouTubeチャンネル「アクトレブログ」は、登録者数 <strong>約73万人</strong>、公開動画 <strong>1,450本超</strong>、<br>総再生回数 <strong>5億回超</strong><small>（2025年5月7日時点）</small>
-                                </p>
-                            </div>
-                            <div class="profile-content">
-                                <h4 class="h4-common"><span>“伸ばすこと”に特化した</span><br>アクトレブログ企画・構成・立案</h4>
-                                <p>他では難しい<strong>結果を出すSNS戦略で結果にリーチ</strong>。<br>多くの経験と実績に裏付けされたノウハウでビジネスの成長を加速します。</p>
-                            </div>
-                        </div>
+<!-- ══ 07 アクトレブログ監修 ══ -->
+<section class="v2-sec v2-actre" id="v2-actre" aria-labelledby="v2-actre-title">
+  <div class="v2-bgword v2-actre__bgword" aria-hidden="true" data-bgword="0.04,0">SUPERVISION</div>
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">07</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SUPERVISION</span>
+    </div>
+    <h2 class="v2-h2" id="v2-actre-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">全案件を、</span></span><span class="v2-ln"><span class="v2-ln__in">アクトレブログが監修</span></span></h2>
+    <div class="v2-actre__grid">
+      <div class="v2-actre__profile">
+        <figure class="v2-actre__photo" data-reveal="wipe-up"><img src="sns_assets/images/photo_actre.webp" width="312" height="312" alt="アクトレブログ" loading="lazy" decoding="async"></figure>
+        <div class="v2-actre__id" data-reveal-group data-start="top 85%" data-stagger=".08">
+          <p class="v2-actre__name" data-reveal="rise">アクトレブログ</p>
+          <ul class="v2-actre__bio">
+            <li data-reveal="rise">バク転世界ギネス記録保持者</li>
+            <li data-reveal="rise">YouTube登録者 約73万人・総フォロワー100万人超</li>
+          </ul>
+        </div>
+        <ul class="v2-actre__nums">
+          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">400</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="4"></span><span class="v2-odo__reel" style="--n:5;--d:0.26s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.18s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.10s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">700</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="7"></span><span class="v2-odo__reel" style="--n:8;--d:0.36s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.28s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.20s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-actre__pre">投稿1週間で</span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">300</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:4;--d:0.46s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.38s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.30s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+        </ul>
+      </div>
+      <div class="v2-actre__body">
+        <div class="v2-reasons v2-actre__block">
+          <h3 class="v2-h3" data-reveal="fade">全案件に含まれる監修</h3>
+          <ol class="v2-reasons__list">
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
+              <p class="v2-reason__t" data-reveal="split">最初の2秒と構成の確認</p>
+            </li>
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
+              <p class="v2-reason__t" data-reveal="split">月1回の企画レビュー</p>
+            </li>
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
+              <p class="v2-reason__t" data-reveal="split">企画・映像制作の監修</p>
+            </li>
+          </ol>
+        </div>
+        <div class="v2-reasons v2-actre__block">
+          <h3 class="v2-h3" data-reveal="fade">出演オプション</h3>
+          <ol class="v2-reasons__list">
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
+              <p class="v2-reason__t" data-reveal="split">ジム・体操教室・整体・ダンスなど身体系の業種</p>
+            </li>
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
+              <p class="v2-reason__t" data-reveal="split">四半期に1回、月2社まで</p>
+            </li>
+            <li class="v2-reason">
+              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
+              <p class="v2-reason__t" data-reveal="split">撮影同行・出演・本人アカウントで告知</p>
+            </li>
+          </ol>
+        </div>
+        <p class="v2-actre__note" data-reveal="rise">通常は店長・スタッフの出演を前提に、負担の少ない企画から始めます。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-                        <div>
-                            <h4 class="h4-common">たった30日で再生回数100万回以上の動画を50本以上！</h4>
-                            <p class="features">
-                            アクトレブログ最大の特徴は、<br>
-                            “○日で〇〇〇万回再生したい”という具体的な<strong><span class="txt-orange">戦略的</span>動画再生数</strong>を決め、その数字を達成するために必要な<strong>動画の本数や内容、投稿タイミングを<span class="txt-orange">逆算して制作・運用</span></strong>する動画作り！
-                            </p>
-                        </div>
-                    </li>
+<!-- ══ 08 料金 ══ -->
+<section class="v2-sec v2-price" id="v2-price" aria-labelledby="v2-price-title">
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">08</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PRICING</span>
+    </div>
+    <h2 class="v2-h2" id="v2-price-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">料金</span></span></h2>
+    <div class="v2-price__grid">
+      <div class="v2-price__tablewrap" data-reveal-group data-stagger=".05">
+        <table class="v2-table">
+          <thead>
+            <tr data-reveal="rise"><th scope="col">制作単価<br class="v2-br-sp">（企画・撮影・編集込み）</th><th scope="col">1本あたり</th></tr>
+          </thead>
+          <tbody>
+            <tr data-reveal="rise"><th scope="row">横型ロング動画</th><td><span class="v2-amt">5〜8</span><span class="v2-amt__u">万円</span></td></tr>
+            <tr data-reveal="rise"><th scope="row">ショート動画</th><td><span class="v2-amt">1〜3</span><span class="v2-amt__u">万円</span></td></tr>
+            <tr data-reveal="rise"><th scope="row">広告用の短い動画（撮影素材から制作）</th><td><span class="v2-amt">1</span><span class="v2-amt__u">万円</span></td></tr>
+            <tr data-reveal="rise"><th scope="row">LINEの計測・自動案内・広告の運用手数料</th><td><span class="v2-amt__u">月額</span><span class="v2-amt">0</span><span class="v2-amt__u">円</span></td></tr>
+            <tr data-reveal="rise"><th scope="row">初期費用（LINEの設定・計測の準備）</th><td><span class="v2-amt">5</span><span class="v2-amt__u">万円（初月のみ）</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="v2-price__examples" data-reveal-group data-stagger=".12">
+        <article class="v2-ex" data-reveal="wipe-down" aria-labelledby="v2-ex-1">
+          <h3 class="v2-ex__t" id="v2-ex-1">例1｜横型2本＋ショート4本</h3>
+          <p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">20</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.25s"></span></span></span></span><span class="v2-ex__u">万円 / 月</span></p>
+          <p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限10万円。</span><span class="v2-nw">制作費と合わせて</span><span class="v2-nw">最大30万円／月</span></p>
+        </article>
+        <article class="v2-ex v2-ex--hl" data-reveal="wipe-down" aria-labelledby="v2-ex-2">
+          <h3 class="v2-ex__t" id="v2-ex-2">例2｜横型4本＋ショート8本</h3>
+          <p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">36</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:4;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="6"></span><span class="v2-odo__reel" style="--n:17;--d:0.35s"></span></span></span></span><span class="v2-ex__u">万円 / 月</span></p>
+          <p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限18万円。</span><span class="v2-nw">制作費と合わせて</span><span class="v2-nw">最大54万円／月</span></p>
+        </article>
+      </div>
+      <p class="v2-price__note" data-reveal="rise">価格は税別。広告費は実費（月3万円程度から・御社の広告口座）、LINE公式アカウントの月額は別途。月の投稿本数やコンテンツ内容によって変動しますので、詳しくはお問い合わせください。</p>
+    </div>
+    <div class="v2-price__foot" data-reveal-group data-start="top 88%" data-stagger=".1">
+      <p class="v2-price__fee" data-reveal="rise"><span class="v2-price__lab">成果報酬の目安</span>｜ジムの例: 体験予約1件 <strong>5,000円</strong>（業種と成果の種類で変わります）</p>
+      <p class="v2-price__inhouse" data-reveal="rise"><span class="v2-price__lab v2-price__lab--sub">自社で制作したい方へ</span>: 内製化サポート 月額10万円（企画提案・分析レポート・LINE相談）</p>
+    </div>
+  </div>
+</section>
 
-                    <li>
-                        <h3 class="tit-h3-wrap">
-                            <figure class="tit-point-3"><img width="312" height="29" loading="lazy" src="sns_assets/images/tit_point_3.png" alt="工数削減・売上アップ"></figure>
-                        </h3>
-                        <div class="point-layout flexbox">
-                            <figure class="img-man-hours"><img width="340" height="379" loading="lazy" src="sns_assets/images/img_man_hours.png" alt="お客様の工数を大幅に短縮！約95%(約134時間)削減"></figure>
-                            <div class="point-read">
-                                <h4 class="h4-common"><span>市場リサーチ・企画構成・台本制作・動画制作までトータルサポート</h4>
-                                <p>
-                                    本業に集中できるようになるだけでなく、<strong class="txt-orange">コスパにも自信</strong>があります！<br>
-                                    選び抜かれたメンバーだけで構成されたチームだから、<strong>決断が早く、動きもスムーズ。</strong>一人ひとりが高いスキルと責任感を持ち、少人数でも最大限の成果を生み出します。<br>
-                                    <strong>効率的で柔軟、少数精鋭だからこそ実現できるコストパフォーマンス。</strong><br>
-                                    それがBuzposの強みです。
-                                </p>
-                            </div>
-                        </div>
-                        <div class="frame-blue">
-                            <p><span class="txt-yellow">素材を渡して要件を伝えるだけ</span>で<br class="for-sp">進行可能！<br>煩わしいディレクションをする必要は<br class="for-sp">ありません！</p>
-                            <figure class="figure-to-do"><img width="720" height="550" loading="lazy" src="sns_assets/images/figure_to_do.png" alt="貴社のやること・BUZPOSのやること"></figure>
-                        </div>
-                        <div class="comparison">
-                            <h4><span><figure class="tit-comparison"><img width="463" height="89" loading="lazy" src="sns_assets/images/tit_comparison.png" alt="「高品質」と「高効率」を両立・他社比較ポイント"></figure></h4>
-                            <div class="comparison-table">
-                                <table class="common-table">
-                                    <thead>
-                                        <tr class="header-row">
-                                            <th></th>
-                                            <th class="buzpos-header">
-                                                <div class="buzpos-logo">
-                                                    <img width="392" height="87" loading="lazy" src="sns_assets/images/logo_2.png" alt="BUZPOS">
-                                                </div>
-                                            </th>
-                                            <th class="general-header">一般的なSNS代行会社</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="row-header">修正対応</td>
-                                            <td class="push-cell highlight txt-big">無制限・追加料金なし</td>
-                                            <td class="general-cell">月2〜3回、追加料金有</td>
-                                        </tr>
+<!-- ══ 09 成果報酬と契約のルール ══ -->
+<section class="v2-sec v2-rules" id="v2-rules" aria-labelledby="v2-rules-title">
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">09</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">RULES</span>
+    </div>
+    <h2 class="v2-h2" id="v2-rules-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">成果報酬と</span></span><span class="v2-ln"><span class="v2-ln__in">契約のルール</span></span></h2>
+    <div class="v2-rules__grid" data-reveal-group data-stagger=".1">
+      <div class="v2-rule v2-rule--target" data-reveal="wipe-up">
+        <h3 class="v2-h3 v2-rule__t">成果報酬の対象</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">成果の指標は業種に合わせて契約時に決める（例: 体験予約、見積依頼、相談）</li>
+          <li data-reveal="rise">動画のリンク経由で来た分だけ<span class="v2-nw">（広告経由は除く）</span></li>
+          <li data-reveal="rise">上限は制作費の半額</li>
+          <li data-reveal="rise">1件あたりの金額も契約時に決定（ジムの例: 体験予約1件5,000円）</li>
+        </ul>
+      </div>
+      <div class="v2-rule v2-rule--free" data-reveal="wipe-up">
+        <h3 class="v2-h3 v2-rule__t">課金しないもの</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">LINEの友だち追加</li>
+          <li data-reveal="rise">採用の応募</li>
+          <li data-reveal="rise">再生数・フォロワー数</li>
+          <li data-reveal="rise">広告経由の成果</li>
+        </ul>
+      </div>
+      <div class="v2-rule v2-rule--deal" data-reveal="wipe-up">
+        <h3 class="v2-h3 v2-rule__t">契約と保証</h3>
+        <ul class="v2-ticks">
+          <li data-reveal="rise">月契約・違約金なし</li>
+          <li data-reveal="rise">何を1件と数えるかを書面にして契約書に添付</li>
+          <li data-reveal="rise">90日で基準に届かなければ翌月1本を無料追加（基準は業種ごとに契約書に明記）</li>
+          <li data-reveal="rise">解約時は友だちリストと問い合わせの記録を<span class="v2-nw">無償でお渡し</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-                                        <tr>
-                                            <td class="row-header">工数削減率</td>
-                                            <td class="push-cell benefit">約95%削減</td>
-                                            <td class="general-cell">平均50〜70%程度</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="row-header">成果実績</td>
-                                            <td class="push-cell benefit">10倍成長／収益化</td>
-                                            <td class="general-cell">実績非公開・不明</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="row-header">相談体制</td>
-                                            <td class="push-cell benefit">専属ディレクター制</td>
-                                            <td class="general-cell">営業担当経由のみ</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="scroll-indicator-wrap for-sp"><p class="scroll-indicator">横にスクロールできます</p></div>
-                        </div>
-                    </li>
+<!-- ══ 10 ご契約から投稿開始まで ══ -->
+<section class="v2-sec v2-steps" id="v2-steps" aria-labelledby="v2-steps-title">
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">10</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PROCESS</span>
+    </div>
+    <h2 class="v2-h2" id="v2-steps-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">ご契約から投稿開始まで、</span></span><span class="v2-ln"><span class="v2-ln__in">およそ<span class="v2-en">4〜5</span>週間</span></span></h2>
+    <div class="v2-steps__body">
+      <span class="v2-steps__rail" aria-hidden="true" data-reveal="drawy"></span>
+      <ol class="v2-steps__list" data-reveal-group data-stagger=".08">
+      <li class="v2-step" data-reveal="rise">
+        <span class="v2-step__no">1</span>
+        <h3 class="v2-step__t">ヒアリング</h3>
+        <p class="v2-step__d">目的と現状を確認</p>
+      </li>
+      <li class="v2-step" data-reveal="rise">
+        <span class="v2-step__no">2</span>
+        <h3 class="v2-step__t">提案・見積</h3>
+        <p class="v2-step__d">運用内容と金額をご提示。<span class="v2-nw">ここまで無料</span></p>
+      </li>
+      <li class="v2-step" data-reveal="rise">
+        <span class="v2-step__no">3</span>
+        <h3 class="v2-step__t">ご契約</h3>
+        <p class="v2-step__d">成果として数える条件を<span class="v2-nw">書面で確認</span></p>
+      </li>
+      <li class="v2-step" data-reveal="rise">
+        <span class="v2-step__no">4</span>
+        <h3 class="v2-step__t">企画・準備</h3>
+        <p class="v2-step__d">アカウント、LINE、台本を準備</p>
+      </li>
+      <li class="v2-step v2-step--last" data-reveal="rise">
+        <span class="v2-step__no">5</span>
+        <h3 class="v2-step__t">撮影・投稿</h3>
+        <p class="v2-step__d">撮影は月1〜2回。編集後に<span class="v2-nw">投稿開始</span></p>
+      </li>
+      </ol>
+    </div>
+    <ol class="v2-period" data-reveal="bar">
+      <li class="v2-period__seg v2-period__seg--1" style="--i:0;--f:2;--o:0">
+        <span class="v2-period__fill" aria-hidden="true"></span>
+        <span class="v2-period__txt"><span class="v2-period__lab">提案・見積まで</span><span class="v2-period__days">5〜7日</span></span>
+      </li>
+      <li class="v2-period__seg v2-period__seg--2" style="--i:1;--f:3;--o:2">
+        <span class="v2-period__fill" aria-hidden="true"></span>
+        <span class="v2-period__txt"><span class="v2-period__lab">契約後の準備</span><span class="v2-period__days">14〜17日</span></span>
+      </li>
+      <li class="v2-period__seg v2-period__seg--3" style="--i:2;--f:2;--o:5">
+        <span class="v2-period__fill" aria-hidden="true"></span>
+        <span class="v2-period__txt"><span class="v2-period__lab">撮影・編集</span><span class="v2-period__days">14日</span></span>
+      </li>
+      <li class="v2-period__seg v2-period__seg--4" style="--i:3;--f:1;--o:7">
+        <span class="v2-period__fill" aria-hidden="true"></span>
+        <span class="v2-period__txt"><span class="v2-period__lab">投稿開始</span></span>
+      </li>
+    </ol>
+    <p class="v2-body v2-steps__close" data-reveal="rise">運用開始30日目に、<br class="v2-br-sp">動画ごとの問い合わせ件数表をお渡しします。</p>
+  </div>
+</section>
 
-                    <li>
-                        <h3 class="tit-h3-wrap">
-                            <figure class="tit-point-4 for-pc"><img width="589" height="29" loading="lazy" src="sns_assets/images/tit_point_4.png" alt="有名インフルエンサーをキャスティング！"></figure>
-                            <figure class="tit-point-4 for-sp"><img width="682" height="132" loading="lazy" src="sns_assets/images/tit_point_4_sp.png" alt="有名インフルエンサーをキャスティング！"></figure>
-                        </h3>
-                        <div class="point-layout reverse flexbox">
-                            <figure class="img-influencer"><img width="300" height="332" loading="lazy" src="sns_assets/images/img_influencer.png" alt="Youtube Short"></figure>
-                            <div class="point-read">
-                                <p>フォロワー数だけでなく、エンゲージメント率や投稿内容のトンマナ（トーン＆マナー）など、定量・定性の両面から分析し、<strong>ブランドとの親和性が高いターゲット層に最適なインフルエンサーを選定</strong>します。</p>
-                                <p class="txt-big txt-orange">登録者5万人〜200万人以上の、<br>様々なジャンルのインフルエンサーを<br>キャスティング可能！</p>
-                            </div>
-                        </div>
-                    </li>
-
-                </ul>
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-            <div class="speech blue"><h2>無料相談も可能です！</h2></div>
-            <h3 class="tit-cta">まずは「Buzpos」へお気軽にご相談ください！</h3>
-            <div class="cta-btn-area content-wrap flexbox">
-                <a href="#sns-contact" class="contact-set cta-contact"><img loading="lazy" src="sns_assets/images/cta_btn_contact.png" alt="お見積り・お問い合わせ" width="505" height="126"></a>
-                <a href="#sns-contact" class="request-set cta-request"><img loading="lazy" src="sns_assets/images/cta_btn_request.png?20250620" alt="資料請求はこちら" width="505" height="126"></a>
-                <a href="https://lin.ee/aN0JGeo" target="_blank" class="cta-line"><img loading="lazy" src="sns_assets/images/cta_btn_line.png" alt="LINEでお見積り・お問い合わせ" width="505" height="126"></a>
-            </div>
-        </section>
-
-        <!-- 料金プラン -->
-        <section id="sns-plan" class="content-wrap padding-section bg-light-gradation">
-            <h2><figure class="tit-plan"><img width="229" height="82" loading="lazy" src="sns_assets/images/tit_plan.png" alt="料金プラン"></figure></h2>
-            <div class="content-inner">
-
-                <!-- キャッチコピー -->
-                <div class="plan-intro-block">
-                    <div class="speech blue"><p>SNS運用会社では珍しい</p></div>
-                    <p class="plan-main-title">完全<span>成果報酬型</span></p>
-                    <p class="plan-sub-read">再生された分だけをお支払い。<br><strong>成果が出なければ費用は一切発生しません。</strong></p>
-                </div>
-
-                <!-- 初期費用ゼロ強調 -->
-                <div class="zero-cost-wrap">
-                    <div class="zero-cost-item">
-                        <span class="zero-label">初期導入費用</span>
-                        <span class="zero-value anton">0円</span>
-                        <span class="zero-sub">契約時の費用なし</span>
-                    </div>
-                    <div class="zero-cost-item accent-orange">
-                        <span class="zero-label">1再生あたり</span>
-                        <span class="zero-value anton">4円</span>
-                        <span class="zero-sub">再生された分だけ支払う</span>
-                    </div>
-                </div>
-
-                <!-- 4つの特徴 -->
-                <div class="h3-line-both">
-                    <h3>TikTok 完全成果報酬型運用代行の4つの特徴</h3>
-                </div>
-                <div class="features-wrap">
-                    <div class="feature-card">
-                        <div class="feature-num">01</div>
-                        <h4>再生数課金型</h4>
-                        <p class="feature-price"><span class="big">1</span>再生＝<span class="big">4</span>円</p>
-                        <p class="feature-desc">バズった分だけ費用が発生。成果に連動した完全透明な料金体系なので、費用対効果が明確です</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-num">02</div>
-                        <h4>最低再生数保証</h4>
-                        <p class="feature-price" style="font-size: clamp(13px,1.5vw,16px);">保証数を<br>下回れば広告費負担</p>
-                        <p class="feature-desc">一定の再生数保証を下回った場合は自社の広告費負担による再生数確保いたします</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-num">03</div>
-                        <h4>一気通貫の運用体制</h4>
-                        <p class="feature-price" style="font-size: clamp(13px,1.5vw,16px);">企画→撮影→編集→<br>投稿→分析まで</p>
-                        <p class="feature-desc">アカウント戦略から動画制作・投稿・数値分析まで全てBUZPOSが一貫して担当します</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-num">04</div>
-                        <h4>最適な導線設計</h4>
-                        <p class="feature-price" style="font-size: clamp(13px,1.5vw,16px);">バズ→商品購入・<br>問い合わせへ</p>
-                        <p class="feature-desc">再生数だけで終わらせない。バズ動画から実際の売上・リード獲得に繋がる導線を設計します</p>
-                    </div>
-                </div>
-
-                <!-- 料金プラン表 -->
-                <div class="h3-line-both">
-                    <h3>料金プラン</h3>
-                </div>
-                <div class="plan-table">
-                    <table class="common-table">
-                        <thead>
-                            <tr>
-                                <th class="empty-cell"></th>
-                                <th class="plan-header light">上限30万円</th>
-                                <th class="plan-header standard recommended">
-                                    <div class="recommendation-badge">おススメ</div>
-                                    上限40万円
-                                </th>
-                                <th class="plan-header pro">上限50万円</th>
-                                <th class="plan-header naiseika">内製化支援</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="row-header dark">月上限金額</td>
-                                <td class="plan-cell light"><span class="anton">30</span><span class="unit">万円</span></td>
-                                <td class="push-cell standard txt-big"><span class="anton">40</span><span class="unit">万円</span></td>
-                                <td class="plan-cell pro"><span class="anton">50</span><span class="unit">万円</span></td>
-                                <td class="plan-cell"><span class="anton">10</span><span class="unit">万円</span><br><span style="font-size:.7em;font-weight:400">（固定）</span></td>
-                            </tr>
-                            <tr>
-                                <td class="row-header dark">投稿本数<br><span class="sub-text">（企画・撮影・編集含む）</span></td>
-                                <td class="plan-cell light"><span class="anton">8</span><span class="unit">本</span>/月</td>
-                                <td class="push-cell standard"><span class="anton">12</span><span class="unit">本</span>/月</td>
-                                <td class="plan-cell pro"><span class="anton">16</span><span class="unit">本</span>/月</td>
-                                <td class="plan-cell" style="color:#888;font-size:.85em">—</td>
-                            </tr>
-                            <tr>
-                                <td class="row-header dark">1再生単価</td>
-                                <td class="plan-cell light"><span class="anton">4</span><span class="unit">円</span></td>
-                                <td class="push-cell standard highlight"><span class="anton">4</span><span class="unit">円</span></td>
-                                <td class="plan-cell pro"><span class="anton">4</span><span class="unit">円</span></td>
-                                <td class="plan-cell" style="color:#888;font-size:.85em">—</td>
-                            </tr>
-                            <tr>
-                                <td class="row-header dark">初期導入費用</td>
-                                <td class="plan-cell light"><span class="anton">0</span><span class="unit">円</span></td>
-                                <td class="push-cell standard highlight"><span class="anton">0</span><span class="unit">円</span></td>
-                                <td class="plan-cell pro"><span class="anton">0</span><span class="unit">円</span></td>
-                                <td class="plan-cell"><span class="anton">0</span><span class="unit">円</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="scroll-indicator-wrap for-sp"><p class="scroll-indicator">横にスクロールできます</p></div>
-                <ul class="plan-note">
-                    <li>成果報酬型プランは上限金額を超えた分の再生数には課金されません</li>
-                    <li>内製化支援プランは月額固定費用です。御社スタッフへのTikTok運用ノウハウ移転・体制構築を支援します</li>
-                    <li>詳細はお問い合わせください</li>
-                </ul>
-
-                <!-- トータルサポート内容 -->
-                <div class="h3-line-both">
-                    <h3>BUZPOSのトータルサポート</h3>
-                </div>
-                <div class="support-wrap flexbox">
-                    <div class="support-container">
-                        <h4 class="flexbox">
-                            <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_construction.png"></i>
-                            初期構築
-                        </h4>
-                        <ul class="support-list">
-                            <li>課題ヒアリング</li>
-                            <li>TikTok市場・競合分析</li>
-                            <li>自社アカウント分析</li>
-                            <li>SNS運用プランニング</li>
-                            <li>アカウント開設</li>
-                            <li>導線設計</li>
-                        </ul>
-                    </div>
-                    <div class="support-container">
-                        <h4 class="flexbox">
-                            <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_support.png"></i>
-                            運用代行
-                        </h4>
-                        <ul class="support-list">
-                            <li>動画企画・台本作成</li>
-                            <li>動画撮影</li>
-                            <li>動画編集・テロップ</li>
-                            <li>TikTok投稿・運用</li>
-                            <li>インフルエンサー起用</li>
-                        </ul>
-                    </div>
-                    <div class="support-container">
-                        <h4 class="flexbox">
-                            <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_solution.png"></i>
-                            分析・改善
-                        </h4>
-                        <ul class="support-list">
-                            <li>再生数・エンゲージメント分析</li>
-                            <li>バズ要因の分解</li>
-                            <li>コンテンツ改善提案</li>
-                            <li>月次レポート</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- CTA -->
-        <section class="cta">
-            <div class="speech blue"><h2>無料相談も可能です！</h2></div>
-            <h3 class="tit-cta">まずは「Buzpos」へお気軽にご相談ください！</h3>
-            <div class="cta-btn-area content-wrap flexbox">
-                <a href="#sns-contact" class="contact-set cta-contact"><img loading="lazy" src="sns_assets/images/cta_btn_contact.png" alt="お見積り・お問い合わせ" width="505" height="126"></a>
-                <a href="#sns-contact" class="request-set cta-request"><img loading="lazy" src="sns_assets/images/cta_btn_request.png?20250620" alt="資料請求はこちら" width="505" height="126"></a>
-                <a href="https://lin.ee/aN0JGeo" target="_blank" class="cta-line"><img loading="lazy" src="sns_assets/images/cta_btn_line.png" alt="LINEでお見積り・お問い合わせ" width="505" height="126"></a>
-            </div>
-        </section>
-
-        <!-- ご利用の流れ -->
-        <section id="sns-flow" class="content-wrap padding-section bg-blue">
-            <h2><figure class="tit-flow"><img width="275" height="81" loading="lazy" src="sns_assets/images/tit_flow.png" alt="ご利用の流れ"></figure></h2>
-            <div class="content-inner">
-                <ol class="flow-list">
-                    <li>
-                        <h3>お問い合わせ</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_01.png"></i>
-                        <p>LINE・フォームより<br>お問い合わせください</p>
-                    </li>
-                    <li>
-                        <h3>ヒアリング</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_02.png"></i>
-                        <p>動画制作・運用に関しての相談を<br class="for-pc">お伺いいたします</p>
-                    </li>
-                    <li>
-                        <h3>プランの提示</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_03.png"></i>
-                        <p>必要な施策、サービスメニューを<br class="for-pc">ご提案させていただきます</p>
-                    </li>
-                    <li>
-                        <h3>ご契約</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_04.png"></i>
-                        <p>ご契約書による契約書<br class="for-pc">締結を行います</p>
-                    </li>
-                    <li>
-                        <h3>戦略策定</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_05.png"></i>
-                        <p>測定・調査・ターゲット設計<br class="for-pc">などを行います</p>
-                    </li>
-                    <li>
-                        <h3>企画・台本作成</h3>
-                        <i><img width="70" height="70" loading="lazy" src="sns_assets/images/icon_flow_06.png"></i>
-                        <p>調査・設計内容から施策を練り<br class="for-pc">制作に入ります</p>
-                    </li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- よくある質問 -->
-        <section id="sns-faq" class="content-wrap padding-section">
-            <h2><figure class="tit-faq"><img width="275" height="81" loading="lazy" src="sns_assets/images/tit_faq.png" alt="よくある質問"></figure></h2>
-            <div class="content-inner">
-                <ul class="faq-list">
-                    <li>
-                        <h3>必ずバズりますか？</h3>
-                        <p>SNSは運用にはとても手間がかかり、即効性があるわけではありません。特にバズることを狙う場合には、結果が出るまで時間がかかります。「短期的な成功ではなく、長期的な成果に焦点を当てる」ことが重要です。</p>
-                    </li>
-                    <li>
-                        <h3>最低契約期間はありますか？</h3>
-                        <p>コンテンツの企画・制作・振り返りを⾏い⻑期的に効果を測るため、原則として3ヶ⽉からのご契約をお願いしております。</p>
-                    </li>
-                    <li>
-                        <h3>どのSNSでも代行してもらえますか？</h3>
-                        <p>市場やトレンドに合わせて、各種SNSを選定いたします。まずはご相談ください。</p>
-                    </li>
-                    <li>
-                        <h3>運用の一部分だけのご依頼も可能ですか？</h3>
-                        <p>編集のみなど、ご要望に合わせてご提案いたします。</p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="sns-contact" class="content-wrap padding-section bg-light-gradation">
-            <h2><figure class="tit-contact"><img width="281" height="81" loading="lazy" src="sns_assets/images/tit_contact.png" alt="お問い合わせ"></figure></h2>
-            <div class="form-container">
+<!-- ══ 11 無料相談 ＋ お問い合わせフォーム（フォームの機能属性は現行のまま） ══ -->
+<section class="v2-sec v2-contact" id="sns-contact" aria-labelledby="v2-contact-title">
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">11</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CONTACT</span>
+    </div>
+    <h2 class="v2-h2" id="v2-contact-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">まずは、</span></span><span class="v2-ln"><span class="v2-ln__in">無料相談から。</span></span></h2>
+    <div class="v2-contact__lead">
+      <div class="v2-contact__text">
+        <ul class="v2-contact__points" data-reveal-group data-start="top 85%" data-stagger=".08">
+          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">01</span>御社に合う運用内容とお見積もり</li>
+          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">02</span>御社の業種で目安になる問い合わせ件数</li>
+          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">03</span>既存の動画がある方は、30日間の無料計測</li>
+        </ul>
+        <p class="v2-contact__body" data-reveal="rise">オンライン30分。動画がまだ無い会社もご相談ください。<br class="v2-br-pc">ご相談だけで終わっても費用はかかりません。<br class="v2-br-pc">1営業日以内にご返信します。</p>
+      </div>
+      <div class="v2-contact__btns" data-reveal="rise">
+        <a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener" data-magnetic><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span class="v2-flip__b" aria-hidden="true">LINEで無料相談する</span></span></a>
+        <a class="v2-btn v2-btn--ghost" href="#sns-form" data-magnetic><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span class="v2-flip__b" aria-hidden="true">お問い合わせフォーム</span></span></a>
+      </div>
+    </div>
+    <div class="v2-form" id="sns-form" data-reveal="wipe-up">
                 <form action="https://buzpos.co.jp/lp/lp_million_followers/mail.php" method="post" enctype="multipart/form-data" class="form-body">
                     <div class="form-group">
                         <label class="form-label" for="sns-inquiryType">
@@ -1097,9 +764,10 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 
                     <button type="submit" class="submit-btn">送信</button>
                 </form>
-            </div>
-        </section>
-</div><!-- /tab-sns -->
+    </div>
+  </div>
+</section>
+
 
 </main>
 
@@ -1126,17 +794,15 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 </div>
 
 <script>
-// ══ SNS（旧 SNS タブの初期化スクリプトを移植）══
-// 変更点：タブ切替なしで読み込み時に初期化／YouTube 横型・ショート動画のレールとクリック、logic.mp4 は新セクション（motion.js）へ移設
-//         （旧 sns-youtube の Swiper は第1b段で撤去。Swiper はどのセクションでも使わないので CDN の読み込みも外した）／
-//         openSnsModal を window に公開（ショートは縦長の modal-short で開く）／
-//         既存の中央寄せ CSS（#sns-videoModal.show）が効くよう .show を付与し、閉じるボタン（.close）を追加
+// ══ 動画ライトボックス・お問い合わせフォーム（旧 SNS タブの初期化スクリプトから移植）══
+// 第2段：旧セクション（#tab-sns）を撤去したので、フォームは #sns-contact から直接参照する。
+//        旧セクション用の出現アニメ（IntersectionObserver）は対象が無くなったので削除
 var snsTabInited = false;
 function initSnsTab() {
   if (snsTabInited) return;
   snsTabInited = true;
 
-  // YouTube動画モーダル
+  // YouTube動画モーダル（YouTube 横型・ショートのサムネイルのクリックは motion.js が openSnsModal を呼ぶ）
   var modal = document.getElementById('sns-videoModal');
   var videoFrame = document.getElementById('sns-videoFrame');
   var modalTitle = document.getElementById('sns-modalTitle');
@@ -1160,9 +826,6 @@ function initSnsTab() {
   window.openSnsModal = openSnsModal;
   window.closeSnsModal = closeSnsModal;
 
-  // YouTube 横型・ショートのサムネイルのクリックは新セクション（motion.js）で openSnsModal を呼ぶ
-  var snsTab = document.getElementById('tab-sns');
-
   // モーダル閉じる
   if (modal) {
     modal.addEventListener('click', function(e) { if (e.target === modal) closeSnsModal(); });
@@ -1180,7 +843,7 @@ function initSnsTab() {
   }
 
   // SNS form: チェックボックス必須バリデーション
-  var snsForm = snsTab.querySelector('form');
+  var snsForm = document.querySelector('#sns-contact form');
   if (snsForm) {
     snsForm.addEventListener('submit', function(e) {
       var cbs = snsForm.querySelectorAll('input[name="運用検討中のSNS[]"]');
@@ -1190,16 +853,6 @@ function initSnsTab() {
         alert('運用検討中のSNSを1つ以上選択してください。');
       }
     });
-  }
-
-  // IntersectionObserver for animations
-  if ('IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function(entries) {
-      entries.forEach(function(e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    snsTab.querySelectorAll('.point-list li, .flow-list li, .faq-list li').forEach(function(el) { io.observe(el); });
   }
 }
 initSnsTab();
@@ -1212,5 +865,6 @@ initSnsTab();
   }
 })();
 </script>
+
 </body>
 </html>

@@ -1,5 +1,6 @@
-/* BUZPOS SNS運用代行 LP v2 — 第1段・第1b段の動き（GSAP 3.13 + ScrollTrigger / jsdelivr）
+/* BUZPOS SNS運用代行 LP v2 — 第1段・第1b段・第2段の動き（GSAP 3.13 + ScrollTrigger / jsdelivr）
    - 第1b段：03 = YouTube 横型の制作実績（背景「YOUTUBE」の scrub）、04 = ショート（背景文字なし）
+   - 第2段：02・05〜11 の入場演出（data-reveal-group の stagger、行マスク、clip-path、IO 開始のスロット数字と期間バー）
    - hero の 0〜2.3 秒は CSS keyframes のみ（このファイルは関与しない）
    - GSAP が無い・失敗した時は .js を外して中身を全部見せる
    - prefers-reduced-motion: reduce の時は GSAP で何もしない */
@@ -45,6 +46,29 @@
       var e = entries[0];
       set(!e.isIntersecting && e.boundingClientRect.top < 0);
     }, { rootMargin: '-64px 0px 0px 0px', threshold: 0 }).observe(hero);
+  }
+
+  /* ---------- ページ内リンク：CSS の scroll-behavior:smooth は ScrollTrigger の refresh と競合するので使わず、ここで smooth にする ---------- */
+  function hashTarget(hash) {
+    if (!hash || hash.length < 2) return null;
+    var id;
+    try { id = decodeURIComponent(hash.slice(1)); } catch (err) { id = hash.slice(1); }
+    return d.getElementById(id);
+  }
+  function initAnchors() {
+    d.addEventListener('click', function (ev) {
+      if (ev.defaultPrevented || ev.button !== 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+      var a = ev.target.closest ? ev.target.closest('a[href^="#"]') : null;
+      if (!a) return;
+      var t = hashTarget(a.getAttribute('href'));
+      if (!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior: mqReduce.matches ? 'auto' : 'smooth', block: 'start' });
+      if (history.pushState) history.pushState(null, '', a.getAttribute('href'));
+      /* 既定のアンカー移動と同じく、次の Tab が移動先から始まるようにする（スクロールは上の 1 回だけ） */
+      if (!t.hasAttribute('tabindex')) t.setAttribute('tabindex', '-1');
+      try { t.focus({ preventScroll: true }); } catch (err) { /* noop */ }
+    });
   }
 
   /* ---------- LINE 固定バー（SP）：hero を抜けたら出す／#sns-contact が 30% 見えたら隠す ---------- */
@@ -413,18 +437,39 @@
             scrollTrigger: { trigger: ytSec, start: 'top bottom', end: 'bottom top', scrub: true, invalidateOnRefresh: true } });
       }
 
+      /* 第2段：背景のアウトライン文字（RESULTS / SUPERVISION）は scrub にせず、見えたら 1 回だけ横にイーズ */
+      $$('[data-bgword]').forEach(function (w) {
+        /* data-bgword="開始,終了"（画面幅に対する比）。省略時は 0.1 → 0.02。終了位置は CSS（reduced-motion 時の見た目）と一致させる */
+        var bx = String(w.getAttribute('data-bgword') || '').split(',').map(parseFloat);
+        var fromX = isNaN(bx[0]) ? 0.1 : bx[0];
+        var toX = isNaN(bx[1]) ? 0.02 : bx[1];
+        gsap.fromTo(w, { x: function () { return window.innerWidth * fromX; } },
+          { x: function () { return window.innerWidth * toX; }, duration: 2.2, ease: expo,
+            scrollTrigger: { trigger: w.parentElement, start: 'top 85%', once: true } });
+      });
+
       if (!revealAlive) return; /* 安全タイマーで .js が外れた後は出現演出をしない（見えている中身を隠さない） */
 
-      /* 毎月5社限定：帯の下端が viewport 75% に入ったら「5」→ .3 秒後にマーカー */
-      var five = $('#v2-five');
-      var marks = $$('#v2-limit .v2-marker');
-      if (five && ticker) {
-        var tl = gsap.timeline({ paused: true });
-        tl.fromTo(five, { yPercent: 100, opacity: 1 }, { yPercent: 0, duration: 0.9, ease: expo, clearProps: 'transform' }, 0);
-        if (marks.length) {
-          tl.fromTo(marks, { backgroundSize: '0% 6px' }, { backgroundSize: '100% 6px', duration: 0.6, ease: expo, stagger: 0.12 }, 0.3);
+      /* マーカー下線は hero の 1 か所だけで、CSS keyframes（::after の scaleX）が担当する */
+
+      /* 第2段：IO で始めるスロット数字（data-reveal="odo"）と期間バー（data-reveal="bar"）。
+         ビューポート到達で .is-run を付けると CSS の keyframes が走る（hero の .v2-odo--run は読み込み直後のまま） */
+      /* data-reveal-group の中のスロット数字は、親カードの入場タイムラインから起動する（下の addReveal 側）。
+         ここで IO に掛けるのはグループ外（07 アクトレの数字・10 の期間バー）だけ */
+      var runEls = $$('[data-reveal="odo"], [data-reveal="bar"]').filter(function (el) { return !el.closest('[data-reveal-group]'); });
+      if (runEls.length) {
+        if ('IntersectionObserver' in window) {
+          var runIO = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting) return;
+              e.target.classList.add('is-run');
+              runIO.unobserve(e.target);
+            });
+          }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
+          runEls.forEach(function (el) { runIO.observe(el); });
+        } else {
+          runEls.forEach(function (el) { el.classList.add('is-run'); });
         }
-        ST.create({ trigger: ticker, start: 'bottom 75%', once: true, onEnter: function () { tl.play(); } });
       }
 
       /* ヘアライン draw */
@@ -467,11 +512,12 @@
       $$('.v2-rail').forEach(function (rail) {
         var railItems = $$('.v2-rail__item[data-reveal="rail"]', rail);
         if (!railItems.length) return;
+        var railStagger = parseFloat(rail.getAttribute('data-stagger')) || 0.08;
         gsap.set(railItems, { opacity: 1, clipPath: 'inset(0 100% 0 0)' });
         ST.create({
           trigger: rail, start: 'top 70%', once: true,
           onEnter: function () {
-            gsap.to(railItems, { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: expo, stagger: 0.08, clearProps: 'clipPath' });
+            gsap.to(railItems, { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: expo, stagger: railStagger, clearProps: 'clipPath' });
           }
         });
       });
@@ -481,12 +527,79 @@
           { clipPath: 'inset(0 0% 0 0)', duration: 0.7, ease: expo, clearProps: 'clipPath', scrollTrigger: { trigger: logic, start: 'top 70%', once: true } });
       }
 
-      /* 残った data-reveal（上で扱っていないもの）はフェードで */
+      /* 第2段：入場演出の共通部品。data-reveal-group の中は 1 本のタイムラインで stagger（data-stagger 秒）、
+         グループ外は要素ごとに 85% で。入れ子（カードの中の箇条書きなど）は親の .25 秒後から .05 秒差 */
+      var KINDS = { 'wipe-down': 1, 'wipe-up': 1, 'wipe-right': 1, 'rise': 1, 'mask': 1, 'lines': 1, 'stroke': 1, 'drawy': 1 };
+      function addReveal(tl, el, pos) {
+        var kind = el.getAttribute('data-reveal');
+        var dur = parseFloat(el.getAttribute('data-dur'));
+        var y = parseFloat(el.getAttribute('data-y'));
+        var full = 'inset(0% 0% 0% 0%)';
+        var clipFrom = { 'wipe-down': 'inset(0% 0% 100% 0%)', 'wipe-up': 'inset(100% 0% 0% 0%)', 'wipe-right': 'inset(0% 100% 0% 0%)' }[kind];
+        if (clipFrom) {
+          tl.fromTo(el, { opacity: 1, clipPath: clipFrom }, { clipPath: full, duration: isNaN(dur) ? (kind === 'wipe-up' ? 0.9 : 0.7) : dur, ease: expo, clearProps: 'clipPath' }, pos);
+        } else if (kind === 'rise') {
+          tl.fromTo(el, { opacity: 0, y: isNaN(y) ? 16 : y }, { opacity: 1, y: 0, duration: isNaN(dur) ? 0.7 : dur, ease: expo, clearProps: 'transform' }, pos);
+        } else if (kind === 'mask' || kind === 'lines') {
+          var ins = $$(kind === 'mask' ? '.v2-mask__in' : '.v2-ln__in', el);
+          tl.set(el, { opacity: 1 }, pos);
+          if (ins.length) tl.fromTo(ins, { yPercent: 110 }, { yPercent: 0, duration: 0.9, ease: expo, stagger: 0.08, clearProps: 'transform' }, pos);
+        } else if (kind === 'stroke') {
+          var paths = $$('path, line, polyline', el);
+          tl.set(el, { opacity: 1 }, pos);
+          if (paths.length) tl.fromTo(paths, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: 0.6, ease: 'power2.inOut' }, pos);
+        } else if (kind === 'drawy') {
+          tl.fromTo(el, { opacity: 1, scaleY: 0, transformOrigin: '50% 0%' }, { scaleY: 1, duration: 1.2, ease: expo }, pos);
+        }
+        el.__v2done = true;
+        el.__v2at = pos;
+      }
+      $$('[data-reveal-group]').forEach(function (g) {
+        var stg = parseFloat(g.getAttribute('data-stagger'));
+        if (isNaN(stg)) stg = 0.1;
+        var items = $$('[data-reveal]', g).filter(function (el) {
+          return KINDS[el.getAttribute('data-reveal')] && el.parentElement.closest('[data-reveal-group]') === g;
+        });
+        if (!items.length) return;
+        function parentItem(el) {
+          for (var n = el.parentElement; n && n !== g; n = n.parentElement) {
+            if (items.indexOf(n) > -1) return n;
+          }
+          return null;
+        }
+        var tl4 = gsap.timeline({ paused: true });
+        var tops = items.filter(function (el) { return !parentItem(el); });
+        tops.forEach(function (el, i) { el.__v2pos = i * stg; addReveal(tl4, el, el.__v2pos); });
+        items.forEach(function (el) {
+          var p = parentItem(el);
+          if (!p) return;
+          p.__v2sub = (p.__v2sub || 0) + 1;
+          addReveal(tl4, el, (p.__v2pos || 0) + 0.25 + (p.__v2sub - 1) * 0.05);
+        });
+        /* グループ内のスロット数字：いちばん近い親カードの入場開始 .15 秒後に回し始める（親が透明なうちに回り終えない） */
+        $$('[data-reveal="odo"]', g).forEach(function (o) {
+          if (o.closest('[data-reveal-group]') !== g) return;
+          var at = 0;
+          for (var n = o.parentElement; n && n !== g; n = n.parentElement) {
+            if (items.indexOf(n) > -1) { at = n.__v2at || 0; break; }
+          }
+          tl4.call(function () { o.classList.add('is-run'); }, null, at + 0.15);
+        });
+        ST.create({ trigger: g, start: g.getAttribute('data-start') || 'top 70%', once: true, onEnter: function () { tl4.play(); } });
+      });
+      $$('[data-reveal]').forEach(function (el) {
+        if (el.__v2done || !KINDS[el.getAttribute('data-reveal')]) return;
+        var tl5 = gsap.timeline({ paused: true });
+        addReveal(tl5, el, 0);
+        ST.create({ trigger: el, start: 'top 85%', once: true, onEnter: function () { tl5.play(); } });
+      });
+
+      /* 残った data-reveal（上で扱っていない種別）はフェードで（隠れたままにしない） */
+      var KNOWN = { 'draw': 1, 'fade': 1, 'split': 1, 'rail': 1, 'clip': 1, 'odo': 1, 'bar': 1 };
       $$('[data-reveal]').forEach(function (el) {
         var kind = el.getAttribute('data-reveal');
-        if (kind === '' || kind === null) {
-          gsap.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: expo, scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
-        }
+        if (KINDS[kind] || KNOWN[kind]) return;
+        gsap.fromTo(el, { opacity: 0 }, { opacity: 1, duration: 0.8, ease: expo, scrollTrigger: { trigger: el, start: 'top 85%', once: true } });
       });
 
       /* スロット数字（JS で起動するもの：data-odo） */
@@ -541,12 +654,18 @@
         });
       }
 
-      window.addEventListener('load', function () { ST.refresh(); });
+      window.addEventListener('load', function () {
+        ST.refresh();
+        /* URL の #… で着地した場合：refresh でずれた位置を、目的のセクションに合わせ直す */
+        var t = hashTarget(location.hash);
+        if (t) t.scrollIntoView({ behavior: 'auto', block: 'start' });
+      });
     });
   }
 
   onReady(function () {
     initHeader();
+    initAnchors();
     initLineBar();
     initTickerIO();
     initRails();
