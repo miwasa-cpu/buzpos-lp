@@ -843,12 +843,9 @@
 .v2-split__m { display: inline-block; clip-path: inset(-.3em -.1em 0 -.1em); }
 .v2-split__c { display: inline-block; }
 
-/* 1 分紹介（左）＋ ショート 7 本のレール（右） */
+/* ショート実績のレール（1 分紹介ブロックは 2026-10-02 に削除。1 列） */
 .v2-shorts__media {
-  display: grid;
-  grid-template-columns: 280px minmax(0, 1fr);
-  column-gap: clamp(32px, 4vw, 64px);
-  align-items: center;
+  display: block;
   margin-top: clamp(40px, 5vw, 72px);
 }
 
@@ -985,15 +982,6 @@
   .v2-rail .v2-phone:hover { transform: translateZ(0) translateY(-6px); }
 }
 
-.v2-logic { text-align: center; }
-.v2-logic .v2-h3 { font-size: clamp(16px, 1.3vw, 18px); }
-/* 1 分紹介の端末：300px → 233px（レールの端末と同じ比率で縮小） */
-.v2-phone--logic {
-  --bz: 7px; --r: 30px; --ri: 24px;
-  width: min(100%, 180px);
-  margin: 16px auto 0;
-}
-.v2-phone--logic .v2-phone__screen { aspect-ratio: 9 / 16; }
 .v2-phone__video { opacity: 0; transition: opacity .4s ease; }
 .v2-phone.is-playing .v2-phone__video { opacity: 1; }
 .v2-phone__play {
@@ -1009,45 +997,7 @@
 }
 .v2-phone__play::before { border-width: 12px 0 12px 20px; margin-left: 6px; }
 .v2-phone.is-blocked .v2-phone__play { display: grid; }
-.v2-logic__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: .4em;
-  margin-top: 12px;
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--v2-blue-dark);
-  cursor: pointer;
-}
-.v2-logic__cta .icon-touch::before { font-size: 20px; }
 
-/* 1 分紹介のフルスクリーン再生（音あり） */
-.v2-fullvideo {
-  position: fixed;
-  inset: 0;
-  z-index: 10001;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--v2-dark);
-}
-.v2-fullvideo[hidden] { display: none; }
-.v2-fullvideo video { width: 100%; height: 100%; object-fit: contain; }
-.v2-fullvideo__close {
-  position: absolute;
-  top: calc(12px + env(safe-area-inset-top));
-  right: 12px;
-  z-index: 2;
-  width: 48px; height: 48px;
-  border: 1px solid rgba(255, 255, 255, .6);
-  border-radius: 50%;
-  background: rgba(15, 29, 47, .6);
-  color: var(--v2-white);
-  font-family: var(--v2-mono);
-  font-size: 22px;
-  line-height: 1;
-  cursor: pointer;
-}
 
 /* ---------- 旧セクション（第2段で作り直すまで現行のまま） ---------- */
 .v2-legacy { position: relative; overflow-x: clip; }
@@ -1213,8 +1163,7 @@
   .v2-yt__play { width: 40px; height: 40px; right: 10px; bottom: 10px; }
   .v2-yt__play::before { border-width: 8px 0 8px 13px; margin-left: 3px; }
 
-  /* ショート（補助）：縦積み。中央の 1 台 46vw（仕様の 60vw から縮小。両隣は .96 / .7 で左右に約 2 割ずつ覗く）、
-     1 分紹介も同じ比率で 49vw → 38vw */
+  /* ショート（補助）：縦積み。中央の 1 台 46vw（仕様の 60vw から縮小。両隣は .96 / .7 で左右に約 2 割ずつ覗く） */
   .v2-shorts__media { display: block; }
   .v2-works { margin-top: clamp(40px, 10vw, 56px); }
   .v2-shorts .v2-rail--phones {
@@ -1227,18 +1176,6 @@
   .v2-rail--phones .v2-rail__item .v2-phone { transform: translateZ(0) scale(.96); opacity: .7; }
   .v2-rail--phones .v2-rail__item.is-center .v2-phone { transform: translateZ(0) scale(1); opacity: 1; }
   .v2-rail--phones .v2-phone { --bz: 7px; --r: 30px; --ri: 24px; }
-  .v2-phone--logic { --bz: 6px; --r: 26px; --ri: 20px; width: 38vw; margin: 0; }
-  /* 1 分紹介は端末（左）と見出し・再生ボタン（右）を横並びにして縦の占有を抑える */
-  .v2-logic {
-    display: grid;
-    grid-template-columns: 38vw minmax(0, 1fr);
-    grid-template-rows: 1fr auto 1fr;
-    column-gap: 16px;
-    text-align: left;
-  }
-  .v2-logic__frame { grid-column: 1; grid-row: 1 / span 3; }
-  .v2-logic .v2-h3 { grid-column: 2; grid-row: 2; font-size: 16px; }
-  .v2-logic__cta { grid-column: 2; grid-row: 3; align-self: start; }
 }
 @media (max-width: 359px) {
   .v2-stat__jp { font-size: 26px; }
