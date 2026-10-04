@@ -603,8 +603,9 @@
   z-index: -1;
   left: 0;
   right: 0;
-  bottom: .1em;
-  height: 6px;
+  bottom: -.16em; /* 文字の下端より下に出す（文字に被せない下線。行間 1.6 以上なので次行とは当たらない） */
+  height: .16em;
+  border-radius: 2px;
   background: var(--v2-yellow);
   transform-origin: left center;
 }
