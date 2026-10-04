@@ -1,0 +1,46 @@
+name: Redirect pages.dev to production
+
+# buzpos-lp.pages.dev（Cloudflare Pages）を、Vercel の本番ドメインへの 301 だけを返すデプロイに差し替える。
+# LP 本体は Cloudflare には出さない（フォームの /api/contact が動かないため）。
+# 手動実行のみ。本番ドメインが Vercel で表示できるのを確かめてから実行する。
+
+on:
+  workflow_dispatch:
+    inputs:
+      target_origin:
+        description: 'リダイレクト先（https:// から始まるオリジン。末尾スラッシュなし）'
+        required: true
+        default: 'https://buzpos.co.jp'
+
+jobs:
+  redirect:
+    runs-on: ubuntu-latest
+    name: Deploy 301 bundle
+    steps:
+      - name: Build redirect bundle
+        env:
+          TARGET: ${{ inputs.target_origin }}
+        run: |
+          if ! printf '%s' "$TARGET" | grep -Eq '^https://[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)+$'; then
+            echo "target_origin が不正です: $TARGET" >&2
+            exit 1
+          fi
+          mkdir -p redirect_bundle
+          # パスとクエリを保ったまま 301（/ も /* に含まれる）
+          printf '/* %s/:splat 301\n' "$TARGET" > redirect_bundle/_redirects
+          printf '/*\n  X-Robots-Tag: noindex\n' > redirect_bundle/_headers
+          cat > redirect_bundle/index.html <<HTML
+          <!DOCTYPE html>
+          <html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="noindex">
+          <meta http-equiv="refresh" content="0; url=${TARGET}/">
+          <title>BUZPOS</title></head>
+          <body><p><a href="${TARGET}/">${TARGET}/</a> へ移転しました。</p></body></html>
+          HTML
+          cat redirect_bundle/_redirects
+
+      - name: Deploy to Cloudflare Pages (production)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy redirect_bundle --project-name buzpos-lp --branch main

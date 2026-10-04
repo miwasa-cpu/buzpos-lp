@@ -1,0 +1,17 @@
+# CLI デプロイで上げないもの（作業用・旧ページ・素材の原本）
+buzpos-lp-project/
+index/
+lp/
+output/
+.github/
+docs/
+scripts/
+*.md
+hero_*
+laurel*
+sv_new.html
+# 退避中の旧ページ（公開しない）
+ads.html
+.DS_Store
+**/.DS_Store
+ai-video-ad.html

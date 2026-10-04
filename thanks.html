@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  base-uri 'none';
+  object-src 'none';
+  form-action 'self';
+  script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+  font-src 'self' data: https://fonts.gstatic.com https://buzpos.co.jp;
+  img-src 'self' data: https:;
+  media-src 'self' https://pub-a821e9587754423f80e9145e37c307df.r2.dev https://buzpos.co.jp;
+  connect-src 'self' https://buzpos.co.jp;
+  frame-src https://www.youtube.com https://www.youtube-nocookie.com;
+">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="theme-color" content="#009fe8">
+<title>送信完了｜BUZPOS</title>
+<link rel="icon" href="sns_assets/images/logo_symbol.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&amp;family=Space+Mono:wght@400&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="sns_assets/css/v2.css">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100%; }
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: var(--v2-blue);
+  color: var(--v2-white);
+  font-family: var(--v2-jp);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.tk {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  padding-top: calc(var(--v2-header-h) + clamp(48px, 8vw, 120px));
+  padding-bottom: clamp(56px, 8vw, 120px);
+}
+.tk .v2-sechead { color: var(--v2-white); }
+.tk__title {
+  margin-top: 24px;
+  font-family: var(--v2-jp);
+  font-weight: 900;
+  font-size: clamp(30px, 5vw, 64px);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+  font-feature-settings: "palt";
+  word-break: auto-phrase;
+  color: var(--v2-white);
+}
+.tk__body {
+  margin-top: 20px;
+  max-width: 40em;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 1.95;
+  letter-spacing: .02em;
+}
+.tk__btns {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: clamp(32px, 4vw, 48px);
+}
+.tk__btns .v2-btn { min-width: 280px; min-height: 64px; font-size: 17px; }
+.tk__back {
+  color: var(--v2-white);
+  font-weight: 700;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: .3em;
+}
+.tk__back:focus-visible { outline: 3px solid var(--v2-yellow); outline-offset: 3px; }
+.tk.is-error .tk__title { color: var(--v2-yellow); }
+footer {
+  background: var(--v2-dark);
+  color: rgba(255, 255, 255, .45);
+  text-align: center;
+  padding: 24px 20px calc(24px + env(safe-area-inset-bottom));
+  font-size: .78rem;
+}
+@media (max-width: 750px) {
+  .tk__btns { flex-direction: column; align-items: stretch; }
+  .tk__btns .v2-btn { width: 100%; min-width: 0; min-height: 56px; font-size: 16px; }
+  .tk__back { text-align: center; }
+  footer { padding-bottom: calc(24px + env(safe-area-inset-bottom)); }
+}
+</style>
+</head>
+<body>
+
+<header class="v2-header">
+  <a class="v2-header__logo" href="/"><img src="sns_assets/images/logo_2.png" width="392" height="87" alt="BUZPOS（バズポス）" decoding="async"></a>
+</header>
+
+<main class="tk v2-sec" id="tk">
+  <div class="v2-wrap">
+    <div class="v2-sechead">
+      <span class="v2-sechead__idx">BUZPOS</span><span class="v2-sechead__line"></span><span class="v2-sechead__kicker" id="tk-kicker">THANK YOU</span>
+    </div>
+    <h1 class="tk__title" id="tk-title" role="status">送信ありがとうございました。1営業日以内にご返信します。</h1>
+    <p class="tk__body" id="tk-body">ご入力いただいたメールアドレス宛にご連絡します。お急ぎの場合は LINE からもご相談いただけます。</p>
+    <div class="tk__btns">
+      <a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener"><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span class="v2-flip__b" aria-hidden="true">LINEで無料相談する</span></span></a>
+      <a class="tk__back" id="tk-back" href="/">トップページに戻る</a>
+    </div>
+  </div>
+</main>
+
+<footer>© 2026 BUZPOS株式会社</footer>
+
+<script>
+(function () {
+  var err = new URLSearchParams(window.location.search).get('error');
+  if (!err) return;
+  var wrap = document.getElementById('tk');
+  var title = document.getElementById('tk-title');
+  var body = document.getElementById('tk-body');
+  var kicker = document.getElementById('tk-kicker');
+  var back = document.getElementById('tk-back');
+  wrap.classList.add('is-error');
+  kicker.textContent = 'ERROR';
+  document.title = '送信できませんでした｜BUZPOS';
+  if (err === 'invalid') {
+    title.textContent = '入力内容に不足があります。戻ってご確認ください';
+    body.textContent = '必須の項目とメールアドレスの形式をご確認のうえ、もう一度お送りください。';
+    back.textContent = 'フォームに戻る';
+    back.setAttribute('href', '/#sns-form');
+    back.addEventListener('click', function (e) {
+      if (window.history.length > 1) { e.preventDefault(); window.history.back(); }
+    });
+  } else {
+    title.textContent = '送信に失敗しました。お手数ですが LINE からご連絡ください';
+    body.textContent = 'ご入力の内容は届いていません。LINE なら、そのままご相談いただけます。';
+  }
+})();
+</script>
+
+</body>
+</html>

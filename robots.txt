@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://buzpos-lp.pages.dev/sitemap.xml
+Sitemap: https://buzpos.co.jp/sitemap.xml

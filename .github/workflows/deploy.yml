@@ -1,4 +1,9 @@
-name: Deploy to Cloudflare Pages
+name: Validate HTML
+
+# 本番は Vercel（/api/contact が Vercel の関数として動く）。
+# Cloudflare Pages には api/contact.js が関数として載らず、pages.dev から送るとフォームが 404/405 になるため、
+# main への push・PR での `pages deploy .` はやめた（deploy / lighthouse ジョブを削除）。
+# buzpos-lp.pages.dev は .github/workflows/pages-redirect.yml（手動実行）で本番ドメインへの 301 に差し替える。
 
 on:
   push:
@@ -48,49 +53,3 @@ jobs:
             compressed=$(stat -c%s "$f" 2>/dev/null || stat -f%z "$f")
             echo "$f: ${original} → ${compressed} bytes"
           done
-
-  deploy:
-    runs-on: ubuntu-latest
-    name: Deploy
-    needs: validate
-    outputs:
-      deployment-url: ${{ steps.deploy.outputs.deployment-url }}
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Deploy to Cloudflare Pages
-        id: deploy
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: >
-            pages deploy . --project-name buzpos-lp
-            ${{ github.ref == 'refs/heads/main' && '--branch main' || format('--branch pr-{0}', github.event.number) }}
-
-      - name: Comment PR with preview URL
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: `🚀 **プレビューURL**: ${{ steps.deploy.outputs.deployment-url }}`
-            })
-
-  lighthouse:
-    runs-on: ubuntu-latest
-    name: Lighthouse
-    needs: deploy
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Run Lighthouse
-        uses: treosh/lighthouse-ci-action@v11
-        with:
-          urls: 'https://buzpos-lp.pages.dev'
-          uploadArtifacts: true
-          temporaryPublicStorage: true

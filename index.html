@@ -7,7 +7,7 @@
   default-src 'self';
   base-uri 'none';
   object-src 'none';
-  form-action 'self' https://buzpos.co.jp;
+  form-action 'self';
   script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
   font-src 'self' data: https://fonts.gstatic.com https://buzpos.co.jp;
@@ -28,9 +28,9 @@
 <meta name="keywords" content="BUZPOS,バズポス,SNS運用代行,YouTube,横型動画,ショート動画,動画制作,LINE">
 <meta property="og:title" content="BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行">
 <meta property="og:description" content="横型YouTubeの制作から、LINEで問い合わせを受けるところまで。どの動画から何件の問い合わせが出たかを、毎月お渡しします。">
-<meta property="og:url" content="https://buzpos-lp.pages.dev/">
+<meta property="og:url" content="https://buzpos.co.jp/">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://buzpos-lp.pages.dev/sns_assets/images/og_img_v2.png">
+<meta property="og:image" content="https://buzpos.co.jp/sns_assets/images/og_img_v2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
@@ -89,6 +89,8 @@ body {
 }
 a, button, summary { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
 input, select, textarea { font-size: 1rem; }
+/* お問い合わせフォームのハニーポット（人間には見せない・ボットだけが埋める） */
+.form-hp { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
 footer { background: var(--dark); color: rgba(255,255,255,.45); text-align: center; padding: 24px 20px calc(24px + env(safe-area-inset-bottom)); font-size: .78rem; }
 html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 @media (prefers-reduced-motion:reduce) {
@@ -671,7 +673,11 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
       </div>
     </div>
     <div class="v2-form" id="sns-form" data-reveal="wipe-up">
-                <form action="https://buzpos.co.jp/lp/lp_million_followers/mail.php" method="post" enctype="multipart/form-data" class="form-body">
+                <form action="/api/contact" method="post" class="form-body">
+                    <div class="form-hp" aria-hidden="true">
+                        <label for="sns-website">ウェブサイト（入力しないでください）</label>
+                        <input type="text" id="sns-website" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    </div>
                     <div class="form-group">
                         <label class="form-label" for="sns-inquiryType">
                             ご用件<span class="required">*</span>
@@ -863,14 +869,6 @@ function initSnsTab() {
   }
 }
 initSnsTab();
-
-// 旧 URL の広告タブ（#ad / #ai-video-ad / #sv）は従来どおり sv_new.html へ
-(function() {
-  var hash = window.location.hash;
-  if (hash === '#sv' || hash === '#ad' || hash === '#ai-video-ad') {
-    window.location.replace('/sv_new.html');
-  }
-})();
 </script>
 
 </body>
