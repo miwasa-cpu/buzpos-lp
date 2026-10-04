@@ -1,0 +1,41 @@
+name: Cleanup old production deployments
+
+# 手動実行専用。本番（production）環境の古いデプロイを削除して、ハッシュ付き URL からも旧ページを消す。
+# 最新の本番デプロイ1件と、プレビュー（preview）環境のデプロイは残す。
+on:
+  workflow_dispatch:
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    env:
+      CF_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PROJECT: buzpos-lp
+    steps:
+      - name: List and delete old production deployments
+        run: |
+          set -euo pipefail
+          api="https://api.cloudflare.com/client/v4/accounts/${CF_ACCOUNT_ID}/pages/projects/${PROJECT}/deployments"
+          page=1; ids=""
+          while :; do
+            res=$(curl -sS -H "Authorization: Bearer ${CF_API_TOKEN}" "${api}?env=production&per_page=25&page=${page}")
+            echo "$res" | jq -e '.success' >/dev/null || { echo "$res" | jq '.errors'; exit 1; }
+            batch=$(echo "$res" | jq -r '.result[] | select(.environment=="production") | "\(.created_on) \(.id) \(.url)"')
+            [ -z "$batch" ] && break
+            ids="${ids}${batch}"$'\n'
+            n=$(echo "$res" | jq '.result | length'); [ "$n" -lt 25 ] && break
+            page=$((page+1))
+          done
+          echo "--- production deployments (newest first) ---"
+          sorted=$(printf '%s' "$ids" | sed '/^$/d' | sort -r)
+          echo "$sorted"
+          keep=$(echo "$sorted" | head -n1 | awk '{print $2}')
+          echo "keep (latest): $keep"
+          echo "$sorted" | tail -n +2 | awk '{print $2}' | while read -r id; do
+            [ -z "$id" ] && continue
+            out=$(curl -sS -X DELETE -H "Authorization: Bearer ${CF_API_TOKEN}" "${api}/${id}?force=true")
+            echo "delete ${id}: $(echo "$out" | jq -c '{success, errors}')"
+          done
+          echo "--- remaining production deployments ---"
+          curl -sS -H "Authorization: Bearer ${CF_API_TOKEN}" "${api}?env=production&per_page=25" | jq -r '.result[] | select(.environment=="production") | "\(.created_on) \(.id) \(.url)"'
