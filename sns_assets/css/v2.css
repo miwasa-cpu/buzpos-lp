@@ -1374,8 +1374,6 @@
   line-height: 1.65;
 }
 .v2-price__foot { display: grid; gap: 8px; margin-top: clamp(32px, 3.5vw, 52px); padding-top: clamp(20px, 2vw, 28px); border-top: 1px solid rgba(15, 29, 47, .18); }
-.v2-price__fee { font-weight: 700; font-size: clamp(15px, 1.3vw, 18px); line-height: 1.75; }
-.v2-price__fee strong { font-weight: 900; color: var(--v2-orange); }
 .v2-price__lab { font-weight: 900; color: var(--v2-blue-dark); }
 /* 成果報酬のしくみ（09 ルールの冒頭。数式＋1段落。3列の各論はその下） */
 .v2-fee {
