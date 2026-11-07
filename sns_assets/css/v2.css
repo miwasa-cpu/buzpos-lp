@@ -306,6 +306,45 @@
   transform-origin: 50% 100%;
   animation: v2-zoom 2.4s var(--v2-expo) both;
 }
+/* 人物紹介：写真は変更せず、右下に読みやすい文字を重ねる。 */
+.v2-hero__profile {
+  position: absolute;
+  z-index: 3;
+  right: var(--v2-photo-r, 6%);
+  bottom: clamp(28px, 4vh, 48px);
+  display: grid;
+  gap: 5px;
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  padding: 14px 20px 16px;
+  border-left: 3px solid var(--v2-yellow);
+  background: rgba(15, 29, 47, .88);
+  color: var(--v2-white);
+  line-height: 1.4;
+  letter-spacing: .04em;
+}
+.v2-hero__profile-role { font-size: 14px; font-weight: 700; }
+.v2-hero__profile-name { font-size: clamp(22px, 2vw, 28px); font-weight: 900; }
+.v2-hero__profile-followers { font-size: 15px; font-weight: 700; }
+.v2-hero__profile-followers span { color: var(--v2-yellow); font-size: 1.2em; }
+@media (min-width: 751px) and (max-width: 899px) {
+  .v2-hero__profile { right: 16px; bottom: 140px; }
+}
+@media (max-width: 750px) {
+  .v2-hero__profile {
+    top: calc(35% + 8px);
+    bottom: auto;
+    right: 10px;
+    max-width: none;
+    gap: 2px;
+    padding: 8px 10px;
+  }
+  .v2-hero__profile-role { font-size: 11px; }
+  .v2-hero__profile-name { font-size: 17px; }
+  .v2-hero__profile-followers { font-size: 11px; }
+}
+
 .v2-hero__icon {
   position: absolute;
   z-index: 2;
@@ -1914,10 +1953,10 @@
   .v2-hero__inner { padding-bottom: var(--v2-hero-pb); }
   .v2-hero__visual {
     width: var(--v2-ph);
-    bottom: var(--v2-b-chin);
+    bottom: calc(var(--v2-b-chin) + 82px);
   }
   .v2-hero__cta { padding-top: max(18px, calc(var(--v2-ph) * .553 - 26px)); }
-  .v2-hero__note { max-width: calc(100% - var(--v2-ph) * .66 + var(--v2-gutter) - 8px); line-height: 1.35; } /* 顎の高さでは人物は写真の横 35〜70% にいるので、写真の左 3 割までは掛かってよい */
+  .v2-hero__note { margin-bottom: 90px; max-width: calc(100% - var(--v2-ph) * .66 + var(--v2-gutter) - 8px); line-height: 1.35; } /* 顎の高さでは人物は写真の横 35〜70% にいるので、写真の左 3 割までは掛かってよい */
   /* アイコンは写真の左（青地）と右肩へ。注記（顎の高さの左）に掛からない高さに置く */
   .v2-hero__icon--tt { left: 80%; top: 24%; }
   .v2-hero__icon--yt { left: -44%; top: 0%; }
