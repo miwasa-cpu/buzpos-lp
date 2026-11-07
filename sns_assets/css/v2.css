@@ -1092,7 +1092,7 @@
 }
 .v2-svc__t { margin: 16px 0 14px; font-size: clamp(20px, 1.9vw, 27px); }
 
-/* 流れの帯：動画 → LINE → 問い合わせ（矢印は stroke-dashoffset で draw） */
+/* 流れの帯：動画 → 導線 → 問い合わせ（矢印は stroke-dashoffset で draw） */
 .v2-flow {
   display: flex;
   align-items: center;
@@ -1112,7 +1112,9 @@
   color: var(--v2-dark);
   white-space: nowrap;
 }
-.v2-flow__w--line { font-family: var(--v2-anton); font-weight: 400; font-size: clamp(42px, 6.8vw, 112px); letter-spacing: .01em; color: var(--v2-line); }
+.v2-flow__via { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.v2-flow__w--route { color: var(--v2-blue); }
+.v2-flow__note { font-size: clamp(14px, 1.3vw, 20px); font-weight: 700; color: var(--v2-dark); white-space: nowrap; }
 .v2-flow__w--goal { color: var(--v2-orange); }
 .v2-flow__arr { flex: none; display: block; width: clamp(44px, 7vw, 120px); line-height: 0; }
 .v2-flow__arrow {
@@ -1168,6 +1170,23 @@
 }
 .v2-res__logos img { display: block; width: 100.73%; max-width: none; height: auto; }
 .v2-res__crop { display: none; }
+.v2-res__logos-extra {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(36px, 8vw, 120px);
+  margin-top: 12px;
+  padding: 22px 24px;
+  border-radius: 16px;
+  background: #dde7f3;
+}
+.v2-res__logos-extra img {
+  display: block;
+  width: min(38%, 180px);
+  height: 52px;
+  object-fit: contain;
+}
+
 
 /* 日本語の改行：文節で折り返し（Chrome 119+。他のブラウザでは無視されるだけ）、1〜2 文字だけの行を避ける */
 .v2-nw { white-space: nowrap; }
@@ -1451,7 +1470,7 @@
 .v2-rules { background: var(--v2-white); }
 .v2-rules__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--v2-gap);
   margin-top: clamp(32px, 4vw, 64px);
 }
@@ -1465,7 +1484,6 @@
 }
 .v2-rule--target { --v2-acc: var(--v2-orange); }
 .v2-rule--free { --v2-acc: var(--v2-blue); }
-.v2-rule--deal { --v2-acc: var(--v2-dark); }
 .v2-rule__t { margin-bottom: 14px; font-size: clamp(20px, 1.8vw, 25px); }
 
 /* ==========================================================================
@@ -1704,7 +1722,7 @@
   .v2-svc__no { font-size: 56px; }
   .v2-flow { flex-direction: column; gap: 0; padding: 24px 0; }
   .v2-flow__w { font-size: 40px; }
-  .v2-flow__w--line { font-size: 52px; }
+  .v2-flow__via { gap: 8px; }
   .v2-flow__arr { width: 40px; margin: 16px 0; transform: rotate(90deg); }
   .v2-service__close { text-align: left; }
 
