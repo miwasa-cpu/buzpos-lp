@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta http-equiv="Content-Security-Policy" content="
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<meta content="
   default-src 'self';
   base-uri 'none';
   object-src 'none';
@@ -15,7 +16,7 @@
   media-src 'self' https://pub-a821e9587754423f80e9145e37c307df.r2.dev https://buzpos.co.jp;
   connect-src 'self' https://buzpos.co.jp;
   frame-src https://www.youtube.com https://www.youtube-nocookie.com;
-">
+" http-equiv="Content-Security-Policy"/>
 <script>
 /* 出現演出の隠し方：.js がある時だけ [data-reveal] を隠す。3 秒以内に GSAP の init が終わらなければ .js を外す（CDN 障害でも中身が消えない） */
 (function (h) {
@@ -24,26 +25,26 @@
 })(document.documentElement);
 </script>
 <title>BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行</title>
-<meta name="description" content="横型YouTubeの制作から、問い合わせにつながる導線づくりまで。どの動画から何件の問い合わせが出たかを、毎月お渡しします。">
-<meta name="keywords" content="BUZPOS,バズポス,SNS運用代行,YouTube,横型動画,ショート動画,動画制作,LINE">
-<meta property="og:title" content="BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行">
-<meta property="og:description" content="横型YouTubeの制作から、問い合わせにつながる導線づくりまで。どの動画から何件の問い合わせが出たかを、毎月お渡しします。">
-<meta property="og:url" content="https://buzpos.co.jp/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://buzpos.co.jp/sns_assets/images/og_img_v2.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=(), usb=()">
-<meta name="theme-color" content="#009fe8">
-<link rel="icon" href="sns_assets/images/logo_symbol.svg" type="image/svg+xml">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-<link rel="preload" as="font" type="font/woff2" href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2" crossorigin>
-<link rel="preload" as="image" href="sns_assets/images/fv_img_person_20250710.webp" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<meta content="フィットネスに強く、全業種に対応。YouTube・ショートの制作から、問い合わせにつながる導線づくりまで。動画ごとの専用リンク経由の問い合わせ件数を、毎月ご報告します。" name="description"/>
+<meta content="BUZPOS,バズポス,SNS運用代行,YouTube,横型動画,ショート動画,動画制作,LINE" name="keywords"/>
+<meta content="BUZPOS｜動画を、問い合わせに変える。YouTube横型・ショートのSNS運用代行" property="og:title"/>
+<meta content="フィットネスに強く、全業種に対応。YouTube・ショートの制作から、問い合わせにつながる導線づくりまで。動画ごとの専用リンク経由の問い合わせ件数を、毎月ご報告します。" property="og:description"/>
+<meta content="https://buzpos.co.jp/" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="https://buzpos.co.jp/sns_assets/images/og_img_v2.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="strict-origin-when-cross-origin" name="referrer"/>
+<meta content="camera=(), microphone=(), geolocation=(), payment=(), usb=()" http-equiv="Permissions-Policy"/>
+<meta content="#009fe8" name="theme-color"/>
+<link href="sns_assets/images/logo_symbol.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link crossorigin="" href="https://cdn.jsdelivr.net" rel="preconnect"/>
+<link as="font" crossorigin="" href="https://fonts.gstatic.com/s/anton/v27/1Ptgg87LROyAm3Kz-C8CSKlv.woff2" rel="preload" type="font/woff2"/>
+<link as="image" fetchpriority="high" href="sns_assets/images/fv_img_person_20250710.webp" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Barlow+Condensed:wght@700;800;900&amp;family=Noto+Sans+JP:wght@400;500;700;900&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
 <style>
 /* ══ 共通の土台（リセット・:root・フッター・アイコンフォント・動画ライトボックス）。旧タブから移植した各セクション用 CSS は第2段で削除 ══ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -129,686 +130,622 @@ html { scroll-padding-top: 100px; overscroll-behavior-x: none; }
 @keyframes fadeInSns { from { opacity: 0; } to { opacity: 1; } }
 @keyframes slideInSns { from { opacity: 0; transform: translateY(-50px) scale(0.9); } to { opacity: 1; transform: translateY(0) scale(1); } }
 </style>
-<link rel="stylesheet" href="sns_assets/css/v2.css">
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-<script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script defer src="sns_assets/js/motion.js"></script>
+<link href="sns_assets/css/v2.css?v=20261112-lp1" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script defer="" src="sns_assets/js/motion.js"></script>
 </head>
 <body>
-
 <!-- ── Header ── -->
 <header class="v2-header" id="v2-header">
-  <a class="v2-header__logo" href="#sns-top"><img src="sns_assets/images/logo_2.png" width="392" height="87" alt="BUZPOS（バズポス）" decoding="async"></a>
-  <a class="v2-header__cta" id="v2-header-cta" href="#sns-contact" data-magnetic><span class="v2-flip"><span class="v2-flip__a">無料相談</span><span class="v2-flip__b" aria-hidden="true">無料相談</span></span></a>
+<a class="v2-header__logo" href="#sns-top"><img alt="BUZPOS（バズポス）" decoding="async" height="87" src="sns_assets/images/logo_2.png" width="392"/></a>
+<a class="v2-header__cta" data-magnetic="" href="#sns-contact" id="v2-header-cta"><span class="v2-flip"><span class="v2-flip__a">無料相談</span><span aria-hidden="true" class="v2-flip__b">無料相談</span></span></a>
 </header>
-
 <main id="main">
-
-
 <!-- ══ 01 HERO ══ -->
-<section class="v2-sec v2-hero" id="sns-top" aria-labelledby="v2-hero-title">
-  <div class="v2-hero__swirl" aria-hidden="true"></div>
-  <div class="v2-hero__inner">
-    <div class="v2-hero__copy" id="v2-hero-copy">
-      <div class="v2-sechead v2-sechead--hero" aria-hidden="true">
-        <span class="v2-sechead__idx">01</span><span class="v2-sechead__line"></span><span class="v2-sechead__kicker">SNS Operation</span>
-      </div>
-      <p class="v2-hero__kicker">SNS運用代行</p>
-      <h1 class="v2-hero__h1" id="v2-hero-title" aria-label="動画を、問い合わせに変える。">
-        <span class="v2-hero__l1">動画を、</span>
-        <span class="v2-hero__l2"><span class="ch" style="--i:0" aria-hidden="true">問</span><span class="ch" style="--i:1" aria-hidden="true">い</span><span class="ch" style="--i:2" aria-hidden="true">合</span><span class="ch" style="--i:3" aria-hidden="true">わ</span><span class="ch" style="--i:4" aria-hidden="true">せ</span><span class="ch" style="--i:5" aria-hidden="true">に</span><span class="ch" style="--i:6" aria-hidden="true">変</span><span class="ch" style="--i:7" aria-hidden="true">え</span><span class="ch" style="--i:8" aria-hidden="true">る</span><span class="ch" style="--i:9" aria-hidden="true">。</span></span>
-      </h1>
-      <p class="v2-hero__sub">横型YouTubeの制作から、<br class="v2-br-sp">問い合わせにつながる導線づくりまで。<br><mark class="v2-marker">どの動画から何件の問い合わせが出たか</mark>を、<br class="v2-br-sp">毎月お渡しします。</p>
-      <ul class="v2-chips">
-        <li class="v2-chip" style="--k:0">制作費は固定単価</li>
-        <li class="v2-chip" style="--k:1">成果報酬は契約で決めた成果にだけ</li>
-        <li class="v2-chip" style="--k:2">月契約・違約金なし</li>
-      </ul>
-      <ul class="v2-stats">
-        <li class="v2-stat" style="--k:0">
-          <span class="v2-stat__line" aria-hidden="true"></span>
-          <span class="v2-stat__label">導入実績</span>
-          <span class="v2-stat__val">
-            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:1.56s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.48s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.40s"></span></span></span></span>
-            <span class="v2-stat__unit">社以上</span>
-          </span>
-        </li>
-        <li class="v2-stat" style="--k:1">
-          <span class="v2-stat__line" aria-hidden="true"></span>
-          <span class="v2-stat__label">制作本数（累計）</span>
-          <span class="v2-stat__val">
-            <span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">2,000</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:1.79s"></span></span><span class="v2-odo__dot" style="--d:1.79s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.71s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.63s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.55s"></span></span></span></span>
-            <span class="v2-stat__unit">本以上</span>
-          </span>
-        </li>
-        <li class="v2-stat" style="--k:2">
-          <span class="v2-stat__line" aria-hidden="true"></span>
-          <span class="v2-stat__label">アクトレブログ</span>
-          <span class="v2-stat__val">
-            <span class="v2-stat__jp"><span>監修</span></span>
-            <span class="v2-stat__unit">で安心</span>
-          </span>
-        </li>
-      </ul>
-      <div class="v2-hero__cta">
-        <p class="v2-hero__note">ご相談だけで終わっても<br class="v2-br-sp">費用はかかりません。</p>
-        <div class="v2-hero__btns">
-          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener" data-magnetic><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span class="v2-flip__b" aria-hidden="true">LINEで無料相談する</span></span></a></div>
-          <div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--ghost" href="#sns-contact" data-magnetic><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span class="v2-flip__b" aria-hidden="true">お問い合わせフォーム</span></span></a></div>
-        </div>
-      </div>
-    </div>
-    <div class="v2-hero__visual" id="v2-hero-visual">
-      <div class="v2-hero__photo"><img src="sns_assets/images/fv_img_person_20250710.webp" width="927" height="1480" alt="" loading="eager" fetchpriority="high" decoding="async"></div>
-      <img class="v2-hero__icon v2-hero__icon--tt" src="sns_assets/images/fv_img_tiktok.webp" width="101" height="156" alt="" decoding="async">
-      <img class="v2-hero__icon v2-hero__icon--yt" src="sns_assets/images/fv_img_youtube.webp" width="256" height="198" alt="" decoding="async">
-      <img class="v2-hero__icon v2-hero__icon--ig" src="sns_assets/images/fv_img_insta.webp" width="157" height="152" alt="" decoding="async">
-      <p class="v2-hero__profile">
-        <span class="v2-hero__profile-role">総合ディレクター</span>
-        <strong class="v2-hero__profile-name">アクトレブログ</strong>
-        <span class="v2-hero__profile-followers">総フォロワー<span>100万人</span></span>
-      </p>
-    </div>
-  </div>
-  <div class="v2-hero__scroll" aria-hidden="true"><span>SCROLL</span><i></i></div>
-</section>
+<section aria-labelledby="v2-hero-title" class="v2-sec v2-hero" id="sns-top">
+<div aria-hidden="true" class="v2-hero__swirl"></div>
+<div class="v2-hero__inner">
+<div class="v2-hero__copy" id="v2-hero-copy">
+<div aria-hidden="true" class="v2-sechead v2-sechead--hero">
+<span class="v2-sechead__idx">01</span><span class="v2-sechead__line"></span><span class="v2-sechead__kicker">SNS Operation</span>
+</div>
+<p class="v2-hero__kicker">フィットネスに強い。全業種に対応。</p>
+<h1 aria-label="動画を、問い合わせに変える。" class="v2-hero__h1" id="v2-hero-title">
+<span class="v2-hero__l1">動画を、</span>
+<span class="v2-hero__l2"><span aria-hidden="true" class="ch" style="--i:0">問</span><span aria-hidden="true" class="ch" style="--i:1">い</span><span aria-hidden="true" class="ch" style="--i:2">合</span><span aria-hidden="true" class="ch" style="--i:3">わ</span><span aria-hidden="true" class="ch" style="--i:4">せ</span><span aria-hidden="true" class="ch" style="--i:5">に</span><span aria-hidden="true" class="ch" style="--i:6">変</span><span aria-hidden="true" class="ch" style="--i:7">え</span><span aria-hidden="true" class="ch" style="--i:8">る</span><span aria-hidden="true" class="ch" style="--i:9">。</span></span>
+</h1>
+<p class="v2-hero__sub"><span class="review-hero-line">YouTube・ショートの制作から、<br class="v2-br-sp"/>問い合わせにつながる導線づくりまで。</span><br/><mark class="v2-marker">動画ごとの専用リンク経由の問い合わせ件数</mark>を、<br class="v2-br-sp"/>毎月ご報告します。</p><div aria-label="総合ディレクター紹介" class="review-mobile-director"><div class="review-mobile-director__photo"><img alt="アクトレブログ" decoding="async" fetchpriority="high" height="1480" loading="eager" src="sns_assets/images/fv_img_person_20250710.webp" width="927"/></div><p class="review-mobile-director__profile">
+<span class="v2-hero__profile-role">総合ディレクター</span>
+<strong class="v2-hero__profile-name">アクトレブログ</strong>
+<span class="v2-hero__profile-followers">総フォロワー<span>100万人</span></span>
+</p></div>
+<ul class="v2-chips">
+<li class="v2-chip" style="--k:0">制作費は固定単価</li>
+<li class="v2-chip" style="--k:1">成果報酬は契約で決めた成果にだけ</li>
+<li class="v2-chip" style="--k:2">月契約・違約金なし</li>
+</ul>
+<ul class="v2-stats">
+<li class="v2-stat" style="--k:0">
+<span aria-hidden="true" class="v2-stat__line"></span>
+<span class="v2-stat__label">導入実績</span>
+<span class="v2-stat__val">
+<span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">100</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:1.56s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.48s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.40s"></span></span></span></span>
+<span class="v2-stat__unit">社以上</span>
+</span>
+</li>
+<li class="v2-stat" style="--k:1">
+<span aria-hidden="true" class="v2-stat__line"></span>
+<span class="v2-stat__label">制作本数（累計）</span>
+<span class="v2-stat__val">
+<span class="v2-odo v2-odo--run" style="--dur:.9s"><span class="v2-sr">2,000</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:1.79s"></span></span><span class="v2-odo__dot" style="--d:1.79s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.71s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.63s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:1.55s"></span></span></span></span>
+<span class="v2-stat__unit">本以上</span>
+</span>
+</li>
 
+</ul>
+<div class="v2-hero__cta">
+<p class="v2-hero__note">ご相談だけで終わっても<br class="v2-br-sp"/>費用はかかりません。</p>
+<div class="v2-hero__btns">
+<div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--line" data-magnetic="" href="https://lin.ee/aN0JGeo" rel="noopener" target="_blank"><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span aria-hidden="true" class="v2-flip__b">LINEで無料相談する</span></span></a></div>
+<div class="v2-hero__btnwrap"><a class="v2-btn v2-btn--ghost" data-magnetic="" href="#sns-contact"><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span aria-hidden="true" class="v2-flip__b">お問い合わせフォーム</span></span></a></div>
+</div>
+</div>
+</div>
+<div class="v2-hero__visual" id="v2-hero-visual">
+<div class="v2-hero__photo"><img alt="" decoding="async" fetchpriority="high" height="1480" loading="eager" src="sns_assets/images/fv_img_person_20250710.webp" width="927"/></div>
+<img alt="" class="v2-hero__icon v2-hero__icon--tt" decoding="async" height="156" src="sns_assets/images/fv_img_tiktok.webp" width="101"/>
+<img alt="" class="v2-hero__icon v2-hero__icon--yt" decoding="async" height="198" src="sns_assets/images/fv_img_youtube.webp" width="256"/>
+<img alt="" class="v2-hero__icon v2-hero__icon--ig" decoding="async" height="152" src="sns_assets/images/fv_img_insta.webp" width="157"/>
+<p class="v2-hero__profile">
+<span class="v2-hero__profile-role">総合ディレクター</span>
+<strong class="v2-hero__profile-name">アクトレブログ</strong>
+<span class="v2-hero__profile-followers">総フォロワー<span>100万人</span></span>
+</p>
+</div>
+</div>
+<div aria-hidden="true" class="v2-hero__scroll"><span>SCROLL</span><i></i></div>
+</section>
 <!-- ══ 02 お任せいただける範囲（ティッカー ＋ 3 列） ══ -->
-<section class="v2-sec v2-service" id="v2-service" aria-labelledby="v2-service-title">
-  <div class="v2-ticker" id="v2-ticker">
-    <p class="v2-sr">動画 → 導線設計 → 問い合わせ。企画・撮影・編集、投稿・コメント返信、問い合わせにつながる導線づくり、毎月の件数表</p>
-    <div class="v2-ticker__band" aria-hidden="true">
-      <div class="v2-ticker__track">
-        <div class="v2-ticker__set"><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
-        <div class="v2-ticker__set"><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
-      </div>
-    </div>
-  </div>
-  <div class="v2-wrap v2-service__body">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">02</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SERVICE</span>
-    </div>
-    <h2 class="v2-h2" id="v2-service-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">お任せいただける範囲</span></span></h2>
-    <ol class="v2-service__grid" data-reveal-group data-stagger=".1">
-      <li class="v2-svc" data-reveal="wipe-down">
-        <span class="v2-svc__no" aria-hidden="true">01</span>
-        <h3 class="v2-h3 v2-svc__t">制作</h3>
-        <ul class="v2-ticks">
-          <li data-reveal="rise">企画・撮影・編集</li>
-          <li data-reveal="rise">投稿・コメント返信</li>
-          <li data-reveal="rise">納品動画は他媒体へ二次利用無料</li>
-        </ul>
-      </li>
-      <li class="v2-svc" data-reveal="wipe-down">
-        <span class="v2-svc__no" aria-hidden="true">02</span>
-        <h3 class="v2-h3 v2-svc__t">成果を目に見える形で</h3>
-        <ul class="v2-ticks">
-          <li data-reveal="rise">動画ごとに専用リンクとQRを発行</li>
-          <li data-reveal="rise">Web・LINEなど、御社に合う問い合わせ導線へ</li>
-          <li data-reveal="rise">反応のよい動画だけ少額の広告へ</li>
-        </ul>
-      </li>
-      <li class="v2-svc" data-reveal="wipe-down">
-        <span class="v2-svc__no" aria-hidden="true">03</span>
-        <h3 class="v2-h3 v2-svc__t">毎月の報告</h3>
-        <ul class="v2-ticks">
-          <li data-reveal="rise">動画ごとの問い合わせ件数表</li>
-          <li data-reveal="rise">御社も同じ画面で件数を確認</li>
-          <li data-reveal="rise">月1回の打合せで次月の企画を決定</li>
-        </ul>
-      </li>
-    </ol>
-    <div class="v2-flow" aria-hidden="true" data-reveal-group data-start="top 82%" data-stagger=".14">
-      <span class="v2-flow__w v2-mask" data-reveal="mask"><span class="v2-mask__in">動画</span></span>
-      <span class="v2-flow__arr"><svg class="v2-flow__arrow" data-reveal="stroke" viewBox="0 0 120 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5"/></svg></span>
-      <span class="v2-flow__via"><span class="v2-flow__w v2-flow__w--route v2-mask" data-reveal="mask"><span class="v2-mask__in">導線</span></span><span class="v2-flow__note">Web・LINEなど</span></span>
-      <span class="v2-flow__arr"><svg class="v2-flow__arrow" data-reveal="stroke" viewBox="0 0 120 24" aria-hidden="true" focusable="false"><path pathLength="1" d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5"/></svg></span>
-      <span class="v2-flow__w v2-flow__w--goal v2-mask" data-reveal="mask"><span class="v2-mask__in">問い合わせ</span></span>
-    </div>
-    <p class="v2-body v2-service__close" data-reveal="rise">動画から、Web・LINEなどを通じた問い合わせまで。<br>成果が見える導線づくりを支援します。</p>
-  </div>
-</section>
+<section aria-labelledby="v2-service-title" class="v2-sec v2-service" id="v2-service">
+<div class="v2-ticker" id="v2-ticker">
+<p class="v2-sr">動画 → 導線設計 → 問い合わせ。企画・撮影・編集、投稿・コメント返信、問い合わせにつながる導線づくり、毎月の件数表</p>
+<div aria-hidden="true" class="v2-ticker__band">
+<div class="v2-ticker__track">
+<div class="v2-ticker__set"><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
+<div class="v2-ticker__set"><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span><span class="hl">動画 → 導線設計 → 問い合わせ</span><span class="sep">—</span><span>企画・撮影・編集</span><span class="sep">—</span><span>投稿・コメント返信</span><span class="sep">—</span><span>問い合わせにつながる導線づくり</span><span class="sep">—</span><span>毎月の件数表</span><span class="sep">—</span></div>
+</div>
+</div>
+</div>
+<div class="v2-wrap v2-service__body">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">02</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SERVICE</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-service-title"><span class="v2-ln"><span class="v2-ln__in">通常プランで、</span></span><span class="v2-ln"><span class="v2-ln__in">制作から導線づくりまで。</span></span></h2><p class="review-lead">企画・撮影・編集に加え、問い合わせ導線の設定・計測、毎月の報告まで。<br class="v2-br-pc"/>成果につながる基本設計を、通常プランに含めています。</p>
+<ol class="v2-service__grid" data-reveal-group="" data-stagger=".1">
+<li class="v2-svc" data-reveal="wipe-down">
+<span aria-hidden="true" class="v2-svc__no">01</span>
+<h3 class="v2-h3 v2-svc__t">制作・投稿</h3>
+<ul class="v2-ticks">
+<li data-reveal="rise">企画・撮影・編集</li>
+<li data-reveal="rise">投稿・コメント返信</li>
+<li data-reveal="rise">納品動画は他媒体へ二次利用無料</li>
+</ul>
+</li>
+<li class="v2-svc" data-reveal="wipe-down">
+<span aria-hidden="true" class="v2-svc__no">02</span>
+<h3 class="v2-h3 v2-svc__t">問い合わせ導線・計測</h3>
+<ul class="v2-ticks">
+<li data-reveal="rise">動画ごとに専用リンクとQRを発行</li>
+<li data-reveal="rise">Web・LINEなど、御社に合う問い合わせ導線へ</li>
+<li data-reveal="rise">反応のよい動画だけ少額の広告へ<br/><small>広告費は実費・別途</small></li>
+</ul>
+</li>
+<li class="v2-svc" data-reveal="wipe-down">
+<span aria-hidden="true" class="v2-svc__no">03</span>
+<h3 class="v2-h3 v2-svc__t">毎月の報告・改善</h3>
+<ul class="v2-ticks">
+<li data-reveal="rise">動画ごとの問い合わせ件数表（専用リンク経由）</li>
+<li data-reveal="rise">御社も同じ画面で件数を確認</li>
+<li data-reveal="rise">月1回の打合せで次月の企画を決定</li>
+</ul>
+</li>
+</ol>
+<div aria-hidden="true" class="v2-flow" data-reveal-group="" data-stagger=".14" data-start="top 82%">
+<span class="v2-flow__w v2-mask" data-reveal="mask"><span class="v2-mask__in">動画</span></span>
+<span class="v2-flow__arr"><svg aria-hidden="true" class="v2-flow__arrow" data-reveal="stroke" focusable="false" viewbox="0 0 120 24"><path d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5" pathlength="1"></path></svg></span>
+<span class="v2-flow__via"><span class="v2-flow__w v2-flow__w--route v2-mask" data-reveal="mask"><span class="v2-mask__in">導線</span></span><span class="v2-flow__note">Web・LINEなど</span></span>
+<span class="v2-flow__arr"><svg aria-hidden="true" class="v2-flow__arrow" data-reveal="stroke" focusable="false" viewbox="0 0 120 24"><path d="M2 12H115M104 3.5l11.5 8.5-11.5 8.5" pathlength="1"></path></svg></span>
+<span class="v2-flow__w v2-flow__w--goal v2-mask" data-reveal="mask"><span class="v2-mask__in">問い合わせ</span></span>
+</div>
+<p class="v2-body v2-service__close" data-reveal="rise">動画から、Web・LINEなどを通じた問い合わせまで。<br/>成果が見える導線づくりを支援します。</p>
+<p class="review-scope-note">広告費・LINE公式アカウントの月額は別途。制作本数・内容に応じてお見積もりします。<a href="#v2-price">料金と条件を見る →</a></p></div>
+</section><section aria-labelledby="v2-cases-title" class="v2-sec v2-cases" id="v2-cases">
+<div class="v2-wrap" data-rail-wrap="">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">03</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CASE STUDY</span>
+</div>
+<div class="v2-cases__head">
+<h2 class="v2-h2" data-reveal="lines" id="v2-cases-title"><span class="v2-ln"><span class="v2-ln__in">支援事例</span></span></h2>
+<p class="v2-works__hint">横にスクロールできます</p>
+<div class="v2-rail__navs">
+<button aria-controls="v2-cases-rail" aria-label="前の支援事例" class="v2-rail__nav" data-rail="prev" type="button">←</button>
+<button aria-controls="v2-cases-rail" aria-label="次の支援事例" class="v2-rail__nav" data-rail="next" type="button">→</button>
+</div>
+</div><p class="review-lead review-lead--cases">フィットネス・身体分野の経験を軸に、さまざまな業種を支援しています。</p>
+<ul class="v2-rail v2-cases__rail" data-stagger=".1" data-step="1" id="v2-cases-rail">
 
+
+
+<li class="v2-rail__item v2-case" data-reveal="rail">
+<article aria-labelledby="v2-case-1" class="v2-case__card">
+<p class="v2-case__tag"><span aria-hidden="true" class="v2-case__no">01</span>TIKTOK × 集客</p>
+<h3 class="v2-case__t" id="v2-case-1">アクロバット教室</h3>
+<p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月10本 <span class="v2-case__sep">／</span> 6か月〜</p>
+<p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">半年で売上<span class="v2-case__num">1.5</span>倍</span></p>
+<ul class="v2-case__notes">
+<li>1か月目から総再生50万回突破</li>
+<li>フォロワー 1,400人 → 12,000人</li>
+</ul>
+</article>
+</li><li class="v2-rail__item v2-case" data-reveal="rail">
+<article aria-labelledby="v2-case-3" class="v2-case__card">
+<p class="v2-case__tag"><span aria-hidden="true" class="v2-case__no">02</span>YOUTUBE SHORTS × 認知</p>
+<h3 class="v2-case__t" id="v2-case-3">再生エネルギー事業</h3>
+<p class="v2-case__meta">出演: 社長 <span class="v2-case__sep">／</span> 動画5本 <span class="v2-case__sep">／</span> 単月</p>
+<p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">2本目の投稿で<span class="v2-case__num">80</span>万回再生</span></p>
+<ul class="v2-case__notes">
+<li>撮影から編集までを単月で担当</li>
+<li>日常音を活かしたASMR形式</li>
+</ul>
+</article>
+</li><li class="v2-rail__item v2-case" data-reveal="rail">
+<article aria-labelledby="v2-case-2" class="v2-case__card">
+<p class="v2-case__tag"><span aria-hidden="true" class="v2-case__no">03</span>TIKTOK × YOUTUBE</p>
+<h3 class="v2-case__t" id="v2-case-2">ホストクラブ</h3>
+<p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月14本 <span class="v2-case__sep">／</span> 12か月〜</p>
+<p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">運用<span class="v2-case__num">3</span>か月でYouTube収益化</span></p>
+<ul class="v2-case__notes">
+<li>採用問い合わせ 月平均2〜3名増</li>
+<li>フォロワー 0人 → 5,090人</li>
+</ul>
+</article>
+</li></ul>
+</div>
+</section>
 <!-- ══ 03 YouTube 横型動画の制作実績（第2段では変更しない） ══ -->
-<section class="v2-sec v2-yt" id="v2-youtube" aria-labelledby="v2-youtube-title">
-  <div class="v2-yt__bgword" aria-hidden="true">YOUTUBE</div>
-  <div class="v2-wrap" data-rail-wrap>
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">03</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">Works / YouTube</span>
-    </div>
-    <h2 class="v2-h2" id="v2-youtube-title" data-reveal="fade"><span class="v2-ib"><span class="v2-en">YouTube</span> 横型動画の</span><span class="v2-ib">制作実績</span></h2>
-    <div class="v2-yt__lead">
-      <p class="v2-yt__sub" data-reveal="split">様々なジャンルに対応可能です！</p>
-      <p class="v2-works__hint">横にスクロールできます</p>
-      <div class="v2-rail__navs">
-        <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-yt-rail" aria-label="前の制作実績">&larr;</button>
-        <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-yt-rail" aria-label="次の制作実績">&rarr;</button>
-      </div>
-    </div>
-    <ul class="v2-rail v2-yt__rail" id="v2-yt-rail" data-step="2">
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=lPDJTSxSYHo" target="_blank" rel="noopener" data-video-id="lPDJTSxSYHo" aria-label="VOLIXの制作実績「【開幕】北海道で1番あついフィットネスの祭典に潜入したら色々とヤバすぎた！」を再生"><span class="v2-yt__thumb"><img src="https://i.ytimg.com/vi/lPDJTSxSYHo/maxresdefault.jpg" width="1280" height="720" alt="【開幕】北海道で1番あついフィットネスの祭典に潜入したら色々とヤバすぎた！" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">VOLIX</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">01<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=djAygefbIhI" target="_blank" rel="noopener" data-video-id="djAygefbIhI" aria-label="伊勢ヶ濱部屋の制作実績「【力士の休日】みんなでタイへ！ムエタイも観光も楽しむ伊勢ヶ濱部屋の海外旅行」を再生"><span class="v2-yt__thumb"><img src="https://i.ytimg.com/vi/djAygefbIhI/maxresdefault.jpg" width="1280" height="720" alt="【力士の休日】みんなでタイへ！ムエタイも観光も楽しむ伊勢ヶ濱部屋の海外旅行" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">相撲部屋</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">02<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=cff9oHyRb8Q" target="_blank" rel="noopener" data-video-id="cff9oHyRb8Q" aria-label="扇谷開登の制作実績「【超有料級】フィジーク四連覇の肩トレが有益すぎた」を再生"><span class="v2-yt__thumb"><img src="https://i.ytimg.com/vi/cff9oHyRb8Q/maxresdefault.jpg" width="1280" height="720" alt="【超有料級】フィジーク四連覇の肩トレが有益すぎた" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ボディビル日本一</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">03<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=lo7TmYzRahQ" target="_blank" rel="noopener" data-video-id="lo7TmYzRahQ" aria-label="YouTube 横型動画の制作実績 4（パーソナルジム）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_1.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">パーソナルジム</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">04<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=B2-AIgHGhnM" target="_blank" rel="noopener" data-video-id="B2-AIgHGhnM" aria-label="YouTube 横型動画の制作実績 5（体操教室）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_2.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">05<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=Yc70cQwsDDE" target="_blank" rel="noopener" data-video-id="Yc70cQwsDDE" aria-label="YouTube 横型動画の制作実績 6（体操教室）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_3.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">06<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=dWA5GpAlLwY" target="_blank" rel="noopener" data-video-id="dWA5GpAlLwY" data-noembed aria-label="YouTube 横型動画の制作実績 7（ハウスクリーニング）を YouTube で再生（新しいタブで開きます）"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_4.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ハウスクリーニング</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">07<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=MkWWzreKWcU" target="_blank" rel="noopener" data-video-id="MkWWzreKWcU" aria-label="YouTube 横型動画の制作実績 8（ホスト）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_5.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">08<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=NDG1GZrifuo" target="_blank" rel="noopener" data-video-id="NDG1GZrifuo" aria-label="YouTube 横型動画の制作実績 9（ホスト）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_6.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">09<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=HDGn0QLZoUE" target="_blank" rel="noopener" data-video-id="HDGn0QLZoUE" aria-label="YouTube 横型動画の制作実績 10（登録者200万人実業家）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_8.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者200万人実業家</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">10<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=sbqcjNrODzI" target="_blank" rel="noopener" data-video-id="sbqcjNrODzI" aria-label="YouTube 横型動画の制作実績 11（登録者100万人筋肉系Youtuber）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_7.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者100万人筋肉系Youtuber</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">11<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=NrpWD0c9NL8" target="_blank" rel="noopener" data-video-id="NrpWD0c9NL8" aria-label="YouTube 横型動画の制作実績 12（ボディビル日本一）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_9.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ボディビル日本一</span><span class="v2-yt__roles">動画編集 / 企画</span></span><span class="v2-yt__count" aria-hidden="true">12<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=XLUD6r5vXBI" target="_blank" rel="noopener" data-video-id="XLUD6r5vXBI" aria-label="YouTube 横型動画の制作実績 13（消費者金融）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_10.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">消費者金融</span><span class="v2-yt__roles">企画 / 動画撮影 / 動画編集</span></span><span class="v2-yt__count" aria-hidden="true">13<i>/</i>14</span></span></a></li>
-        <li class="v2-rail__item v2-yt__item" data-reveal="rail"><a class="v2-yt__card" href="https://www.youtube.com/watch?v=ZbNIA-iM7uI" target="_blank" rel="noopener" data-video-id="ZbNIA-iM7uI" aria-label="YouTube 横型動画の制作実績 14（相撲部屋）を再生"><span class="v2-yt__thumb"><img src="sns_assets/images/img_youtube_achievement_11.webp" width="750" height="422" alt="" loading="lazy" decoding="async"><span class="v2-yt__play" aria-hidden="true"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">相撲部屋</span><span class="v2-yt__roles">動画制作</span></span><span class="v2-yt__count" aria-hidden="true">14<i>/</i>14</span></span></a></li>
-    </ul>
-  </div>
-</section>
+<section aria-labelledby="v2-youtube-title" class="v2-sec v2-yt" id="v2-youtube">
+<div aria-hidden="true" class="v2-yt__bgword">YOUTUBE</div>
+<div class="v2-wrap" data-rail-wrap="">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">04</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">Works / YouTube</span>
+</div>
+<h2 class="v2-h2" data-reveal="fade" id="v2-youtube-title"><span class="v2-ib"><span class="v2-en">YouTube</span> 横型動画の</span><span class="v2-ib">制作実績</span></h2>
+<div class="v2-yt__lead">
+<p class="v2-yt__sub" data-reveal="split">ジム・体操教室などの制作実績から、他業種の事例まで。</p>
+<p class="v2-works__hint">横にスクロールできます</p>
+<div class="v2-rail__navs">
+<button aria-controls="v2-yt-rail" aria-label="前の制作実績" class="v2-rail__nav" data-rail="prev" type="button">←</button>
+<button aria-controls="v2-yt-rail" aria-label="次の制作実績" class="v2-rail__nav" data-rail="next" type="button">→</button>
+</div>
+</div>
+<ul class="v2-rail v2-yt__rail" data-step="2" id="v2-yt-rail">
 
-<!-- ══ 04 ショート実績（第2段では変更しない） ══ -->
-<section class="v2-sec v2-shorts" id="v2-shorts" aria-labelledby="v2-shorts-title">
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">04</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">Shorts / TikTok</span>
-    </div>
-    <h2 class="v2-h2 v2-h2--s" id="v2-shorts-title" data-reveal="fade"><span class="v2-ib">「まず数字を作る」</span><span class="v2-ib">フェーズには、</span><br><span class="v2-ib"><span class="v2-en">Shorts</span> が</span><span class="v2-ib">最短距離</span></h2>
-    <div class="v2-shorts__grid">
-      <div class="v2-shorts__body" data-reveal="fade">
-        <p class="v2-body"><strong><em>新規チャンネル</em>や、<em>制作コストを抑えて</em>数字を伸ばしたい方、<em>短期間で収益化</em>したいという方には<em>YouTube Shorts</em> がおススメ！</strong><br>BUZPOSは<strong>ショート動画の企画・制作を得意</strong>としています。</p>
-      </div>
-      <div class="v2-reasons">
-        <h3 class="v2-h3" data-reveal="fade">BUZPOSがショートに強い理由</h3>
-        <ol class="v2-reasons__list">
-          <li class="v2-reason">
-            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
-            <h4 class="v2-reason__t" data-reveal="split">最初の 2 秒に “何を置くか” を熟知している</h4>
-          </li>
-          <li class="v2-reason">
-            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
-            <h4 class="v2-reason__t" data-reveal="split">最適なカット間隔やテンポの良さを演出する編集ノウハウがある</h4>
-          </li>
-          <li class="v2-reason">
-            <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
-            <h4 class="v2-reason__t" data-reveal="split">投稿後、継続してデータ取得し、最適なリメイクを行う</h4>
-          </li>
-        </ol>
-      </div>
-    </div>
-    <div class="v2-shorts__media">
-      <div class="v2-works" data-rail-wrap>
-        <div class="v2-works__head">
-          <h3 class="v2-h3" data-reveal="fade">ショート動画の制作実績例</h3>
-          <p class="v2-works__hint">横にスクロールできます</p>
-          <div class="v2-rail__navs">
-            <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-rail" aria-label="前の制作実績">&larr;</button>
-            <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-rail" aria-label="次の制作実績">&rarr;</button>
-          </div>
-        </div>
-        <ul class="v2-rail v2-rail--phones" id="v2-rail" data-step="3" data-center>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/stxFYOPDk3I" target="_blank" rel="noopener" data-video-id="stxFYOPDk3I" aria-label="ショート動画の制作実績 1 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_01.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/GIXbyc5EyAc" target="_blank" rel="noopener" data-video-id="GIXbyc5EyAc" aria-label="ショート動画の制作実績 2 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_08.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/XzfTtU5OO5Y" target="_blank" rel="noopener" data-video-id="XzfTtU5OO5Y" aria-label="ショート動画の制作実績 3 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_06.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.tiktok.com/@bakutore/video/7496722052917906706" target="_blank" rel="noopener" data-platform="tiktok" aria-label="ショート動画の制作実績 4 をTikTokで開く（新しいタブ）"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_10.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/6nPhyzZPY_g" target="_blank" rel="noopener" data-video-id="6nPhyzZPY_g" aria-label="ショート動画の制作実績 5 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_03.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.tiktok.com/@salon_en_velours/video/7666446582010629396" target="_blank" rel="noopener" data-platform="tiktok" aria-label="ショート動画の制作実績 6 をTikTokで開く（新しいタブ）"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_09.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-          <li class="v2-rail__item" data-reveal="rail"><a class="v2-phone" href="https://www.youtube.com/shorts/91TJejM9j6A" target="_blank" rel="noopener" data-video-id="91TJejM9j6A" aria-label="ショート動画の制作実績 7 を再生"><span class="v2-phone__screen"><img src="sns_assets/images/sample_movie_07.webp" width="482" height="806" alt="" loading="lazy" decoding="async"></span><span class="v2-phone__badge" aria-hidden="true"></span></a></li>
-        </ul>
-        <p class="v2-works__foot"><i class="icon-touch"></i>フルスクリーン再生</p>
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="VOLIXの制作実績「【開幕】北海道で1番あついフィットネスの祭典に潜入したら色々とヤバすぎた！」を再生" class="v2-yt__card" data-video-id="lPDJTSxSYHo" href="https://www.youtube.com/watch?v=lPDJTSxSYHo" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="【開幕】北海道で1番あついフィットネスの祭典に潜入したら色々とヤバすぎた！" decoding="async" height="720" loading="lazy" src="https://i.ytimg.com/vi/lPDJTSxSYHo/maxresdefault.jpg" width="1280"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">VOLIX</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">01<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 4（パーソナルジム）を再生" class="v2-yt__card" data-video-id="lo7TmYzRahQ" href="https://www.youtube.com/watch?v=lo7TmYzRahQ" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_1.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">パーソナルジム</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">02<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 5（体操教室）を再生" class="v2-yt__card" data-video-id="B2-AIgHGhnM" href="https://www.youtube.com/watch?v=B2-AIgHGhnM" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_2.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">03<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 6（体操教室）を再生" class="v2-yt__card" data-video-id="Yc70cQwsDDE" href="https://www.youtube.com/watch?v=Yc70cQwsDDE" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_3.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">体操教室</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">04<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="扇谷開登の制作実績「【超有料級】フィジーク四連覇の肩トレが有益すぎた」を再生" class="v2-yt__card" data-video-id="cff9oHyRb8Q" href="https://www.youtube.com/watch?v=cff9oHyRb8Q" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="【超有料級】フィジーク四連覇の肩トレが有益すぎた" decoding="async" height="720" loading="lazy" src="https://i.ytimg.com/vi/cff9oHyRb8Q/maxresdefault.jpg" width="1280"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ボディビル日本一</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">05<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 11（登録者100万人筋肉系Youtuber）を再生" class="v2-yt__card" data-video-id="sbqcjNrODzI" href="https://www.youtube.com/watch?v=sbqcjNrODzI" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_7.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者100万人筋肉系Youtuber</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">06<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 12（ボディビル日本一）を再生" class="v2-yt__card" data-video-id="NrpWD0c9NL8" href="https://www.youtube.com/watch?v=NrpWD0c9NL8" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_9.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ボディビル日本一</span><span class="v2-yt__roles">動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">07<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="伊勢ヶ濱部屋の制作実績「【力士の休日】みんなでタイへ！ムエタイも観光も楽しむ伊勢ヶ濱部屋の海外旅行」を再生" class="v2-yt__card" data-video-id="djAygefbIhI" href="https://www.youtube.com/watch?v=djAygefbIhI" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="【力士の休日】みんなでタイへ！ムエタイも観光も楽しむ伊勢ヶ濱部屋の海外旅行" decoding="async" height="720" loading="lazy" src="https://i.ytimg.com/vi/djAygefbIhI/maxresdefault.jpg" width="1280"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">相撲部屋</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">08<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 14（相撲部屋）を再生" class="v2-yt__card" data-video-id="ZbNIA-iM7uI" href="https://www.youtube.com/watch?v=ZbNIA-iM7uI" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_11.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">相撲部屋</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">09<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 7（ハウスクリーニング）を YouTube で再生（新しいタブで開きます）" class="v2-yt__card" data-noembed="" data-video-id="dWA5GpAlLwY" href="https://www.youtube.com/watch?v=dWA5GpAlLwY" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_4.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ハウスクリーニング</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">10<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 10（登録者200万人実業家）を再生" class="v2-yt__card" data-video-id="HDGn0QLZoUE" href="https://www.youtube.com/watch?v=HDGn0QLZoUE" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_8.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">登録者200万人実業家</span><span class="v2-yt__roles">動画制作</span></span><span aria-hidden="true" class="v2-yt__count">11<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 13（消費者金融）を再生" class="v2-yt__card" data-video-id="XLUD6r5vXBI" href="https://www.youtube.com/watch?v=XLUD6r5vXBI" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_10.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">消費者金融</span><span class="v2-yt__roles">企画 / 動画撮影 / 動画編集</span></span><span aria-hidden="true" class="v2-yt__count">12<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 8（ホスト）を再生" class="v2-yt__card" data-video-id="MkWWzreKWcU" href="https://www.youtube.com/watch?v=MkWWzreKWcU" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_5.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">13<i>/</i>14</span></span></a></li><li class="v2-rail__item v2-yt__item" data-reveal="rail"><a aria-label="YouTube 横型動画の制作実績 9（ホスト）を再生" class="v2-yt__card" data-video-id="NDG1GZrifuo" href="https://www.youtube.com/watch?v=NDG1GZrifuo" rel="noopener" target="_blank"><span class="v2-yt__thumb"><img alt="" decoding="async" height="422" loading="lazy" src="sns_assets/images/img_youtube_achievement_6.webp" width="750"/><span aria-hidden="true" class="v2-yt__play"></span></span><span class="v2-yt__meta"><span class="v2-yt__info"><span class="v2-yt__genre">ホスト</span><span class="v2-yt__roles">動画撮影 / 動画編集 / 企画</span></span><span aria-hidden="true" class="v2-yt__count">14<i>/</i>14</span></span></a></li></ul>
+<div aria-labelledby="review-shorts-title" class="review-shorts-compact" id="v2-shorts"><div class="v2-works" data-rail-wrap="">
+<div class="v2-works__head">
+<h3 class="v2-h3" data-reveal="fade" id="review-shorts-title">ショート動画にも対応</h3>
+<p class="v2-works__hint">横にスクロールできます</p>
+<div class="v2-rail__navs">
+<button aria-controls="v2-rail" aria-label="前の制作実績" class="v2-rail__nav" data-rail="prev" type="button">←</button>
+<button aria-controls="v2-rail" aria-label="次の制作実績" class="v2-rail__nav" data-rail="next" type="button">→</button>
+</div>
+</div><p class="review-shorts-lead">横型YouTubeに加え、ショート動画の企画・制作にも対応。目的に合わせた運用内容をご提案します。</p>
+<ul class="v2-rail v2-rail--phones" data-center="" data-step="3" id="v2-rail">
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 1 を再生" class="v2-phone" data-video-id="stxFYOPDk3I" href="https://www.youtube.com/shorts/stxFYOPDk3I" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_01.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 2 を再生" class="v2-phone" data-video-id="GIXbyc5EyAc" href="https://www.youtube.com/shorts/GIXbyc5EyAc" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_08.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 3 を再生" class="v2-phone" data-video-id="XzfTtU5OO5Y" href="https://www.youtube.com/shorts/XzfTtU5OO5Y" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_06.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 4 をTikTokで開く（新しいタブ）" class="v2-phone" data-platform="tiktok" href="https://www.tiktok.com/@bakutore/video/7496722052917906706" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_10.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 5 を再生" class="v2-phone" data-video-id="6nPhyzZPY_g" href="https://www.youtube.com/shorts/6nPhyzZPY_g" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_03.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 6 をTikTokで開く（新しいタブ）" class="v2-phone" data-platform="tiktok" href="https://www.tiktok.com/@salon_en_velours/video/7666446582010629396" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_09.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+<li class="v2-rail__item" data-reveal="rail"><a aria-label="ショート動画の制作実績 7 を再生" class="v2-phone" data-video-id="91TJejM9j6A" href="https://www.youtube.com/shorts/91TJejM9j6A" rel="noopener" target="_blank"><span class="v2-phone__screen"><img alt="" decoding="async" height="806" loading="lazy" src="sns_assets/images/sample_movie_07.webp" width="482"/></span><span aria-hidden="true" class="v2-phone__badge"></span></a></li>
+</ul>
+
+</div></div></div>
 </section>
+<!-- ══ 04 ショート実績（第2段では変更しない） ══ -->
 
 <!-- ══ 05 制作・支援実績 ══ -->
-<section class="v2-sec v2-res" id="v2-works" aria-labelledby="v2-works-title">
-  <div class="v2-bgword v2-res__bgword" aria-hidden="true" data-bgword>RESULTS</div>
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">05</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">WORKS</span>
-    </div>
-    <h2 class="v2-h2" id="v2-works-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">制作・支援実績</span></span></h2>
-    <ul class="v2-res__nums" data-reveal-group data-stagger=".1">
-      <li class="v2-res__item" data-reveal="rise">
-        <span class="v2-res__line" aria-hidden="true"></span>
-        <span class="v2-res__label">制作本数（単月）</span>
-        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">200</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.31s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.23s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.15s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
-      </li>
-      <li class="v2-res__item" data-reveal="rise">
-        <span class="v2-res__line" aria-hidden="true"></span>
-        <span class="v2-res__label">制作本数（累計）</span>
-        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">2,000</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.49s"></span></span><span class="v2-odo__dot" style="--d:0.49s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.41s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.25s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
-      </li>
-      <li class="v2-res__item" data-reveal="rise">
-        <span class="v2-res__line" aria-hidden="true"></span>
-        <span class="v2-res__label">運用開始3か月の<wbr>月間総再生数</span>
-        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.51s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.35s"></span></span></span></span><span class="v2-res__unit">万回突破</span></span>
-      </li>
-      <li class="v2-res__item" data-reveal="rise">
-        <span class="v2-res__line" aria-hidden="true"></span>
-        <span class="v2-res__label">導入実績</span>
-        <span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.61s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.53s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.45s"></span></span></span></span><span class="v2-res__unit">社以上</span></span>
-      </li>
-    </ul>
-    <div class="v2-res__clients">
-      <h3 class="v2-h3" data-reveal="rise">支援企業例</h3>
-      <div class="v2-res__logos" data-reveal="rise" data-y="4"><img class="v2-res__logos-all" src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="支援企業のロゴ: REJUVENATE、PROISM、バクトレ、GYMFIT、FIT FOUNDER、パルトレ、youth 本店、GYM ORSO、P.espacio style" loading="lazy" decoding="async"><span class="v2-res__crop v2-res__crop--a" aria-hidden="true"><img src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="" loading="lazy" decoding="async"></span><span class="v2-res__crop v2-res__crop--b" aria-hidden="true"><img src="sns_assets/images/client_logos.webp" width="2760" height="612" alt="" loading="lazy" decoding="async"></span></div>
-      <div class="v2-res__logos-extra" data-reveal="rise" data-y="4" aria-label="支援企業の追加ロゴ">
-        <img src="sns_assets/images/vitas-official.svg" width="151" height="51" alt="VITAS" loading="lazy" decoding="async">
-        <img src="sns_assets/images/volix-official.svg" width="265" height="70" alt="VOLIX" loading="lazy" decoding="async">
-      </div>
-    </div>
-  </div>
+<section aria-labelledby="v2-works-title" class="v2-sec v2-res" id="v2-works">
+<div aria-hidden="true" class="v2-bgword v2-res__bgword" data-bgword="">RESULTS</div>
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">05</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">WORKS</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-works-title"><span class="v2-ln"><span class="v2-ln__in">制作・支援実績</span></span></h2>
+<ul class="v2-res__nums" data-reveal-group="" data-stagger=".1">
+<li class="v2-res__item" data-reveal="rise">
+<span aria-hidden="true" class="v2-res__line"></span>
+<span class="v2-res__label">制作本数（単月）</span>
+<span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">200</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.31s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.23s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.15s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
+</li>
+<li class="v2-res__item" data-reveal="rise">
+<span aria-hidden="true" class="v2-res__line"></span>
+<span class="v2-res__label">制作本数（累計）</span>
+<span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">2,000</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.49s"></span></span><span class="v2-odo__dot" style="--d:0.49s">,</span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.41s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.25s"></span></span></span></span><span class="v2-res__unit">本以上</span></span>
+</li>
+<li class="v2-res__item" data-reveal="rise">
+<span aria-hidden="true" class="v2-res__line"></span>
+<span class="v2-res__label">運用開始3か月の<wbr/>月間総再生数</span>
+<span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.51s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.35s"></span></span></span></span><span class="v2-res__unit">万回突破</span></span>
+</li>
+<li class="v2-res__item" data-reveal="rise">
+<span aria-hidden="true" class="v2-res__line"></span>
+<span class="v2-res__label">導入実績</span>
+<span class="v2-res__val"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">100</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.61s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.53s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.45s"></span></span></span></span><span class="v2-res__unit">社以上</span></span>
+</li>
+</ul>
+<div class="v2-res__clients">
+<h3 class="v2-h3" data-reveal="rise">支援企業例</h3>
+<div class="v2-res__logos" data-reveal="rise" data-y="4"><img alt="支援企業のロゴ: REJUVENATE、PROISM、バクトレ、GYMFIT、FIT FOUNDER、パルトレ、youth 本店、GYM ORSO、P.espacio style" class="v2-res__logos-all" decoding="async" height="612" loading="lazy" src="sns_assets/images/client_logos.webp" width="2760"/><span aria-hidden="true" class="v2-res__crop v2-res__crop--a"><img alt="" decoding="async" height="612" loading="lazy" src="sns_assets/images/client_logos.webp" width="2760"/></span><span aria-hidden="true" class="v2-res__crop v2-res__crop--b"><img alt="" decoding="async" height="612" loading="lazy" src="sns_assets/images/client_logos.webp" width="2760"/></span></div>
+<div aria-label="支援企業の追加ロゴ" class="v2-res__logos-extra" data-reveal="rise" data-y="4">
+<img alt="VITAS" decoding="async" height="51" loading="lazy" src="sns_assets/images/vitas-official.svg" width="151"/>
+<img alt="VOLIX" decoding="async" height="70" loading="lazy" src="sns_assets/images/volix-official.svg" width="265"/>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ══ 06 支援事例 ══ -->
-<section class="v2-sec v2-cases" id="v2-cases" aria-labelledby="v2-cases-title">
-  <div class="v2-wrap" data-rail-wrap>
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">06</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CASE STUDY</span>
-    </div>
-    <div class="v2-cases__head">
-      <h2 class="v2-h2" id="v2-cases-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">支援事例</span></span></h2>
-      <p class="v2-works__hint">横にスクロールできます</p>
-      <div class="v2-rail__navs">
-        <button class="v2-rail__nav" type="button" data-rail="prev" aria-controls="v2-cases-rail" aria-label="前の支援事例">&larr;</button>
-        <button class="v2-rail__nav" type="button" data-rail="next" aria-controls="v2-cases-rail" aria-label="次の支援事例">&rarr;</button>
-      </div>
-    </div>
-    <ul class="v2-rail v2-cases__rail" id="v2-cases-rail" data-step="1" data-stagger=".1">
-      <li class="v2-rail__item v2-case" data-reveal="rail">
-        <article class="v2-case__card" aria-labelledby="v2-case-1">
-          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">01</span>TIKTOK × 集客</p>
-          <h3 class="v2-case__t" id="v2-case-1">アクロバット教室</h3>
-          <p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月10本 <span class="v2-case__sep">／</span> 6か月〜</p>
-          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">半年で売上<span class="v2-case__num">150%</span>UP</span></p>
-          <ul class="v2-case__notes">
-          <li>1か月目から総再生50万回突破</li>
-          <li>フォロワー 1,400人 → 12,000人</li>
-          </ul>
-        </article>
-      </li>
-      <li class="v2-rail__item v2-case" data-reveal="rail">
-        <article class="v2-case__card" aria-labelledby="v2-case-2">
-          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">02</span>TIKTOK × YOUTUBE</p>
-          <h3 class="v2-case__t" id="v2-case-2">ホストクラブ</h3>
-          <p class="v2-case__meta">出演: 社員 <span class="v2-case__sep">／</span> 月14本 <span class="v2-case__sep">／</span> 12か月〜</p>
-          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">運用<span class="v2-case__num">3</span>か月でYouTube収益化</span></p>
-          <ul class="v2-case__notes">
-          <li>採用問い合わせ 月平均2〜3名増</li>
-          <li>フォロワー 0人 → 5,090人</li>
-          </ul>
-        </article>
-      </li>
-      <li class="v2-rail__item v2-case" data-reveal="rail">
-        <article class="v2-case__card" aria-labelledby="v2-case-3">
-          <p class="v2-case__tag"><span class="v2-case__no" aria-hidden="true">03</span>YOUTUBE SHORTS × 認知</p>
-          <h3 class="v2-case__t" id="v2-case-3">再生エネルギー事業</h3>
-          <p class="v2-case__meta">出演: 社長 <span class="v2-case__sep">／</span> 動画5本 <span class="v2-case__sep">／</span> 単月</p>
-          <p class="v2-case__hl v2-mask" data-reveal="mask"><span class="v2-mask__in">2本目の投稿で<span class="v2-case__num">80</span>万回再生</span></p>
-          <ul class="v2-case__notes">
-          <li>撮影から編集までを単月で担当</li>
-          <li>日常音を活かしたASMR形式</li>
-          </ul>
-        </article>
-      </li>
-    </ul>
-  </div>
-</section>
 
 <!-- ══ 07 アクトレブログ監修 ══ -->
-<section class="v2-sec v2-actre" id="v2-actre" aria-labelledby="v2-actre-title">
-  <div class="v2-bgword v2-actre__bgword" aria-hidden="true" data-bgword="0.04,0">SUPERVISION</div>
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">07</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SUPERVISION</span>
-    </div>
-    <h2 class="v2-h2" id="v2-actre-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">全案件を、</span></span><span class="v2-ln"><span class="v2-ln__in">アクトレブログが監修</span></span></h2>
-    <div class="v2-actre__grid">
-      <div class="v2-actre__profile">
-        <figure class="v2-actre__photo" data-reveal="wipe-up"><img src="sns_assets/images/photo_actre.webp" width="312" height="312" alt="アクトレブログ" loading="lazy" decoding="async"></figure>
-        <div class="v2-actre__id" data-reveal-group data-start="top 85%" data-stagger=".08">
-          <p class="v2-actre__name" data-reveal="rise">アクトレブログ</p>
-          <ul class="v2-actre__bio">
-            <li data-reveal="rise">バク転世界ギネス記録保持者</li>
-            <li data-reveal="rise">YouTube登録者 約73万人・総フォロワー100万人超</li>
-          </ul>
-        </div>
-        <ul class="v2-actre__nums">
-          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">400</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="4"></span><span class="v2-odo__reel" style="--n:5;--d:0.26s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.18s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.10s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
-          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">700</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="7"></span><span class="v2-odo__reel" style="--n:8;--d:0.36s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.28s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.20s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
-          <li class="v2-actre__num"><span class="v2-actre__line" aria-hidden="true" data-reveal="draw"></span><span class="v2-actre__pre">投稿1週間で</span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">300</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:4;--d:0.46s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.38s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.30s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
-        </ul>
-      </div>
-      <div class="v2-actre__body">
-        <div class="v2-reasons v2-actre__block">
-          <h3 class="v2-h3" data-reveal="fade">全案件に含まれる監修</h3>
-          <ol class="v2-reasons__list">
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
-              <p class="v2-reason__t" data-reveal="split">最初の2秒と構成の確認</p>
-            </li>
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
-              <p class="v2-reason__t" data-reveal="split">月1回の企画レビュー</p>
-            </li>
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
-              <p class="v2-reason__t" data-reveal="split">企画・映像制作の監修</p>
-            </li>
-          </ol>
-        </div>
-        <div class="v2-reasons v2-actre__block">
-          <h3 class="v2-h3" data-reveal="fade">出演オプション</h3>
-          <ol class="v2-reasons__list">
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">01</span>
-              <p class="v2-reason__t" data-reveal="split">ジム・体操教室・整体・ダンスなど身体系の業種</p>
-            </li>
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">02</span>
-              <p class="v2-reason__t" data-reveal="split">四半期に1回、月2社まで</p>
-            </li>
-            <li class="v2-reason">
-              <span class="v2-reason__line" aria-hidden="true"></span><span class="v2-reason__idx">03</span>
-              <p class="v2-reason__t" data-reveal="split">撮影同行・出演・本人アカウントで告知</p>
-            </li>
-          </ol>
-        </div>
-        <p class="v2-actre__note" data-reveal="rise">通常は店長・スタッフの出演を前提に、負担の少ない企画から始めます。</p>
-      </div>
-    </div>
-  </div>
+<section aria-labelledby="v2-actre-title" class="v2-sec v2-actre" id="v2-actre">
+<div aria-hidden="true" class="v2-bgword v2-actre__bgword" data-bgword="0.04,0">SUPERVISION</div>
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">06</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">SUPERVISION</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-actre-title"><span class="v2-ln"><span class="v2-ln__in">全案件を、</span></span><span class="v2-ln"><span class="v2-ln__in">アクトレブログが監修</span></span></h2>
+<div class="v2-actre__grid">
+<div class="v2-actre__profile">
+<figure class="v2-actre__photo" data-reveal="wipe-up"><img alt="アクトレブログ" decoding="async" height="312" loading="lazy" src="sns_assets/images/photo_actre.webp" width="312"/></figure>
+<div class="v2-actre__id" data-reveal-group="" data-stagger=".08" data-start="top 85%">
+<p class="v2-actre__name" data-reveal="rise">アクトレブログ</p>
+<ul class="v2-actre__bio">
+<li data-reveal="rise">バク転世界ギネス記録保持者</li>
+<li data-reveal="rise">YouTube登録者 約73万人・総フォロワー100万人超</li>
+</ul>
+</div>
+<ul class="v2-actre__nums">
+<li class="v2-actre__num"><span aria-hidden="true" class="v2-actre__line" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">400</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="4"></span><span class="v2-odo__reel" style="--n:5;--d:0.26s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.18s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.10s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+<li class="v2-actre__num"><span aria-hidden="true" class="v2-actre__line" data-reveal="draw"></span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">700</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="7"></span><span class="v2-odo__reel" style="--n:8;--d:0.36s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.28s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.20s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+<li class="v2-actre__num"><span aria-hidden="true" class="v2-actre__line" data-reveal="draw"></span><span class="v2-actre__pre">投稿1週間で</span><span class="v2-odo" data-reveal="odo"><span class="v2-sr">300</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:4;--d:0.46s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.38s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.30s"></span></span></span></span><span class="v2-actre__u">万再生</span></li>
+</ul>
+</div>
+<div class="v2-actre__body">
+<div class="v2-reasons v2-actre__block">
+<h3 class="v2-h3" data-reveal="fade">全案件に含まれる監修</h3>
+<ol class="v2-reasons__list">
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">01</span>
+<p class="v2-reason__t" data-reveal="split">最初の2秒と構成の確認</p>
+</li>
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">02</span>
+<p class="v2-reason__t" data-reveal="split">月1回の企画レビュー</p>
+</li>
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">03</span>
+<p class="v2-reason__t" data-reveal="split">企画・映像制作の監修</p>
+</li>
+</ol>
+</div>
+<div class="v2-reasons v2-actre__block">
+<h3 class="v2-h3" data-reveal="fade">出演オプション</h3>
+<ol class="v2-reasons__list">
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">01</span>
+<p class="v2-reason__t" data-reveal="split">ジム・体操教室・整体・ダンスなど身体系の業種</p>
+</li>
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">02</span>
+<p class="v2-reason__t" data-reveal="split">四半期に1回、月2社まで</p>
+</li>
+<li class="v2-reason">
+<span aria-hidden="true" class="v2-reason__line"></span><span class="v2-reason__idx">03</span>
+<p class="v2-reason__t" data-reveal="split">撮影同行・出演・本人アカウントで告知</p>
+</li>
+</ol>
+</div>
+<p class="v2-actre__note" data-reveal="rise">通常は店長・スタッフの出演を前提に、負担の少ない企画から始めます。</p>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ══ 08 料金 ══ -->
-<section class="v2-sec v2-price" id="v2-price" aria-labelledby="v2-price-title">
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">08</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PRICING</span>
-    </div>
-    <h2 class="v2-h2" id="v2-price-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">料金</span></span></h2>
-    <div class="v2-price__grid">
-      <div class="v2-price__tablewrap" data-reveal-group data-stagger=".05">
-        <table class="v2-table">
-          <thead>
-            <tr data-reveal="rise"><th scope="col">制作単価<br class="v2-br-sp">（企画・撮影・編集込み）</th><th scope="col">1本あたり</th></tr>
-          </thead>
-          <tbody>
-            <tr data-reveal="rise"><th scope="row">横型ロング動画</th><td><span class="v2-amt">3</span><span class="v2-amt__u">万円〜</span></td></tr>
-            <tr data-reveal="rise"><th scope="row">ショート動画</th><td><span class="v2-amt">1</span><span class="v2-amt__u">万円〜</span></td></tr>
-            <tr data-reveal="rise"><th scope="row">広告用の短い動画（撮影素材から制作）</th><td><span class="v2-amt">3</span><span class="v2-amt__u">万円〜</span></td></tr>
-            <tr data-reveal="rise"><th scope="row">計測・広告の運用手数料（LINEの自動案内を含む）</th><td><span class="v2-amt__u">月額</span><span class="v2-amt">0</span><span class="v2-amt__u">円</span></td></tr>
-            <tr data-reveal="rise"><th scope="row">初期費用（導線の設定・計測の準備）</th><td><span class="v2-amt">0</span><span class="v2-amt__u">円</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="v2-price__examples" data-reveal-group data-stagger=".12">
-        <article class="v2-ex" data-reveal="wipe-down" aria-labelledby="v2-ex-1">
-          <h3 class="v2-ex__t" id="v2-ex-1">例1｜横型2本＋ショート4本</h3>
-          <p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">10</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.25s"></span></span></span></span><span class="v2-ex__u">万円 / 月</span></p>
-          <p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限5万円。</span><span class="v2-nw">制作費と合わせて</span><span class="v2-nw">最大15万円／月</span></p>
-        </article>
-        <article class="v2-ex v2-ex--hl" data-reveal="wipe-down" aria-labelledby="v2-ex-2">
-          <h3 class="v2-ex__t" id="v2-ex-2">例2｜横型4本＋ショート8本</h3>
-          <p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">20</span><span class="v2-odo__cells" aria-hidden="true"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="0"></span><span class="v2-odo__reel" style="--n:11;--d:0.35s"></span></span></span></span><span class="v2-ex__u">万円 / 月</span></p>
-          <p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限10万円。</span><span class="v2-nw">制作費と合わせて</span><span class="v2-nw">最大30万円／月</span></p>
-        </article>
-      </div>
-      <p class="v2-price__note" data-reveal="rise">価格は税別。上記の料金例は最低制作単価で計算しています。実際の制作費と成果報酬の上限は、月の投稿本数やコンテンツ内容によって変動します。広告費は実費（月3万円程度から・御社の広告口座）、LINEを利用する場合、公式アカウントの月額は別途。詳しくはお問い合わせください。</p>
-    </div>
-    <div class="v2-price__foot" data-reveal-group data-start="top 88%" data-stagger=".1">
-      <p class="v2-price__inhouse" data-reveal="rise"><span class="v2-price__lab v2-price__lab--sub">自社で制作したい方へ</span>: 内製化サポートもあり</p>
-    </div>
-  </div>
+<section aria-labelledby="v2-price-title" class="v2-sec v2-price" id="v2-price">
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">07</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PRICING</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-price-title"><span class="v2-ln"><span class="v2-ln__in">通常プランの料金</span></span></h2><div class="review-price-intro"><p class="review-plan-tag">通常プランに含まれること</p><h3>動画制作 ＋ 問い合わせ導線 ＋ 計測・月次報告</h3><p>必要な制作本数・内容に合わせてお見積もりします。<br/>成果報酬の対象と1件の単価は、契約時に決定します。</p></div>
+<div class="v2-price__grid">
+<div class="v2-price__tablewrap" data-reveal-group="" data-stagger=".05">
+<table class="v2-table">
+<thead>
+<tr data-reveal="rise"><th scope="col">制作単価<br class="v2-br-sp"/>（企画・撮影・編集込み）</th><th scope="col">1本あたり</th></tr>
+</thead>
+<tbody>
+<tr data-reveal="rise"><th scope="row">横型ロング動画</th><td><span class="v2-amt">4</span><span class="v2-amt__u">万円〜</span></td></tr>
+<tr data-reveal="rise"><th scope="row">ショート動画</th><td><span class="v2-amt">2</span><span class="v2-amt__u">万円〜</span></td></tr>
+<tr data-reveal="rise"><th scope="row">広告用の短い動画（撮影素材から制作）</th><td><span class="v2-amt">3</span><span class="v2-amt__u">万円〜</span></td></tr>
+<tr data-reveal="rise"><th scope="row">計測・広告の運用手数料（LINEの自動案内を含む）</th><td><span class="v2-amt__u">月額</span><span class="v2-amt">0</span><span class="v2-amt__u">円</span></td></tr>
+<tr data-reveal="rise"><th scope="row">初期費用（導線の設定・計測の準備）</th><td><span class="v2-amt">0</span><span class="v2-amt__u">円</span></td></tr>
+</tbody>
+</table>
+</div>
+<div class="v2-price__examples" data-reveal-group="" data-stagger=".12">
+<article aria-labelledby="v2-ex-1" class="v2-ex" data-reveal="wipe-down">
+<h3 class="v2-ex__t" id="v2-ex-1">例1｜横型2本＋ショート4本</h3>
+<p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">16</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell is-1"><span class="v2-odo__ph" data-d="1"></span><span class="v2-odo__reel" style="--n:2;--d:0.33s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="6"></span><span class="v2-odo__reel" style="--n:7;--d:0.25s"></span></span></span></span><span class="v2-ex__u">万円〜 / 月</span></p>
+<p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限32万円</span><span class="v2-nw">（制作費の200%）。</span><br/><span>制作費＋成果報酬の合計</span><strong class="review-price-total">最大48万円／月</strong><small class="review-price-exclusions">最低制作単価で計算した例です。<br/>税別。広告費・LINE公式アカウントの月額料金（利用時）は別途。</small></p>
+</article>
+<article aria-labelledby="v2-ex-2" class="v2-ex v2-ex--hl" data-reveal="wipe-down">
+<h3 class="v2-ex__t" id="v2-ex-2">例2｜横型4本＋ショート8本</h3>
+<p class="v2-ex__price"><span class="v2-odo" data-reveal="odo"><span class="v2-sr">32</span><span aria-hidden="true" class="v2-odo__cells"><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="3"></span><span class="v2-odo__reel" style="--n:4;--d:0.43s"></span></span><span class="v2-odo__cell"><span class="v2-odo__ph" data-d="2"></span><span class="v2-odo__reel" style="--n:3;--d:0.35s"></span></span></span></span><span class="v2-ex__u">万円〜 / 月</span></p>
+<p class="v2-ex__cap"><span class="v2-nw">成果報酬の上限64万円</span><span class="v2-nw">（制作費の200%）。</span><br/><span>制作費＋成果報酬の合計</span><strong class="review-price-total">最大96万円／月</strong><small class="review-price-exclusions">最低制作単価で計算した例です。<br/>税別。広告費・LINE公式アカウントの月額料金（利用時）は別途。</small></p>
+</article>
+</div>
+<p class="v2-price__note" data-reveal="rise">価格は税別。上記の料金例は最低制作単価で計算しています。実際の制作費と成果報酬の上限は、月の投稿本数やコンテンツ内容によって変動します。広告費は実費（月3万円程度から・御社の広告口座）、LINEを利用する場合、公式アカウントの月額は別途。詳しくはお問い合わせください。</p>
+</div>
+<div class="v2-price__foot" data-reveal-group="" data-stagger=".1" data-start="top 88%">
+<p class="v2-price__inhouse" data-reveal="rise"><span class="v2-price__lab v2-price__lab--sub">自社で制作したい方へ</span>: 内製化サポートもあり</p>
+</div>
+</div>
 </section>
-
 <!-- ══ 09 成果報酬と契約のルール ══ -->
-<section class="v2-sec v2-rules" id="v2-rules" aria-labelledby="v2-rules-title">
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">09</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">RULES</span>
-    </div>
-    <h2 class="v2-h2" id="v2-rules-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">成果報酬と</span></span><span class="v2-ln"><span class="v2-ln__in">契約のルール</span></span></h2>
-    <div class="v2-fee" data-reveal="rise">
-      <p class="v2-fee__formula" aria-label="成果報酬は、件数かける1件の単価。上限は制作費の半額"><span class="v2-fee__k">成果報酬</span><span class="v2-fee__eq">=</span><span class="v2-fee__k">件数</span><span class="v2-fee__eq">×</span><span class="v2-fee__k">1件の単価</span><span class="v2-fee__cap">上限: 制作費の半額</span></p>
-      <p class="v2-fee__read">契約時に決めた成果（例: 体験予約、見積依頼、相談）が<strong>動画のリンク経由</strong>で発生した件数に、契約で決めた1件の単価を掛けた金額です。上限は<strong>その月の制作費の半額</strong>で、超えた分は請求しません。上記の最低制作単価の例では、例1は上限5万円（1件5,000円なら10件分）、例2は上限10万円（20件分）です。</p>
-    </div>
-    <div class="v2-rules__grid" data-reveal-group data-stagger=".1">
-      <div class="v2-rule v2-rule--target" data-reveal="wipe-up">
-        <h3 class="v2-h3 v2-rule__t">成果報酬の対象</h3>
-        <ul class="v2-ticks">
-          <li data-reveal="rise">成果の指標は業種に合わせて契約時に決める（例: 体験予約、見積依頼、相談）</li>
-          <li data-reveal="rise">動画のリンク経由で来た分だけ<span class="v2-nw">（広告経由は除く）</span></li>
-          <li data-reveal="rise">上限は制作費の半額</li>
-          <li data-reveal="rise">1件あたりの金額も契約時に決定（ジムの例: 体験予約1件5,000円）</li>
-        </ul>
-      </div>
-      <div class="v2-rule v2-rule--free" data-reveal="wipe-up">
-        <h3 class="v2-h3 v2-rule__t">課金しないもの</h3>
-        <ul class="v2-ticks">
-          <li data-reveal="rise">LINEの友だち追加</li>
-          <li data-reveal="rise">採用の応募</li>
-          <li data-reveal="rise">再生数・フォロワー数</li>
-          <li data-reveal="rise">広告経由の成果</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+<section aria-labelledby="v2-rules-title" class="v2-sec v2-rules" id="v2-rules">
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">08</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">RULES</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-rules-title"><span class="v2-ln"><span class="v2-ln__in">成果報酬と</span></span><span class="v2-ln"><span class="v2-ln__in">契約のルール</span></span></h2>
+<div class="v2-fee" data-reveal="rise">
+<p aria-label="成果報酬は、件数かける1件の単価。上限は制作費の200%" class="v2-fee__formula"><span class="v2-fee__k">成果報酬</span><span class="v2-fee__eq">=</span><span class="v2-fee__k">件数</span><span class="v2-fee__eq">×</span><span class="v2-fee__k">1件の単価</span><span class="v2-fee__cap">上限: 制作費の200%</span></p>
+<p class="v2-fee__read">契約時に決めた成果（例: 体験予約、見積依頼、相談）が<strong>動画のリンク経由</strong>で発生した件数に、契約で決めた1件の単価を掛けた金額です。上限は<strong>その月の制作費の200%（2倍）</strong>で、超えた分は請求しません。上記の最低制作単価の例では、例1は上限32万円（1件5,000円なら64件分）、例2は上限64万円（128件分）です。</p>
+</div>
+<div class="v2-rules__grid" data-reveal-group="" data-stagger=".1">
+<div class="v2-rule v2-rule--target" data-reveal="wipe-up">
+<h3 class="v2-h3 v2-rule__t">成果報酬の対象</h3>
+<ul class="v2-ticks">
+<li data-reveal="rise">成果の指標は業種に合わせて契約時に決める（例: 体験予約、見積依頼、相談）</li>
+<li data-reveal="rise">動画のリンク経由で来た分だけ<span class="v2-nw">（広告経由は除く）</span></li>
+<li data-reveal="rise">上限は制作費の200%</li>
+<li data-reveal="rise">1件あたりの金額も契約時に決定（ジムの例: 体験予約1件5,000円）</li>
+</ul>
+</div>
+<div class="v2-rule v2-rule--free" data-reveal="wipe-up">
+<h3 class="v2-h3 v2-rule__t">課金しないもの</h3>
+<ul class="v2-ticks">
+<li data-reveal="rise">LINEの友だち追加</li>
+<li data-reveal="rise">採用の応募</li>
+<li data-reveal="rise">再生数・フォロワー数</li>
+<li data-reveal="rise">広告経由の成果</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ══ 10 ご契約から投稿開始まで ══ -->
-<section class="v2-sec v2-steps" id="v2-steps" aria-labelledby="v2-steps-title">
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">10</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PROCESS</span>
-    </div>
-    <h2 class="v2-h2" id="v2-steps-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">ご契約から投稿開始まで、</span></span><span class="v2-ln"><span class="v2-ln__in">およそ<span class="v2-en">4〜5</span>週間</span></span></h2>
-    <div class="v2-steps__body">
-      <span class="v2-steps__rail" aria-hidden="true" data-reveal="drawy"></span>
-      <ol class="v2-steps__list" data-reveal-group data-stagger=".08">
-      <li class="v2-step" data-reveal="rise">
-        <span class="v2-step__no">1</span>
-        <h3 class="v2-step__t">ヒアリング</h3>
-        <p class="v2-step__d">目的と現状を確認</p>
-      </li>
-      <li class="v2-step" data-reveal="rise">
-        <span class="v2-step__no">2</span>
-        <h3 class="v2-step__t">提案・見積</h3>
-        <p class="v2-step__d">運用内容と金額をご提示。<span class="v2-nw">ここまで無料</span></p>
-      </li>
-      <li class="v2-step" data-reveal="rise">
-        <span class="v2-step__no">3</span>
-        <h3 class="v2-step__t">ご契約</h3>
-        <p class="v2-step__d">成果として数える条件を<span class="v2-nw">書面で確認</span></p>
-      </li>
-      <li class="v2-step" data-reveal="rise">
-        <span class="v2-step__no">4</span>
-        <h3 class="v2-step__t">企画・準備</h3>
-        <p class="v2-step__d">アカウント、問い合わせ導線、台本を準備</p>
-      </li>
-      <li class="v2-step v2-step--last" data-reveal="rise">
-        <span class="v2-step__no">5</span>
-        <h3 class="v2-step__t">撮影・投稿</h3>
-        <p class="v2-step__d">撮影は月1〜2回。編集後に<span class="v2-nw">投稿開始</span></p>
-      </li>
-      </ol>
-    </div>
-    <ol class="v2-period" data-reveal="bar">
-      <li class="v2-period__seg v2-period__seg--1" style="--i:0;--f:2;--o:0">
-        <span class="v2-period__fill" aria-hidden="true"></span>
-        <span class="v2-period__txt"><span class="v2-period__lab">提案・見積まで</span><span class="v2-period__days">5〜7日</span></span>
-      </li>
-      <li class="v2-period__seg v2-period__seg--2" style="--i:1;--f:3;--o:2">
-        <span class="v2-period__fill" aria-hidden="true"></span>
-        <span class="v2-period__txt"><span class="v2-period__lab">契約後の準備</span><span class="v2-period__days">14〜17日</span></span>
-      </li>
-      <li class="v2-period__seg v2-period__seg--3" style="--i:2;--f:2;--o:5">
-        <span class="v2-period__fill" aria-hidden="true"></span>
-        <span class="v2-period__txt"><span class="v2-period__lab">撮影・編集</span><span class="v2-period__days">14日</span></span>
-      </li>
-      <li class="v2-period__seg v2-period__seg--4" style="--i:3;--f:1;--o:7">
-        <span class="v2-period__fill" aria-hidden="true"></span>
-        <span class="v2-period__txt"><span class="v2-period__lab">投稿開始</span></span>
-      </li>
-    </ol>
-    <p class="v2-body v2-steps__close" data-reveal="rise">運用開始30日目に、<br class="v2-br-sp">動画ごとの問い合わせ件数表をお渡しします。</p>
-  </div>
+<section aria-labelledby="v2-steps-title" class="v2-sec v2-steps" id="v2-steps">
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">09</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">PROCESS</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-steps-title"><span class="v2-ln"><span class="v2-ln__in">ご契約から投稿開始まで、</span></span><span class="v2-ln"><span class="v2-ln__in">およそ<span class="v2-en">4〜5</span>週間</span></span></h2>
+<div class="v2-steps__body">
+<span aria-hidden="true" class="v2-steps__rail" data-reveal="drawy"></span>
+<ol class="v2-steps__list" data-reveal-group="" data-stagger=".08">
+<li class="v2-step" data-reveal="rise">
+<span class="v2-step__no">1</span>
+<h3 class="v2-step__t">ヒアリング</h3>
+<p class="v2-step__d">目的と現状を確認</p>
+</li>
+<li class="v2-step" data-reveal="rise">
+<span class="v2-step__no">2</span>
+<h3 class="v2-step__t">提案・見積</h3>
+<p class="v2-step__d">運用内容と金額をご提示。<span class="v2-nw">ここまで無料</span></p>
+</li>
+<li class="v2-step" data-reveal="rise">
+<span class="v2-step__no">3</span>
+<h3 class="v2-step__t">ご契約</h3>
+<p class="v2-step__d">成果として数える条件を<span class="v2-nw">書面で確認</span></p>
+</li>
+<li class="v2-step" data-reveal="rise">
+<span class="v2-step__no">4</span>
+<h3 class="v2-step__t">企画・準備</h3>
+<p class="v2-step__d">アカウント、問い合わせ導線、台本を準備</p>
+</li>
+<li class="v2-step v2-step--last" data-reveal="rise">
+<span class="v2-step__no">5</span>
+<h3 class="v2-step__t">撮影・投稿</h3>
+<p class="v2-step__d">撮影は月1〜2回。編集後に<span class="v2-nw">投稿開始</span></p>
+</li>
+</ol>
+</div>
+<ol class="v2-period" data-reveal="bar">
+<li class="v2-period__seg v2-period__seg--1" style="--i:0;--f:2;--o:0">
+<span aria-hidden="true" class="v2-period__fill"></span>
+<span class="v2-period__txt"><span class="v2-period__lab">提案・見積まで</span><span class="v2-period__days">5〜7日</span></span>
+</li>
+<li class="v2-period__seg v2-period__seg--2" style="--i:1;--f:3;--o:2">
+<span aria-hidden="true" class="v2-period__fill"></span>
+<span class="v2-period__txt"><span class="v2-period__lab">契約後の準備</span><span class="v2-period__days">14〜17日</span></span>
+</li>
+<li class="v2-period__seg v2-period__seg--3" style="--i:2;--f:2;--o:5">
+<span aria-hidden="true" class="v2-period__fill"></span>
+<span class="v2-period__txt"><span class="v2-period__lab">撮影・編集</span><span class="v2-period__days">14日</span></span>
+</li>
+<li class="v2-period__seg v2-period__seg--4" style="--i:3;--f:1;--o:7">
+<span aria-hidden="true" class="v2-period__fill"></span>
+<span class="v2-period__txt"><span class="v2-period__lab">投稿開始</span></span>
+</li>
+</ol>
+<p class="v2-body v2-steps__close" data-reveal="rise">運用開始30日目に、<br class="v2-br-sp"/>動画ごとの問い合わせ件数表（専用リンク経由）をお渡しします。</p>
+</div>
 </section>
-
 <!-- ══ 11 無料相談 ＋ お問い合わせフォーム（フォームの機能属性は現行のまま） ══ -->
-<section class="v2-sec v2-contact" id="sns-contact" aria-labelledby="v2-contact-title">
-  <div class="v2-wrap">
-    <div class="v2-sechead">
-      <span class="v2-sechead__idx">11</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CONTACT</span>
-    </div>
-    <h2 class="v2-h2" id="v2-contact-title" data-reveal="lines"><span class="v2-ln"><span class="v2-ln__in">まずは、</span></span><span class="v2-ln"><span class="v2-ln__in">無料相談から。</span></span></h2>
-    <div class="v2-contact__lead">
-      <div class="v2-contact__text">
-        <ul class="v2-contact__points" data-reveal-group data-start="top 85%" data-stagger=".08">
-          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">01</span>御社に合う運用内容とお見積もり</li>
-          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">02</span>御社の業種で目安になる問い合わせ件数</li>
-          <li data-reveal="rise"><span class="v2-contact__pno" aria-hidden="true">03</span>既存の動画がある方は、30日間の無料計測</li>
-        </ul>
-        <p class="v2-contact__body" data-reveal="rise">オンライン30分。動画がまだ無い会社もご相談ください。<br class="v2-br-pc">ご相談だけで終わっても費用はかかりません。<br class="v2-br-pc">1営業日以内にご返信します。</p>
-      </div>
-      <div class="v2-contact__btns" data-reveal="rise">
-        <a class="v2-btn v2-btn--line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener" data-magnetic><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span class="v2-flip__b" aria-hidden="true">LINEで無料相談する</span></span></a>
-        <a class="v2-btn v2-btn--ghost" href="#sns-form" data-magnetic><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span class="v2-flip__b" aria-hidden="true">お問い合わせフォーム</span></span></a>
-      </div>
-    </div>
-    <div class="v2-form" id="sns-form" data-reveal="wipe-up">
-                <form action="/api/contact" method="post" class="form-body">
-                    <div class="form-hp" aria-hidden="true">
-                        <label for="sns-website">ウェブサイト（入力しないでください）</label>
-                        <input type="text" id="sns-website" name="website" value="" tabindex="-1" autocomplete="off" aria-hidden="true">
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="sns-inquiryType">
+<section aria-labelledby="v2-contact-title" class="v2-sec v2-contact" id="sns-contact">
+<div class="v2-wrap">
+<div class="v2-sechead">
+<span class="v2-sechead__idx">10</span><span class="v2-sechead__line" data-reveal="draw"></span><span class="v2-sechead__kicker">CONTACT</span>
+</div>
+<h2 class="v2-h2" data-reveal="lines" id="v2-contact-title"><span class="v2-ln"><span class="v2-ln__in">まずは、</span></span><span class="v2-ln"><span class="v2-ln__in">無料相談から。</span></span></h2>
+<div class="v2-contact__lead">
+<div class="v2-contact__text">
+<ul class="v2-contact__points" data-reveal-group="" data-stagger=".08" data-start="top 85%">
+<li data-reveal="rise"><span aria-hidden="true" class="v2-contact__pno">01</span>御社に合う運用内容とお見積もり</li>
+<li data-reveal="rise"><span aria-hidden="true" class="v2-contact__pno">02</span>御社の業種で目安になる問い合わせ件数</li>
+<li data-reveal="rise"><span aria-hidden="true" class="v2-contact__pno">03</span>既存の動画がある方は、30日間の無料計測</li>
+</ul>
+<p class="v2-contact__body" data-reveal="rise">オンライン30分。動画がまだ無い会社もご相談ください。<br class="v2-br-pc"/>ご相談だけで終わっても費用はかかりません。<br class="v2-br-pc"/>1営業日以内にご返信します。</p>
+</div>
+<div class="v2-contact__btns" data-reveal="rise">
+<a class="v2-btn v2-btn--line" data-magnetic="" href="https://lin.ee/aN0JGeo" rel="noopener" target="_blank"><span class="v2-flip"><span class="v2-flip__a">LINEで無料相談する</span><span aria-hidden="true" class="v2-flip__b">LINEで無料相談する</span></span></a>
+<a class="v2-btn v2-btn--ghost" data-magnetic="" href="#sns-form"><span class="v2-flip"><span class="v2-flip__a">お問い合わせフォーム</span><span aria-hidden="true" class="v2-flip__b">お問い合わせフォーム</span></span></a>
+</div>
+</div>
+<div class="v2-form" data-reveal="wipe-up" id="sns-form">
+<form action="/api/contact" class="form-body" method="post">
+<div aria-hidden="true" class="form-hp">
+<label for="sns-website">ウェブサイト（入力しないでください）</label>
+<input aria-hidden="true" autocomplete="off" id="sns-website" name="website" tabindex="-1" type="text" value=""/>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-inquiryType">
                             ご用件<span class="required">*</span>
-                        </label>
-                        <select id="sns-inquiryType" name="ご用件" class="form-select" required>
-                            <option value="">選択してください</option>
-                            <option value="お見積り・お問い合わせ">お見積り・お問い合わせ</option>
-                            <option value="資料請求">資料請求</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="sns-company">
+</label>
+<select class="form-select" id="sns-inquiryType" name="ご用件" required="">
+<option value="">選択してください</option>
+<option value="お見積り・お問い合わせ">お見積り・お問い合わせ</option>
+<option value="資料請求">資料請求</option>
+</select>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-company">
                             会社名<span class="required">*</span>
-                        </label>
-                        <input type="text" id="sns-company" name="会社名" class="form-input" placeholder="株式会社○○○○" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sns-division">
+</label>
+<input class="form-input" id="sns-company" name="会社名" placeholder="株式会社○○○○" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-division">
                             部署名
                         </label>
-                        <input type="text" id="sns-division" name="部署名" class="form-input">
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sns-name">
+<input class="form-input" id="sns-division" name="部署名" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-name">
                             お名前<span class="required">*</span>
-                        </label>
-                        <input type="text" id="sns-name" name="お名前" class="form-input" placeholder="山田 太郎" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sns-email">
+</label>
+<input class="form-input" id="sns-name" name="お名前" placeholder="山田 太郎" required="" type="text"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-email">
                             メールアドレス<span class="required">*</span>
-                        </label>
-                        <input type="email" id="sns-email" name="Email" class="form-input" placeholder="example@mail.com" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sns-phone">
+</label>
+<input class="form-input" id="sns-email" name="Email" placeholder="example@mail.com" required="" type="email"/>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-phone">
                             電話番号<span class="required">*</span>
-                        </label>
-                        <input type="tel" id="sns-phone" name="電話番号" class="form-input" placeholder="09011112222" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label">
+</label>
+<input class="form-input" id="sns-phone" name="電話番号" placeholder="09011112222" required="" type="tel"/>
+</div>
+<div class="form-group">
+<label class="form-label">
                             運用検討中のSNS<span class="required">*</span>
-                        </label>
-                        <div class="checkbox-options">
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sns-instagram" name="運用検討中のSNS[]" value="Instagram" class="checkbox">
-                                <label for="sns-instagram" class="checkbox-option-label">Instagram</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sns-tiktok" name="運用検討中のSNS[]" value="TikTok" class="checkbox">
-                                <label for="sns-tiktok" class="checkbox-option-label">TikTok</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sns-x" name="運用検討中のSNS[]" value="X" class="checkbox">
-                                <label for="sns-x" class="checkbox-option-label">X</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sns-youtube-check" name="運用検討中のSNS[]" value="YouTube" class="checkbox">
-                                <label for="sns-youtube-check" class="checkbox-option-label">YouTube</label>
-                            </div>
-                            <div class="checkbox-item">
-                                <input type="checkbox" id="sns-other" name="運用検討中のSNS[]" value="その他" class="checkbox">
-                                <label for="sns-other" class="checkbox-option-label">その他</label>
-                            </div>
-                        </div>
-                        <div class="other-input-group" id="sns-otherInputGroup" style="display: none;">
-                            <label class="form-label" for="sns-otherSns" style="margin-top: 15px; margin-bottom: 8px;">
+</label>
+<div class="checkbox-options">
+<div class="checkbox-item">
+<input class="checkbox" id="sns-instagram" name="運用検討中のSNS[]" type="checkbox" value="Instagram"/>
+<label class="checkbox-option-label" for="sns-instagram">Instagram</label>
+</div>
+<div class="checkbox-item">
+<input class="checkbox" id="sns-tiktok" name="運用検討中のSNS[]" type="checkbox" value="TikTok"/>
+<label class="checkbox-option-label" for="sns-tiktok">TikTok</label>
+</div>
+<div class="checkbox-item">
+<input class="checkbox" id="sns-x" name="運用検討中のSNS[]" type="checkbox" value="X"/>
+<label class="checkbox-option-label" for="sns-x">X</label>
+</div>
+<div class="checkbox-item">
+<input class="checkbox" id="sns-youtube-check" name="運用検討中のSNS[]" type="checkbox" value="YouTube"/>
+<label class="checkbox-option-label" for="sns-youtube-check">YouTube</label>
+</div>
+<div class="checkbox-item">
+<input class="checkbox" id="sns-other" name="運用検討中のSNS[]" type="checkbox" value="その他"/>
+<label class="checkbox-option-label" for="sns-other">その他</label>
+</div>
+</div>
+<div class="other-input-group" id="sns-otherInputGroup" style="display: none;">
+<label class="form-label" for="sns-otherSns" style="margin-top: 15px; margin-bottom: 8px;">
                                 「その他」を選択された場合は以下にご入力ください。
                             </label>
-                            <input type="text" id="sns-otherSns" name="その他のSNS" class="form-input" placeholder="その他のSNSを入力してください">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label class="form-label" for="sns-inquiry">
+<input class="form-input" id="sns-otherSns" name="その他のSNS" placeholder="その他のSNSを入力してください" type="text"/>
+</div>
+</div>
+<div class="form-group">
+<label class="form-label" for="sns-inquiry">
                             お問い合わせ内容<span class="required">*</span>
-                        </label>
-                        <textarea id="sns-inquiry" name="お問い合わせ内容" class="form-textarea" required></textarea>
-                    </div>
-
-                    <div class="privacy-section">
-                        送信をクリックすることにより、お客さまから求められた情報を提供する目的で、上記の個人情報をBUZPOS株式会社が保管し、処理することに同意したものと見なされます。<br>
-                        BUZPOS株式会社は、お客さまのプライバシー保護に全力で取り組んでおり、いただいた個人情報はお客さまのアカウントを管理する目的および、お客さまが希望される当社の製品やサービスを提供する目的でのみ利用いたします。当社の製品やサービス、その他お客さまがご興味をお持ちのコンテンツに関し、お客さまにご連絡を差し上げる場合があります。当社からご連絡を差し上げることにご同意いただける場合、以下のチェックボックスにチェックを入れてください。<br>
+</label>
+<textarea class="form-textarea" id="sns-inquiry" name="お問い合わせ内容" required=""></textarea>
+</div>
+<div class="privacy-section">
+                        送信をクリックすることにより、お客さまから求められた情報を提供する目的で、上記の個人情報をBUZPOS株式会社が保管し、処理することに同意したものと見なされます。<br/>
+                        BUZPOS株式会社は、お客さまのプライバシー保護に全力で取り組んでおり、いただいた個人情報はお客さまのアカウントを管理する目的および、お客さまが希望される当社の製品やサービスを提供する目的でのみ利用いたします。当社の製品やサービス、その他お客さまがご興味をお持ちのコンテンツに関し、お客さまにご連絡を差し上げる場合があります。当社からご連絡を差し上げることにご同意いただける場合、以下のチェックボックスにチェックを入れてください。<br/>
                         当社からのこのような配信はいつでも停止していただけます。配信の停止方法や、お客さまのプライバシーの尊重および保護に関する取り組みについては、当社のプライバシーポリシーをご確認ください。
                     </div>
-
-                    <div class="agree-group">
-                        <input type="checkbox" id="sns-privacy" name="個人情報保護方針に同意[]" class="checkbox" required>
-                        <label for="sns-privacy" class="checkbox-label">個人情報保護方針に同意する</label>
-                    </div>
-
-                    <button type="submit" class="submit-btn">送信</button>
-                </form>
-    </div>
-  </div>
+<div class="agree-group">
+<input class="checkbox" id="sns-privacy" name="個人情報保護方針に同意[]" required="" type="checkbox"/>
+<label class="checkbox-label" for="sns-privacy">個人情報保護方針に同意する</label>
+</div>
+<button class="submit-btn" type="submit">送信</button>
+</form>
+</div>
+</div>
 </section>
-
-
 </main>
-
 <!-- ── Footer ── -->
 <footer>© 2026 BUZPOS株式会社</footer>
-
-        <!-- モーダル -->
-        <div id="sns-videoModal" class="modal">
-            <button type="button" class="close v2-modal-close" aria-label="動画を閉じる">×</button>
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="sns-modalTitle">動画再生</h3>
-                </div>
-                <div class="video-container">
-                    <iframe id="sns-videoFrame" src="" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" title="動画再生"></iframe>
-                </div>
-            </div>
-        </div>
-
+<!-- モーダル -->
+<div class="modal" id="sns-videoModal">
+<button aria-label="動画を閉じる" class="close v2-modal-close" type="button">×</button>
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title" id="sns-modalTitle">動画再生</h3>
+</div>
+<div class="video-container">
+<iframe allow="autoplay; encrypted-media; picture-in-picture; fullscreen" frameborder="0" id="sns-videoFrame" src="" title="動画再生"></iframe>
+</div>
+</div>
+</div>
 <!-- LINE 固定バー（SP） -->
 <div class="v2-linebar" id="v2-linebar">
-  <a class="v2-linebar__line" href="https://lin.ee/aN0JGeo" target="_blank" rel="noopener">LINEで無料相談</a>
-  <a class="v2-linebar__form" href="#sns-contact">フォームで相談</a>
+<a class="v2-linebar__line" href="https://lin.ee/aN0JGeo" rel="noopener" target="_blank">LINEで無料相談</a>
+<a class="v2-linebar__form" href="#sns-contact">フォームで相談</a>
 </div>
-
 <script>
 // ══ 動画ライトボックス・お問い合わせフォーム（旧 SNS タブの初期化スクリプトから移植）══
 // 第2段：旧セクション（#tab-sns）を撤去したので、フォームは #sns-contact から直接参照する。
@@ -873,6 +810,5 @@ function initSnsTab() {
 }
 initSnsTab();
 </script>
-
 </body>
 </html>

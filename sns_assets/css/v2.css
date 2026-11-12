@@ -2106,3 +2106,75 @@
 
 /* ページ内リンクの移動先（motion.js が tabindex="-1" を付けて focus する）。セクション全体に枠は出さない */
 main [tabindex="-1"]:focus { outline: none; }
+
+
+/* 2026-11-12 Approved LP copy/layout refinements */
+.v2-hero__kicker{font-size:clamp(13px,1.25vw,17px);background:rgba(0,0,0,.10)}
+.v2-hero__h1{margin-top:4px}
+.review-lead{font-size:clamp(15px,1.5vw,19px);font-weight:600;line-height:1.9;margin-top:24px;max-width:950px;letter-spacing:.02em}
+#v2-service-title{font-size:clamp(31px,4.9vw,64px);line-height:1.2}
+#v2-service-title>.v2-ln{display:block}
+.v2-svc:nth-child(2){border-color:var(--v2-blue)}
+.v2-ticks small{font-size:12px;color:#526574;font-weight:400}
+.review-scope-note{font-size:13px;line-height:1.9;color:#526574;max-width:950px;margin:24px auto 0;text-align:center}
+.review-scope-note a{color:#0b7dd1;display:inline-block;margin-left:1em;font-weight:700}
+.review-lead--cases{margin-top:24px;margin-bottom:0}
+.review-price-intro{padding:28px 32px;border-left:4px solid #009fe8;background:#edf8fe;margin:28px 0 32px}
+.review-plan-tag{font-size:12px;font-weight:700;color:#0b7dd1;margin-bottom:8px;letter-spacing:.1em}
+.review-price-intro h3{font-size:clamp(19px,2.1vw,28px);line-height:1.6;margin-bottom:12px;font-weight:900}
+.review-price-intro>p:last-child{font-size:14px;line-height:1.9}
+@media(max-width:750px){
+.v2-hero__kicker{font-size:12px;padding:.5em .8em;margin-bottom:9px;letter-spacing:.02em}
+.review-lead{font-size:14px;line-height:1.9;margin-top:20px}
+.review-price-intro{padding:20px 18px;margin:24px 0}
+.review-price-intro h3{font-size:20px;line-height:1.6}
+.review-scope-note{text-align:left;font-size:12px}
+.review-scope-note a{margin:8px 0 0;display:block}
+}
+
+
+.review-mobile-director{display:none}
+.review-shorts-compact{margin-top:64px;padding-top:36px;border-top:1px solid rgba(15,29,47,.18)}
+.review-shorts-compact .v2-works{margin-top:0}
+.v2-yt .review-shorts-compact{border-top-color:rgba(255,255,255,.3)}
+.v2-yt .review-shorts-compact .v2-h3{color:#fff}
+.review-shorts-compact .v2-works__head{align-items:center}
+.review-shorts-compact .v2-h3{font-size:clamp(22px,2.3vw,30px)}
+.review-shorts-lead{max-width:850px;font-size:15px;font-weight:500;line-height:1.9;margin-top:14px}
+.review-shorts-compact .v2-rail{--pw:164px;margin:24px 0 0;padding:0 0 10px;scroll-padding-inline:0;gap:20px}
+.review-shorts-compact .v2-phone{--bz:5px;--r:22px;--ri:17px;transform:none;opacity:1}
+@media(max-width:750px){
+ .v2-hero{min-height:0;--v2-hero-h:auto}
+ .v2-hero__inner{min-height:0;padding-bottom:24px}
+ .v2-hero__copy{flex:none}
+ .v2-hero__visual{display:none}
+ .v2-hero__swirl{top:220px;right:-10vw;opacity:.45}
+ .review-mobile-director{display:grid;grid-template-columns:106px minmax(0,1fr);gap:16px;align-items:center;width:100%;margin-top:20px;padding:0 12px 0 0;border-top:1px solid rgba(255,255,255,.38);border-bottom:1px solid rgba(255,255,255,.38);background:rgba(255,255,255,.07)}
+ .review-mobile-director__photo{height:148px;overflow:hidden;align-self:end;position:relative}
+ .review-mobile-director__photo img{display:block;width:106px;height:170px;object-fit:contain;object-position:center top;margin-top:8px}
+ .review-mobile-director__profile{position:static;display:grid;gap:5px;width:auto;min-width:0;max-width:100%;margin:0;padding:10px 0;border:0;background:none;color:white;line-height:1.5}
+ .review-mobile-director__profile .v2-hero__profile-role{font-size:11px;line-height:1.5}
+ .review-mobile-director__profile .v2-hero__profile-name{font-size:clamp(18px,5.1vw,22px);line-height:1.5;white-space:nowrap}
+ .review-mobile-director__profile .v2-hero__profile-followers{font-size:11px;line-height:1.7}
+ .review-mobile-director__profile .v2-hero__profile-followers span{display:inline-block;font-size:15px;margin-left:4px}
+ .v2-hero__cta{margin-top:20px;padding-top:0}
+ .v2-hero__note{max-width:none;margin-bottom:12px;line-height:1.6;font-size:13px}
+ .v2-hero__note .v2-br-sp{display:none}
+ .v2-stats{margin-top:18px}
+ .review-shorts-compact{margin-top:36px;padding-top:28px}
+ .review-shorts-compact .v2-h3{font-size:23px}
+ .review-shorts-lead{font-size:14px;line-height:1.9;margin-top:12px}
+ .review-shorts-compact .v2-works__hint{font-size:11px}
+ .review-shorts-compact .v2-rail{--pw:144px;gap:14px;margin-top:18px;padding:0 0 10px;scroll-padding-inline:0}
+ .review-shorts-compact .v2-rail__item{scroll-snap-align:start}
+}
+@media(max-width:359px){
+ .review-mobile-director{grid-template-columns:90px minmax(0,1fr);gap:10px;padding-right:8px}
+ .review-mobile-director__photo{height:134px}
+ .review-mobile-director__photo img{width:90px;height:145px}
+ .review-mobile-director__profile .v2-hero__profile-name{font-size:18px}
+ .review-mobile-director__profile .v2-hero__profile-followers{font-size:10px}
+}
+
+.v2-hero .v2-stats{grid-template-columns:repeat(2,minmax(0,1fr))}@media(min-width:900px){.v2-hero .v2-stats{max-width:420px}}
+.review-price-total{display:block;font-size:17px;line-height:1.6;margin-top:3px}.review-price-exclusions{display:block;font-size:12px;font-weight:500;line-height:1.75;margin-top:8px}
