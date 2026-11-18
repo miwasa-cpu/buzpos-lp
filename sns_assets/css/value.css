@@ -1,0 +1,60 @@
+.studio-value{--value-blue:#009fe8;--value-ink:#112433;position:relative;isolation:isolate;background:#fff;color:var(--value-ink);font-family:"Noto Sans JP",sans-serif;scroll-margin-top:20px}
+.value-wrap{max-width:1440px;margin:0 auto;padding:64px clamp(24px,5vw,80px) 72px}
+.value-heading{margin:0 0 38px}
+.value-eyebrow{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:.1em;color:#087aaf}
+.value-eyebrow>span{width:32px;height:3px;background:var(--value-blue)}
+.value-heading h2{display:flex;flex-wrap:wrap;column-gap:.12em;margin:0;font-size:clamp(34px,4.2vw,60px);font-weight:900;line-height:1.2;letter-spacing:-.045em}
+.value-heading h2>span{display:inline-block}
+.value-heading h2 em{position:relative;isolation:isolate;display:inline-block;font-family:Inter,sans-serif;font-size:1.08em;font-style:normal;letter-spacing:-.06em;margin-right:.04em}
+.value-heading h2 em::after{content:"";position:absolute;z-index:-1;left:-.06em;right:-.08em;bottom:.06em;height:.25em;background:#ffee49}
+.value-reason{display:grid;grid-template-columns:58px minmax(0,.94fr) minmax(0,1.2fr);column-gap:28px;padding:30px 0 34px;border-top:1px solid #bddde9}
+.value-reason:last-child{padding-bottom:0}
+.value-number{font-family:Inter,sans-serif;font-size:44px;font-weight:700;line-height:1;letter-spacing:-.065em;color:var(--value-blue)}
+.value-label{margin:0 0 13px;font-size:12px;font-weight:700;line-height:1.5;letter-spacing:.07em;color:#087aaf}
+.value-reason h3{margin:0;font-size:clamp(22px,2vw,28px);font-weight:900;line-height:1.6;letter-spacing:-.025em;word-break:normal;overflow-wrap:anywhere}
+.value-description{min-width:0;font-size:15px;line-height:1.95}
+.value-description>p{margin:0}
+.value-description>p+p{margin-top:9px}
+.value-description strong{font-weight:700}
+.value-payments{margin:20px 0 0;border-top:1px solid #d4e6ed;border-bottom:1px solid #d4e6ed}
+.value-payments>div{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0}
+.value-payments>div+div{border-top:1px solid #d4e6ed}
+.value-payments dt{font-size:12px;line-height:1.6;color:#456172}
+.value-payments dd{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:0;font-size:17px;font-weight:700;line-height:1.6}
+.value-fee-accent{background:linear-gradient(transparent 58%,#ffee49 58% 90%,transparent 90%)}
+.value-description .value-note{margin-top:12px;font-size:11px;line-height:1.8;color:#456172}
+.value-detail{display:inline-flex;align-items:center;gap:20px;min-height:44px;margin-top:7px;color:#006a9e;font-size:13px;font-weight:700;text-decoration:none;border-bottom:1px solid #9bc9dd;transition:color .2s,border-color .2s}
+.value-detail>span{font-family:Arial,sans-serif;font-size:21px;font-weight:400}
+.value-detail:hover{color:#112433;border-color:#112433}
+.value-detail:focus-visible{outline:3px solid #009fe8;outline-offset:5px}
+@media(max-width:1079px){
+  .value-wrap{padding-top:50px;padding-bottom:58px}
+  .value-reason{grid-template-columns:48px minmax(0,1fr);column-gap:22px;row-gap:20px}
+  .value-number{font-size:38px}
+  .value-description{grid-column:2}
+  .value-reason h3{font-size:25px}
+}
+@media(max-width:600px){
+  .value-wrap{padding:38px 24px 44px}
+  .value-heading{margin-bottom:28px}
+  .value-heading h2{font-size:34px;line-height:1.35}
+  .value-eyebrow{font-size:11px;margin-bottom:14px}
+  .value-reason{grid-template-columns:35px minmax(0,1fr);column-gap:14px;row-gap:17px;padding:26px 0 28px}
+  .value-number{font-size:31px}
+  .value-label{font-size:11px;margin-bottom:10px}
+  .value-reason h3{font-size:20px;line-height:1.65;letter-spacing:-.04em}
+  .value-break{display:none}
+  .value-description{grid-column:1/-1;font-size:14px;line-height:1.9}
+  .value-payments>div{gap:10px;padding:12px 0}
+  .value-payments dt{font-size:11px}
+  .value-payments dd{font-size:15px;gap:3px}
+  .value-description .value-note{font-size:11px}
+  .value-detail{font-size:12px}
+}
+@media(max-width:359px){
+  .value-wrap{padding-inline:20px}
+  .value-heading h2{font-size:31px}
+  .value-reason h3{font-size:19px}
+  .value-payments dd{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.value-detail{transition:none}}
