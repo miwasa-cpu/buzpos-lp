@@ -115,8 +115,12 @@
 
 /* Keep the PC price centered within its existing reserved area. */
 @media(min-width:1080px){
-  .studio-price{top:calc(8px + var(--price-height) * .09)}
-  .studio-price>span{width:82%;margin-inline:auto}
+  .studio-price{top:calc(8px + var(--price-height) * .03)}
+  .studio-price>span{width:94%;margin-inline:auto}
+}
+
+@media(min-width:768px) and (max-width:1079px){
+  .studio-price{left:calc(var(--gutter) - 12px);right:calc(var(--gutter) - 12px)}
 }
 
 /* Responsive additions: retain the approved desktop rules above. */
@@ -169,7 +173,7 @@
   .mobile-nav a span{font-size:20px;font-weight:400;color:var(--brand-blue)}
   .studio-hero{height:auto;min-height:0;max-height:none}
   .studio-stage{--gutter:clamp(18px,6.15vw,28px);display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,616px);height:auto;padding:16px var(--gutter) calc(24px + env(safe-area-inset-bottom,0px))}
-  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:100%;opacity:1}
+  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:calc(100% + 20px);margin-inline:-10px;opacity:1}
   .studio-copy{display:contents;position:static}
   .studio-category{grid-column:1;grid-row:2;z-index:3;margin:24px 0 12px;gap:11px;font-size:15px;line-height:1.5;letter-spacing:.04em}
   .category-line{width:22px}
