@@ -113,6 +113,12 @@
 @media(min-width:1080px) and (max-width:1250px){.studio-stage{--gutter:42px}.studio-copy{top:max(198px,calc(var(--price-height) + 25px))}.studio-category{font-size:20px}.studio-actions{gap:26px;margin-top:32px}.studio-primary{min-width:260px;font-size:18px;padding-left:24px}.studio-proof{width:540px;gap:24px}.proof-value{font-size:30px}.studio-signature{right:35px;bottom:90px;min-width:200px;padding:14px 18px}.signature-name{font-size:20px}.studio-nav{gap:28px}}
 @media(prefers-reduced-motion:reduce){.is-entering *,.is-entering *::before,.is-entering *::after{animation:none!important}.studio-orbit,.portrait-reveal{transform:none!important}:is(.studio-header,.studio-hero) a,.button-disc{transition:none!important}.studio-reveal{display:none}.reel-strip,.price-sheen-beam{animation:none!important}.price-sheen{display:none}.reel-lane-two .reel-strip{transform:translateX(-400px)}.reel-lane-three .reel-strip{transform:translateX(-180px)}}
 
+/* Keep the PC price centered within its existing reserved area. */
+@media(min-width:1080px){
+  .studio-price{top:calc(8px + var(--price-height) * .09)}
+  .studio-price>span{width:82%;margin-inline:auto}
+}
+
 /* Responsive additions: retain the approved desktop rules above. */
 .studio-mobile-menu{display:none}
 @media(max-width:1079px){
