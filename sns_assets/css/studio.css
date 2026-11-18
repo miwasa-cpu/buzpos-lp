@@ -1,6 +1,6 @@
 @font-face{font-family:"BUZPOS Price";font-style:normal;font-weight:400;font-display:block;src:url("../fonts/price-dela-gothic.ttf") format("truetype")}
 .studio-header,.studio-hero{--brand-blue:#009fe8;--brand-yellow:#ffee49;--ink:#112433;--paper:#fff;--motion:cubic-bezier(.18,.75,.14,1);--px:0px;--py:0px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
-:is(.studio-header,.studio-hero) a{color:inherit;text-decoration:none}
+:where(.studio-header,.studio-hero) a{color:inherit;text-decoration:none}
 :is(.studio-header,.studio-hero) a:focus-visible{outline:3px solid var(--brand-yellow);outline-offset:6px}
 .studio-header{line-height:normal;height:80px;background:var(--paper);display:flex;align-items:center;padding:0 clamp(42px,4.4vw,88px);gap:44px;position:relative;z-index:5}
 .studio-logo{display:block;line-height:0;flex-shrink:0}
