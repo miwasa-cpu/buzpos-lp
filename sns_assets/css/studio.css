@@ -13,9 +13,11 @@
 .header-contact span:last-child{font-size:20px;font-weight:400;line-height:1}
 .studio-hero{line-height:normal;height:calc(100svh - 80px);min-height:clamp(660px,calc(30vw + 270px),800px);max-height:900px;position:relative;overflow:clip;isolation:isolate;background:var(--brand-blue);color:var(--paper)}
 .studio-stage{position:relative;z-index:2;height:100%;width:min(100%,1760px);margin:0 auto;--gutter:clamp(42px,4.4vw,88px);--price-height:calc((min(100vw,1760px) - 2 * var(--gutter)) * .1)}
-.studio-price{position:absolute;top:8px;left:var(--gutter);right:var(--gutter);margin:0;line-height:1;z-index:2;overflow:visible;pointer-events:none}
-.studio-price>.price-comment{position:relative;display:inline-flex;align-items:baseline;width:max-content;max-width:100%;padding:10px clamp(18px,2vw,32px);border:1px solid #d9f4ff42;border-radius:10px;background:linear-gradient(120deg,#ffffff14,transparent 70%),#005b92e6;color:#fff;font-size:clamp(28px,4vw,64px);font-weight:700;line-height:1.3;letter-spacing:-.025em;font-feature-settings:"palt";box-shadow:inset 0 1px 0 #ffffff10;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
-.price-comment::after{content:"";position:absolute;left:clamp(28px,3.2vw,52px);bottom:-8px;width:15px;height:9px;background:#005b92e6;clip-path:polygon(0 0,100% 0,0 100%)}
+.studio-price{position:absolute;top:8px;left:var(--gutter);right:var(--gutter);display:flex;align-items:center;gap:clamp(12px,1.3vw,22px);margin:0;line-height:1;z-index:2;overflow:visible;pointer-events:none}
+.price-mascot{display:block;flex:0 0 clamp(72px,6.2vw,108px);width:clamp(72px,6.2vw,108px);height:auto;overflow:visible;transform:rotate(-6deg);transform-origin:55% 85%;filter:drop-shadow(0 3px 0 #00517f26)}
+.studio-price>.price-comment{position:relative;display:inline-flex;align-items:baseline;flex:0 1 auto;width:max-content;min-width:0;max-width:100%;padding:9px clamp(18px,2vw,32px);border:2px solid #d9f4ffa6;border-radius:24px 24px 24px 8px;background:linear-gradient(120deg,#ffffff0a,transparent 70%),#005b92f2;color:#fff;font-size:clamp(28px,4vw,64px);font-weight:700;line-height:1.3;letter-spacing:-.025em;font-feature-settings:"palt";box-shadow:0 4px 0 #00517f40;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.price-comment::before,.price-comment::after{content:"";position:absolute;top:48%;left:-17px;width:18px;height:16px;background:#a1c7dd;clip-path:polygon(100% 0,100% 100%,0 75%)}
+.price-comment::after{left:-13px;top:calc(48% + 2px);width:14px;height:12px;background:#005b92}
 .price-comment-lead,.price-comment-end{display:inline-block;white-space:nowrap}
 .price-comment-focus{color:var(--brand-yellow);font-weight:900;padding:0 .025em}
 .studio-copy{position:absolute;left:var(--gutter);top:calc(var(--price-height) + 24px);z-index:3}
@@ -79,7 +81,9 @@
 .is-background-paused .reel-strip{animation-play-state:paused}
 @keyframes studio-marquee{from{transform:translateX(0)}to{transform:translateX(-33.333333%)}}
 .is-entering .studio-reveal{animation:studio-panel .75s var(--motion) both}
-.is-entering .price-comment{animation:studio-comment-in .65s .12s var(--motion) both}
+.is-entering .price-comment{animation:studio-comment-in .65s .3s var(--motion) both}
+.is-entering .price-mascot{animation:studio-mascot-pop .85s .35s cubic-bezier(.2,.8,.2,1) both}
+.is-entering .mascot-sparks{animation:studio-sparks-in .45s .7s var(--motion) both}
 .is-entering .studio-category{animation:studio-fade .8s .2s var(--motion) both}
 .is-entering .headline-mask:nth-child(1) .headline-line{animation:studio-type 1.1s .23s var(--motion) both}
 .is-entering .headline-mask:nth-child(2) .headline-line{animation:studio-type 1.15s .35s var(--motion) both}
@@ -91,6 +95,8 @@
 .is-entering .art-corner{animation:studio-fade 1s .9s var(--motion) both}
 @keyframes studio-panel{from{transform:scaleX(1)}to{transform:scaleX(0)}}
 @keyframes studio-comment-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@keyframes studio-mascot-pop{0%{opacity:0;transform:translateY(12px) rotate(-14deg) scale(.86)}55%{opacity:1;transform:translateY(-5px) rotate(-2deg) scale(1.03)}100%{opacity:1;transform:translateY(0) rotate(-6deg) scale(1)}}
+@keyframes studio-sparks-in{from{opacity:0}to{opacity:1}}
 @keyframes studio-type{from{transform:translateY(115%)}to{transform:translateY(0)}}
 @keyframes studio-fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes studio-portrait{from{transform:translateY(38px) scale(1.035);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
@@ -159,10 +165,12 @@
   .mobile-nav a span{font-size:20px;font-weight:400;color:var(--brand-blue)}
   .studio-hero{height:auto;min-height:0;max-height:none}
   .studio-stage{--gutter:clamp(18px,6.15vw,28px);display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,616px);height:auto;padding:10px var(--gutter) calc(24px + env(safe-area-inset-bottom,0px))}
-  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:100%;margin:0;opacity:1}
-  .studio-price>.price-comment{display:inline-flex;flex-direction:column;align-items:flex-start;padding:9px 16px;border-radius:10px;font-size:clamp(20px,6.5vw,32px);line-height:1.25;letter-spacing:-.025em}
+  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:100%;gap:12px;margin:0;opacity:1}
+  .price-mascot{flex-basis:clamp(64px,18vw,86px);width:clamp(64px,18vw,86px)}
+  .studio-price>.price-comment{display:inline-flex;flex-direction:column;align-items:flex-start;padding:9px 12px;border-radius:18px 18px 18px 6px;font-size:clamp(20px,6.5vw,32px);line-height:1.25;letter-spacing:-.025em}
   .price-comment-end{font-size:1.08em}
-  .price-comment::after{left:28px;bottom:-8px;width:15px;height:9px}
+  .price-comment::before{left:-14px;width:15px;height:14px}
+  .price-comment::after{left:-10px;width:11px;height:10px}
   .studio-copy{display:contents;position:static}
   .studio-category{grid-column:1;grid-row:2;z-index:3;margin:16px 0 12px;gap:11px;font-size:15px;line-height:1.5;letter-spacing:.04em}
   .category-line{width:22px}
