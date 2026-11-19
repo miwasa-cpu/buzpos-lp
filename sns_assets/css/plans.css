@@ -1,0 +1,96 @@
+/* Six approved monthly packages, scoped to the pricing section. */
+.studio-plans{background:#f3f8fc}
+.plans-lead{max-width:760px;margin-top:22px;font-size:clamp(16px,1.5vw,19px);line-height:1.9;color:#354d60}
+.plans-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:min(100%,620px);margin:32px 0 28px;padding:6px;border:1px solid #a8cfE5;border-radius:10px;background:#e5f2fa}
+.plans-tabs[hidden],.plans-panel[hidden]{display:none!important}
+.plans-tab{display:flex;align-items:center;justify-content:center;gap:12px;min-height:60px;border:0;border-radius:6px;padding:12px 14px;background:transparent;color:#345267;font:700 18px/1.5 var(--v2-jp);cursor:pointer;transition:background .2s,color .2s}
+.plans-tab[aria-selected="true"]{background:#006b9f;color:#fff;box-shadow:0 2px 3px #0047771f}
+.plans-tab:hover:not([aria-selected="true"]){background:#d4e9f6}
+.plans-tab:focus-visible,.plans-panel:focus-visible,.plan-consult:focus-visible,.plans-terms summary:focus-visible,.plans-terms a:focus-visible{outline:3px solid #009fe8;outline-offset:4px}
+.plans-tab-icon{position:relative;display:block;flex:none;width:26px;height:17px;border:2px solid currentColor;border-radius:3px}
+.plans-tab-icon::after{content:"";position:absolute;left:50%;top:50%;width:0;height:0;border-top:4px solid transparent;border-bottom:4px solid transparent;border-left:6px solid currentColor;transform:translate(-40%,-50%)}
+.plans-tab-icon--short{width:17px;height:26px}
+.plans-panel+.plans-panel{margin-top:36px}
+.plans-ready .plans-panel{margin-top:0}
+.plans-panel-heading{display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:20px}
+.plans-panel-heading h3{font-size:24px;font-weight:900;line-height:1.5}
+.plans-panel-heading p{font-size:15px;line-height:1.7;color:#4b6375}
+.plans-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.plan-card{display:flex;flex-direction:column;min-width:0;padding:26px;border:1px solid #bed4e3;border-radius:12px;background:#fff;color:#112433}
+.plan-card--featured{border-color:#006b9f;background:linear-gradient(145deg,#007cae,#005b91);color:#fff}
+.plan-card-top{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:35px}
+.plan-card-top h4{font-size:clamp(19px,1.8vw,24px);font-weight:900;line-height:1.4}
+.plan-badge{flex:none;border-radius:3px;padding:5px 9px;background:#ffee49;color:#112433;font-size:13px;font-weight:700;line-height:1.4}
+.plan-volume{display:flex;align-items:baseline;gap:6px;margin-top:18px;font-size:22px;font-weight:700;line-height:1.2}
+.plan-volume strong{font-family:Inter,var(--v2-jp);font-size:48px;font-weight:800;letter-spacing:-.05em}
+.plan-amount{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px;margin-top:16px;line-height:1.2}
+.plan-amount-label{width:100%;font-size:14px;font-weight:500}
+.plan-amount strong{color:#006b9f;font-family:Inter,var(--v2-jp);font-size:64px;font-weight:800;letter-spacing:-.055em}
+.plan-card--featured .plan-amount strong{color:#ffee49}
+.plan-amount-unit{font-size:23px;font-weight:700}
+.plan-amount-tax{font-size:14px;font-weight:400;white-space:nowrap}
+.plan-performance{margin-top:9px;font-size:15px;font-weight:700;line-height:1.8}
+.plan-performance span{display:block;font-size:14px;font-weight:500;white-space:nowrap}
+.plan-details{display:grid;gap:12px;margin-top:22px;padding-top:20px;border-top:1px solid #d7e5ee;font-size:15px;line-height:1.7}
+.plan-card--featured .plan-details{border-color:#ffffff50}
+.plan-details>div{display:grid;grid-template-columns:3em minmax(0,1fr);gap:12px}
+.plan-details dt{font-weight:500}
+.plan-details dd{margin:0;font-weight:700}
+.plan-details dd span{display:block}
+.plan-consult{display:flex;align-items:center;justify-content:center;min-height:50px;margin-top:24px;padding:12px;border:1px solid #006b9f;border-radius:5px;background:#fff;color:#006b9f;font-size:15px;font-weight:700;line-height:1.5;text-decoration:none;transition:background .2s,color .2s}
+.plan-consult:hover{background:#e5f5ff}
+.plan-card--featured .plan-consult{border-color:#ffee49;background:#ffee49;color:#112433}
+.plan-card--featured .plan-consult:hover{background:#fff487}
+.plans-length-note{margin-top:18px;font-size:15px;line-height:1.9;color:#354d60}
+.plans-length-note strong{color:#112433;font-weight:700}
+.plans-included{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px;margin-top:30px;padding:25px 28px;border-left:4px solid #009fe8;background:#e5f3fc}
+.plans-included h3{font-size:18px;font-weight:900;line-height:1.6}
+.plans-included p{max-width:830px;margin-top:7px;font-size:15px;line-height:1.9;color:#354d60}
+.plans-initial{align-self:center;white-space:nowrap;font-size:16px;font-weight:700;color:#006b9f}
+.plans-initial strong{margin-left:6px;font-family:Inter,var(--v2-jp);font-size:36px;letter-spacing:-.05em}
+.plans-terms{margin-top:24px;border-top:1px solid #bed4e3;border-bottom:1px solid #bed4e3}
+.plans-terms summary{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:60px;padding:16px 0;font-size:16px;font-weight:700;list-style:none;cursor:pointer}
+.plans-terms summary::-webkit-details-marker{display:none}
+.plans-terms summary::after{content:"＋";flex:none;font-size:22px;font-weight:400;color:#006b9f}
+.plans-terms[open] summary::after{content:"−"}
+.plans-terms-body{padding:0 0 23px}
+.plans-terms dl{display:grid;gap:15px;font-size:15px;line-height:1.9}
+.plans-terms dl>div{display:grid;grid-template-columns:8em minmax(0,1fr);gap:18px}
+.plans-terms dt{font-weight:700}
+.plans-terms dd{margin:0;color:#354d60}
+.plans-terms a{display:inline-block;margin-top:18px;padding:5px 0;color:#006b9f;font-size:15px;font-weight:700;text-decoration:underline;text-underline-offset:4px}
+.plans-extra{margin-top:18px;font-size:14px;line-height:1.9;color:#4b6375}
+@media(min-width:768px) and (max-width:1079px){
+  .plans-cards{gap:12px}
+  .plan-card{padding:20px 16px}
+  .plan-card-top{align-items:flex-start;flex-direction:column;min-height:64px;justify-content:flex-start}
+  .plan-card-top h4{font-size:20px}
+  .plan-amount strong{font-size:55px}
+  .plan-amount-unit{font-size:20px}
+  .plan-details{font-size:14px}
+  .plan-details>div{gap:7px}
+  .plan-consult{font-size:14px;padding:12px 8px}
+}
+@media(max-width:767px){
+  .plans-lead{margin-top:18px;font-size:16px;line-height:1.8}
+  .plans-tabs{margin:24px 0;padding:5px;gap:5px}
+  .plans-tab{min-height:56px;padding:10px 8px;font-size:15px;gap:8px}
+  .plans-tab-icon{display:none}
+  .plans-panel-heading{display:block;margin-bottom:16px}
+  .plans-panel-heading h3{font-size:23px}
+  .plans-panel-heading p{margin-top:6px;font-size:14px}
+  .plans-cards{grid-template-columns:minmax(0,1fr);gap:16px}
+  .plan-card{padding:24px}
+  .plan-card-top h4{font-size:24px}
+  .plan-volume{margin-top:15px}
+  .plan-amount{margin-top:12px}
+  .plan-amount strong{font-size:64px}
+  .plan-performance span{display:inline-block}
+  .plan-details{margin-top:20px;padding-top:18px}
+  .plan-details>div{grid-template-columns:4em minmax(0,1fr)}
+  .plans-included{grid-template-columns:minmax(0,1fr);gap:14px;padding:22px 20px}
+  .plans-initial{padding-top:12px;border-top:1px solid #bad9ec}
+  .plans-terms dl>div{grid-template-columns:minmax(0,1fr);gap:3px}
+  .plans-length-note{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.plans-tab,.plan-consult{transition:none}}
