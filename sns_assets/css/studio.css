@@ -1,4 +1,3 @@
-@font-face{font-family:"BUZPOS Price";font-style:normal;font-weight:400;font-display:block;src:url("../fonts/price-dela-gothic.ttf?v=20261119-copy1") format("truetype")}
 .studio-header,.studio-hero{--brand-blue:#009fe8;--brand-yellow:#ffee49;--ink:#112433;--paper:#fff;--motion:cubic-bezier(.18,.75,.14,1);--px:0px;--py:0px;font-family:"Noto Sans JP",sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
 :where(.studio-header,.studio-hero) a{color:inherit;text-decoration:none}
 :is(.studio-header,.studio-hero) a:focus-visible{outline:3px solid var(--brand-yellow);outline-offset:6px}
@@ -14,23 +13,11 @@
 .header-contact span:last-child{font-size:20px;font-weight:400;line-height:1}
 .studio-hero{line-height:normal;height:calc(100svh - 80px);min-height:clamp(660px,calc(30vw + 270px),800px);max-height:900px;position:relative;overflow:clip;isolation:isolate;background:var(--brand-blue);color:var(--paper)}
 .studio-stage{position:relative;z-index:2;height:100%;width:min(100%,1760px);margin:0 auto;--gutter:clamp(42px,4.4vw,88px);--price-height:calc((min(100vw,1760px) - 2 * var(--gutter)) * .1)}
-.studio-price{position:absolute;top:8px;left:var(--gutter);right:var(--gutter);margin:0;line-height:1;color:#fff;opacity:1;z-index:2;overflow:hidden;pointer-events:none}
-.studio-price>span{display:block}
-.price-wordmark{display:block;width:100%;height:auto;overflow:visible;fill:currentColor;font-family:"BUZPOS Price","Noto Sans JP",sans-serif;font-weight:400;font-size:184px;font-kerning:normal;font-synthesis:none;filter:drop-shadow(0 3px 1px #002b4758)}
-.price-glyph{transform-box:fill-box;transform-origin:50% 100%}
-.price-depth{fill:url(#price-depth-white);stroke:#3b607c;stroke-width:1.1;stroke-linejoin:round}
-.price-bevel{fill:none;stroke:url(#price-rim-white);stroke-width:2.2;stroke-linejoin:round}
-.price-face{fill:url(#price-white)}
-.price-accent .price-depth{fill:url(#price-depth-gold);stroke:#63451f;stroke-width:1.4}
-.price-accent .price-bevel{stroke:url(#price-rim-gold);stroke-width:3.4}
-.price-accent .price-face{fill:url(#price-yellow)}
-.price-amount .price-depth{fill:url(#price-amount-depth);stroke:#07507e}
-.price-amount .price-bevel{stroke:url(#price-amount-rim)}
-.price-amount .price-face{fill:url(#price-amount-face)}
-.price-sheen{pointer-events:none}
-.price-sheen-beam{opacity:0;transform:translateX(0) skewX(-18deg);transform-origin:0 0;transform-box:view-box}
-.has-price-sheen .price-sheen-beam{animation:studio-price-sheen 4.8s 1.2s linear infinite}
-@keyframes studio-price-sheen{0%{opacity:0;transform:translateX(0) skewX(-18deg)}3%{opacity:1}28%{opacity:1;transform:translateX(1060px) skewX(-18deg)}29%,100%{opacity:0;transform:translateX(1060px) skewX(-18deg)}}
+.studio-price{position:absolute;top:8px;left:var(--gutter);right:var(--gutter);margin:0;line-height:1;z-index:2;overflow:visible;pointer-events:none}
+.studio-price>.price-comment{position:relative;display:inline-flex;align-items:baseline;width:max-content;max-width:100%;padding:12px clamp(22px,2.5vw,40px);border-radius:20px;background:#fff;color:var(--ink);font-size:clamp(30px,4.5vw,72px);font-weight:900;line-height:1.3;letter-spacing:-.045em;box-shadow:0 8px 24px #00487924}
+.price-comment::after{content:"";position:absolute;left:clamp(30px,4.5vw,72px);bottom:-12px;width:23px;height:14px;background:#fff;clip-path:polygon(0 0,100% 0,0 100%)}
+.price-comment-lead,.price-comment-end{display:inline-block;white-space:nowrap}
+.price-comment-focus{color:inherit;font-weight:900;background:linear-gradient(transparent 57%,var(--brand-yellow) 57% 94%,transparent 94%);padding:0 .025em}
 .studio-copy{position:absolute;left:var(--gutter);top:calc(var(--price-height) + 24px);z-index:3}
 .studio-category{margin:0 0 12px;display:flex;align-items:center;gap:15px;font-size:23px;font-weight:700;letter-spacing:.06em}
 .category-line{width:28px;height:2px;background:var(--brand-yellow);display:block;transform-origin:left}
@@ -89,10 +76,10 @@
 .reel-lane-two .reel-strip{animation-duration:88s;animation-delay:-53s;animation-direction:reverse}
 .reel-lane-three .reel-strip{animation-duration:96s;animation-delay:-39s}
 .reels-wash{position:absolute;z-index:1;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(0,159,232,.98) 0%,rgba(0,159,232,.94) 34%,rgba(0,159,232,.82) 52%,rgba(0,159,232,.56) 74%,rgba(0,159,232,.45) 100%),linear-gradient(0deg,rgba(0,159,232,.62),rgba(0,159,232,0) 25%,rgba(0,159,232,0) 73%,rgba(0,159,232,.35))}
-.is-background-paused .reel-strip,.is-background-paused .price-sheen-beam{animation-play-state:paused}
+.is-background-paused .reel-strip{animation-play-state:paused}
 @keyframes studio-marquee{from{transform:translateX(0)}to{transform:translateX(-33.333333%)}}
 .is-entering .studio-reveal{animation:studio-panel .75s var(--motion) both}
-.is-entering .price-glyph{animation:studio-price-in .72s var(--price-delay) cubic-bezier(.16,1,.3,1) both}
+.is-entering .price-comment{animation:studio-comment-in .65s .12s var(--motion) both}
 .is-entering .studio-category{animation:studio-fade .8s .2s var(--motion) both}
 .is-entering .headline-mask:nth-child(1) .headline-line{animation:studio-type 1.1s .23s var(--motion) both}
 .is-entering .headline-mask:nth-child(2) .headline-line{animation:studio-type 1.15s .35s var(--motion) both}
@@ -103,7 +90,7 @@
 .is-entering .studio-signature,.is-entering .studio-proof{animation:studio-fade .9s .8s var(--motion) both}
 .is-entering .art-corner{animation:studio-fade 1s .9s var(--motion) both}
 @keyframes studio-panel{from{transform:scaleX(1)}to{transform:scaleX(0)}}
-@keyframes studio-price-in{0%{opacity:0;transform:translateX(18px);clip-path:inset(0 100% 0 0)}35%{opacity:1}100%{opacity:1;transform:translateX(0);clip-path:inset(0)}}
+@keyframes studio-comment-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes studio-type{from{transform:translateY(115%)}to{transform:translateY(0)}}
 @keyframes studio-fade{from{opacity:0;transform:translateY(15px)}to{opacity:1;transform:translateY(0)}}
 @keyframes studio-portrait{from{transform:translateY(38px) scale(1.035);opacity:0}to{transform:translateY(0) scale(1);opacity:1}}
@@ -111,12 +98,11 @@
 @keyframes studio-underline{from{stroke-dashoffset:330}to{stroke-dashoffset:0}}
 @media(min-width:1700px){.studio-art{right:8px;width:47%}.studio-copy{top:calc(var(--price-height) + 24px)}.studio-proof{width:680px}.studio-signature{right:100px}}
 @media(min-width:1080px) and (max-width:1250px){.studio-stage{--gutter:42px}.studio-copy{top:calc(var(--price-height) + 24px)}.studio-category{font-size:20px}.studio-actions{gap:26px;margin-top:24px}.studio-primary{min-width:260px;font-size:18px;padding-left:24px}.studio-proof{width:540px;gap:24px}.proof-value{font-size:30px}.studio-signature{right:35px;bottom:90px;min-width:200px;padding:14px 18px}.signature-name{font-size:20px}.studio-nav{gap:28px}}
-@media(prefers-reduced-motion:reduce){.is-entering *,.is-entering *::before,.is-entering *::after{animation:none!important}.studio-orbit,.portrait-reveal{transform:none!important}:is(.studio-header,.studio-hero) a,.button-disc{transition:none!important}.studio-reveal{display:none}.reel-strip,.price-sheen-beam{animation:none!important}.price-sheen{display:none}.reel-lane-two .reel-strip{transform:translateX(-400px)}.reel-lane-three .reel-strip{transform:translateX(-180px)}}
+@media(prefers-reduced-motion:reduce){.is-entering *,.is-entering *::before,.is-entering *::after{animation:none!important}.studio-orbit,.portrait-reveal{transform:none!important}:is(.studio-header,.studio-hero) a,.button-disc{transition:none!important}.studio-reveal{display:none}.reel-strip{animation:none!important}.reel-lane-two .reel-strip{transform:translateX(-400px)}.reel-lane-three .reel-strip{transform:translateX(-180px)}}
 
-/* Keep the approved headline width with the unused SVG space removed. */
+/* Position the comment within the existing hero headline area. */
 @media(min-width:1080px){
   .studio-price{top:8px}
-  .studio-price>span{width:100%;margin-inline:auto}
 }
 
 @media(min-width:768px) and (max-width:1079px){
@@ -173,7 +159,10 @@
   .mobile-nav a span{font-size:20px;font-weight:400;color:var(--brand-blue)}
   .studio-hero{height:auto;min-height:0;max-height:none}
   .studio-stage{--gutter:clamp(18px,6.15vw,28px);display:grid;grid-template-columns:minmax(0,1fr);width:min(100%,616px);height:auto;padding:10px var(--gutter) calc(24px + env(safe-area-inset-bottom,0px))}
-  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:calc(100% + 20px);margin-inline:-10px;opacity:1}
+  .studio-price{position:relative;top:auto;left:auto;right:auto;grid-column:1;grid-row:1;width:100%;margin:0;opacity:1}
+  .studio-price>.price-comment{display:inline-flex;flex-direction:column;align-items:flex-start;padding:9px 16px;border-radius:16px;font-size:clamp(20px,6.5vw,32px);line-height:1.25;letter-spacing:-.035em;box-shadow:0 5px 16px #00487924}
+  .price-comment-end{font-size:1.08em}
+  .price-comment::after{left:28px;bottom:-9px;width:18px;height:11px}
   .studio-copy{display:contents;position:static}
   .studio-category{grid-column:1;grid-row:2;z-index:3;margin:16px 0 12px;gap:11px;font-size:15px;line-height:1.5;letter-spacing:.04em}
   .category-line{width:22px}

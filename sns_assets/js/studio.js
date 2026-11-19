@@ -31,10 +31,10 @@
   reduced.addEventListener('change',syncBackground);
   syncBackground();
   function enter(){
-    hero.classList.remove('is-entering','has-price-sheen');
+    hero.classList.remove('is-entering');
     if(reduced.matches) return;
     void hero.offsetWidth;
-    hero.classList.add('is-entering','has-price-sheen');
+    hero.classList.add('is-entering');
     window.setTimeout(()=>{hero.classList.remove('is-entering');},2200);
   }
   let frame=0,tx=0,ty=0,x=0,y=0;
@@ -53,7 +53,7 @@
   }
   hero.addEventListener('pointermove',track,{passive:true});
   hero.addEventListener('pointerleave',()=>{tx=ty=0;if(!frame&&!reduced.matches)frame=requestAnimationFrame(ease);},{passive:true});
-  reduced.addEventListener('change',()=>{cancelAnimationFrame(frame);frame=0;tx=ty=x=y=0;stage.style.setProperty('--px','0px');stage.style.setProperty('--py','0px');hero.classList.remove('is-entering');hero.classList.toggle('has-price-sheen',!reduced.matches);});
+  reduced.addEventListener('change',()=>{cancelAnimationFrame(frame);frame=0;tx=ty=x=y=0;stage.style.setProperty('--px','0px');stage.style.setProperty('--py','0px');hero.classList.remove('is-entering');});
   document.addEventListener('visibilitychange',()=>{if(document.hidden){cancelAnimationFrame(frame);frame=0;}});
   enter();
 })();
