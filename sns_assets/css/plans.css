@@ -1,4 +1,4 @@
-/* Six approved monthly packages, scoped to the pricing section. */
+/* Fixed pricing and separate performance option, scoped to the pricing section. */
 .studio-plans{background:#f3f8fc}
 .plans-lead{max-width:760px;margin-top:22px;font-size:clamp(16px,1.5vw,19px);line-height:1.9;color:#354d60}
 .plans-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;width:min(100%,620px);margin:32px 0 28px;padding:6px;border:1px solid #a8cfE5;border-radius:10px;background:#e5f2fa}
@@ -94,3 +94,17 @@
   .plans-length-note{font-size:14px}
 }
 @media(prefers-reduced-motion:reduce){.plans-tab,.plan-consult{transition:none}}
+
+.plans-terms summary::after{display:grid;place-items:center;width:32px;height:32px;border:1px solid #a8cfe5;border-radius:50%;background:#fff;line-height:1}
+.plans-alternative{margin-top:38px;padding:clamp(20px,3vw,36px);border:1px solid #b8d2e3;border-radius:16px;background:linear-gradient(145deg,#e5f2fa 0%,#f8fcff 72%);color:#112433}
+.plans-alternative-tag{display:inline-block;padding:3px 10px;border-radius:4px;background:#e5f3fc;color:#00658e;font-size:14px;font-weight:700;line-height:1.65}
+.plans-alternative h3{margin-top:8px;font-size:clamp(24px,3vw,37px);font-weight:900;line-height:1.35}
+.plans-alternative h3+p,.plans-alternative-note{margin-top:10px;font-size:16px;line-height:1.8;color:#354d60}
+.plans-eligibility{margin:20px 0;padding:14px 18px;border-left:4px solid #0086bc;border-radius:0 6px 6px 0;background:#fff;color:#183449;font-size:15px;line-height:1.75}
+.plans-eligibility p{margin-top:4px}
+.plans-outcome-cards .plan-card:not(.plan-card--featured){box-shadow:0 5px 15px #0047770c}
+.plans-outcome-cards .plan-performance span{white-space:normal}
+.plans-outcome-cards .plan-consult{margin-top:auto}
+.plans-outcome-cards .plan-details{margin-bottom:24px}
+.plans-alternative>a{display:inline-block;margin-top:8px;color:#00658e;font-size:15px;font-weight:700;line-height:1.5;text-decoration:underline;text-underline-offset:4px}
+.plans-alternative>a:focus-visible{outline:3px solid #009fe8;outline-offset:4px}
